@@ -22,11 +22,11 @@ if [[ -d /usr/share/omarchy-zsh/functions ]]; then
   done
 fi
 
-# Load Starship prompt if not already loaded
-type starship_zle-keymap-select >/dev/null || {
-    echo "Loading Starship..."
-    eval "$(/usr/local/bin/starship init zsh)"
-}
+if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+      "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+    zle -N zle-keymap-select "";
+fi
+
 
 # ------------------------------------------
 # Exports
@@ -37,6 +37,7 @@ type starship_zle-keymap-select >/dev/null || {
 # export QT_FONT_DPI=192
 # export XCURSOR_SIZE=48
 # export MOZ_ENABLE_WAYLAND=1
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 export EDITOR=nvim
 
 # ------------------------------------------
@@ -47,13 +48,18 @@ source ~/.somewhere/fzf-tab.plugin.zsh
 source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval $(thefuck --alias fk)
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+ZSH_FZF_HISTORY_SEARCH_BIND='^R'
+source ~/.zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh
+eval "$(starship init zsh)"
+
 
 
 # ------------------------------------------
 # Bindings
-bindkey '^N' autosuggest-accept
 bindkey '^H' backward-kill-word
 bindkey -M vicmd '_' vi-digit-or-beginning-of-line
+# Accept autosuggestion with Ctrl+N
+bindkey -M viins '^N' autosuggest-accept
 
 # ------------------------------------------
 # Aliases
@@ -84,7 +90,7 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
-
+ 
 # ------------------------------------------
 # -----------End-----------------------
 # --- Minimal tmux session ---

@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # Load environment (your existing env file)
-. "$HOME/.local/share/../bin/env"
+# . "$HOME/.local/share/../bin/env"
 
 # Load omarchy-zsh configuration
 if [[ -d /usr/share/omarchy-zsh/conf.d ]]; then
@@ -37,7 +37,6 @@ fi
 # export QT_FONT_DPI=192
 # export XCURSOR_SIZE=48
 # export MOZ_ENABLE_WAYLAND=1
-export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 export EDITOR=nvim
 
 # ------------------------------------------
@@ -70,10 +69,11 @@ alias nano="nvim"
 alias rm="trash-put"
 alias py="python3.13"
 alias python="python3.13"
-alias cat=bat
+alias cat="bat"
 alias gw="$HOME/Work"
 alias sudo='sudo '
 alias ch='cht.sh'
+alias ta='tmux attach'
 
 # ------------------------------------------
 # Functions

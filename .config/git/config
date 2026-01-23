@@ -15,6 +15,7 @@
 	algorithm = histogram    # Clearer diffs on moved/edited lines
 	colorMoved = plain       # Highlight moved blocks in diffs
 	mnemonicPrefix = true    # More intuitive refs in diff output
+	tool = vscode
 [commit]
 	verbose = true           # Include diff comment in commit message template
 [column]
@@ -29,3 +30,15 @@
 [user]
   name = shafayetejaman
   email = shafaitzaman@gmail.com
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE

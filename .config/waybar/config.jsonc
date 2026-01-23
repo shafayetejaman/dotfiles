@@ -159,7 +159,7 @@
     "on-click": "omarchy-menu power",
     "states": {
       "warning": 30,
-      "critical": 15,
+      "critical": 15
     }
   },
   "bluetooth": {

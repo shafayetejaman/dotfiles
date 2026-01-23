@@ -48,17 +48,11 @@ source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval $(thefuck --alias fk)
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ZSH_FZF_HISTORY_SEARCH_BIND='^R'
+ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0
 source ~/.zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh
 eval "$(starship init zsh)"
 
 
-
-# ------------------------------------------
-# Bindings
-bindkey '^H' backward-kill-word
-bindkey -M vicmd '_' vi-digit-or-beginning-of-line
-# Accept autosuggestion with Ctrl+N
-bindkey -M viins '^N' autosuggest-accept
 
 # ------------------------------------------
 # Aliases
@@ -91,11 +85,27 @@ function y() {
 	rm -f -- "$tmp"
 }
  
-# ------------------------------------------
-# -----------End-----------------------
 # --- Minimal tmux session ---
 
 if [[ -n $PS1 ]] && [[ -z $TMUX ]]; then
     tmux has-session -t main 2>/dev/null || tmux new-session -d -s main
     # No exec attach — attach manually if you want
 fi
+
+
+
+# ------------------------------------------
+# Bindings
+bindkey '^H' backward-kill-word
+bindkey -M vicmd '_' vi-digit-or-beginning-of-line
+
+autoload -Uz add-zsh-hook
+
+add-zsh-hook precmd bind_custom_key
+
+# Delayed binding (after compinit and prompt)
+bind_custom_key() {
+  bindkey '^R' fzf_history_search
+  # Accept autosuggestion with Ctrl+N
+  bindkey -M viins '^N' autosuggest-accept
+}

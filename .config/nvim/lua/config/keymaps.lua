@@ -15,13 +15,22 @@ map({ "n", "v" }, "<leader>p", '"+p', opts)
 map({ "n" }, "<tab>", "i <Tab> <Esc>", opts)
 map({ "n", "v" }, "<A-a>", 'gg V G "+y <Esc>', opts)
 
-vim.keymap.set({ "n" }, "<leader>cp", function()
+map("n" , "<leader>cp", function()
   vim.fn.setreg("+", vim.fn.expand("%:p")) -- + register = system clipboard
   print("Copied absolute path to clipboard")
 end, opts)
 
-vim.keymap.set("n", "U", "<C-r>", { desc = "Redo" })
+map("n", "U", "<C-r>", { desc = "Redo" })
 
 -- Alt+u / Alt+d behave like Ctrl+u / Ctrl+d
-vim.keymap.set("n", "<M-u>", "<C-u>", opts)
-vim.keymap.set("n", "<M-d>", "<C-d>", opts)
+map("n", "<M-K>", "<C-u>", opts)
+map("n", "<M-J>", "<C-d>", opts)
+map("n", "<leader>w", function()
+  vim.cmd("w")
+  vim.cmd("close")
+end, { desc = "Save and close split" })
+map("n", "<leader>\\", "<cmd>vsplit<cr>", { desc = "Split window right" })
+map("n", "<M-S-DOWN>","yyp")
+map("n", "<M-S-UP>","yyP")
+
+vim.keymap.del("n", "<leader>|")

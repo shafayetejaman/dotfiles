@@ -84,14 +84,6 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
- 
-# --- Minimal tmux session ---
-
-if [[ -n $PS1 ]] && [[ -z $TMUX ]]; then
-    tmux has-session -t main 2>/dev/null || tmux new-session -d -s main
-    # No exec attach — attach manually if you want
-fi
-
 
 
 # ------------------------------------------
@@ -100,12 +92,18 @@ bindkey '^H' backward-kill-word
 bindkey -M vicmd '_' vi-digit-or-beginning-of-line
 
 autoload -Uz add-zsh-hook
-
 add-zsh-hook precmd bind_custom_key
-
 # Delayed binding (after compinit and prompt)
 bind_custom_key() {
   bindkey '^R' fzf_history_search
   # Accept autosuggestion with Ctrl+N
   bindkey -M viins '^N' autosuggest-accept
 }
+
+
+# ----------------------- End ----------------------- 
+# --- Create tmux session if not already running  ---
+if [[ -n $PS1 ]] && [[ -z $TMUX ]]; then
+    tmux has-session 2>/dev/null || tmux new -s main
+fi
+

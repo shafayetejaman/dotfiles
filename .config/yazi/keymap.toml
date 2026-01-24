@@ -310,7 +310,7 @@ keymap = [
 	{ on = "U", run = "redo",                     desc = "Redo the last operation" },
 
 	# Help
-	{ on = "~",    run = "help", desc = "Open help" },
+	{ on = "?",    run = "help", desc = "Open help" },
 	{ on = "<F1>", run = "help", desc = "Open help" },
 ]
 

@@ -68,6 +68,8 @@ alias gw="$HOME/Work"
 alias sudo='sudo '
 alias ch='cht.sh'
 alias ta='tmux attach'
+alias grep="rg"
+alias find="fd"
 
 # ------------------------------------------
 # Functions

@@ -38,6 +38,9 @@ fi
 # export XCURSOR_SIZE=48
 # export MOZ_ENABLE_WAYLAND=1
 export EDITOR=nvim
+export VISUAL=nvim
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+export PATH=$PATH:$HOME/go/bin
 
 # ------------------------------------------
 # Plugins
@@ -64,10 +67,8 @@ alias rm="trash-put"
 alias py="python3.13"
 alias python="python3.13"
 alias cat="bat"
-alias gw="$HOME/Work"
 alias sudo='sudo '
 alias ch='cht.sh'
-alias ta='tmux attach'
 alias grep="rg"
 alias find="fd"
 
@@ -92,6 +93,9 @@ function y() {
 # Bindings
 bindkey '^H' backward-kill-word
 bindkey -M vicmd '_' vi-digit-or-beginning-of-line
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^[i" edit-command-line
 
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd bind_custom_key

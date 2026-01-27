@@ -4,6 +4,8 @@ return {
     opts = {
       mappings = {
         delete = "ds",
+        replace = "cs",
+        add = "ys"
       },
     },
   },

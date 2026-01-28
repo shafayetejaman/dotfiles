@@ -12,8 +12,8 @@ map({ "v" }, "Y", '"+y', opts)
 -- Paste from system clipboard
 -- Normal and visual modes
 map({ "n", "v" }, "<leader>p", '"+p', opts)
-map({ "n" }, "<tab>", "i <Tab> <Esc>", opts)
-map({ "n" }, "<A-a>", 'gg V G "+y <Esc>', opts)
+map({ "n" }, "<tab>", "i<Tab><Esc>", opts)
+map({ "n" }, "<A-a>", '<Esc>ggVG"+y<Esc>', opts)
 
 map("n", "<leader>cp", function()
   vim.fn.setreg("+", vim.fn.expand("%:p")) -- + register = system clipboard

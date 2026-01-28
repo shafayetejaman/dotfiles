@@ -13,9 +13,9 @@ map({ "v" }, "Y", '"+y', opts)
 -- Normal and visual modes
 map({ "n", "v" }, "<leader>p", '"+p', opts)
 map({ "n" }, "<tab>", "i <Tab> <Esc>", opts)
-map({ "n", "v" }, "<A-a>", 'gg V G "+y <Esc>', opts)
+map({ "n" }, "<A-a>", 'gg V G "+y <Esc>', opts)
 
-map("n" , "<leader>cp", function()
+map("n", "<leader>cp", function()
   vim.fn.setreg("+", vim.fn.expand("%:p")) -- + register = system clipboard
   print("Copied absolute path to clipboard")
 end, opts)
@@ -29,8 +29,9 @@ map("n", "<leader>w", function()
   vim.cmd("w")
   vim.cmd("close")
 end, { desc = "Save and close split" })
+
 map("n", "<leader>\\", "<cmd>vsplit<cr>", { desc = "Split window right" })
-map("n", "<M-S-DOWN>","yyp")
-map("n", "<M-S-UP>","yyP")
+map("n", "<M-S-DOWN>", "yyp")
+map("n", "<M-S-UP>", "yyP")
 
 vim.keymap.del("n", "<leader>|")

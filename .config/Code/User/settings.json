@@ -424,10 +424,38 @@
         },
         {
             "before": [
-                "<Enter>"
+                "[",
+                "e"
             ],
             "commands": [
-                "editor.action.insertLineAfter"
+                "editor.action.marker.prev"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "e"
+            ],
+            "commands": [
+                "editor.action.marker.next"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "d"
+            ],
+            "command": [
+                "editor.action.marker.next"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "d"
+            ],
+            "command": [
+                "editor.action.marker.prev"
             ]
         },
         {
@@ -592,6 +620,6 @@
     },
     "terminal.integrated.defaultProfile.linux": "zsh",
     "workbench.colorTheme": "Atom One Dark",
-    "window.customTitleBarVisibility": "never",
     "workbench.editor.showTabs": "none",
+    "window.customTitleBarVisibility": "never",
 }

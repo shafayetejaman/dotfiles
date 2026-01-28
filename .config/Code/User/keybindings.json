@@ -842,24 +842,4 @@
         "command": "vscode-harpoon.gotoEditor9",
         "when": "vim.mode == 'Normal' && editorTextFocus"
     },
-    {
-        "key": "] d",
-        "command": "editor.action.marker.next",
-        "when": "vim.mode == 'Normal' && editorTextFocus"
-    },
-    {
-        "key": "[ d",
-        "command": "editor.action.marker.prev",
-        "when": "vim.mode == 'Normal' && editorTextFocus"
-    },
-    {
-        "key": "] e",
-        "command": "editor.action.marker.next",
-        "when": "vim.mode == 'Normal' && editorTextFocus"
-    },
-    {
-        "key": "[ e",
-        "command": "editor.action.marker.prev",
-        "when": "vim.mode == 'Normal' && editorTextFocus"
-    },
 ]

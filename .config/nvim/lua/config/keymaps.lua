@@ -2,6 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 local map = vim.keymap.set
+local unmap = vim.keymap.del
 local opts = { desc = "Custom clipboard mapping", silent = true }
 
 -- Yank to system clipboard
@@ -34,4 +35,11 @@ map("n", "<leader>\\", "<cmd>vsplit<cr>", { desc = "Split window right" })
 map("n", "<M-S-DOWN>", "yyp")
 map("n", "<M-S-UP>", "yyP")
 
-vim.keymap.del("n", "<leader>|")
+unmap("n", "<leader>|")
+
+map("n", "<leader>0", '\"0p')
+
+map({ "v" }, "<A-S-Down>", "yp", opts)
+map({ "v" }, "<A-S-Up>", "yP", opts)
+map({ "n" }, "<A-S-Down>", "yyp", opts)
+map({ "n" }, "<A-S-Up>", "yyP", opts)

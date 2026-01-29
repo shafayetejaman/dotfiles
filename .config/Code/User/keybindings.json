@@ -842,4 +842,9 @@
         "command": "vscode-harpoon.gotoEditor9",
         "when": "vim.mode == 'Normal' && editorTextFocus"
     },
+    {
+        "key": "ctrl+space",
+        "command": "editor.action.smartSelect.expand",
+        "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
 ]

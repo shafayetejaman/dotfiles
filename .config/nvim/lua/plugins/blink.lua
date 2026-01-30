@@ -46,7 +46,12 @@ return {
 
       snippets = { preset = 'default' },
 
-      signature = { enabled = true },
+      signature = {
+        enabled = true,
+        trigger = {
+          enabled = false,
+        }
+      },
 
       keymap = {
         preset = "default",

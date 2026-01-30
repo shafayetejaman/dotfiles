@@ -647,6 +647,11 @@
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
+        "key": "space s k",
+        "command": "workbench.action.openGlobalKeybindings",
+        "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
         "key": "space c a",
         "command": "editor.action.codeAction",
         "when": "vim.mode == 'Normal' && editorTextFocus"
@@ -669,6 +674,11 @@
     {
         "key": "space c s",
         "command": "workbench.action.gotoSymbol",
+        "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "space c i",
+        "command": "inlineChat.start",
         "when": "vim.mode == 'Normal' && editorTextFocus"
     },
     {
@@ -783,11 +793,6 @@
         "when": "vim.mode == 'Normal' && editorTextFocus"
     },
     {
-        "key": "space w",
-        "command": "workbench.action.closeEditorsInGroup",
-        "when": "vim.mode == 'Normal' && editorTextFocus"
-    },
-    {
         "key": "space shift-h",
         "command": "vscode-harpoon.addEditor",
         "when": "vim.mode == 'Normal' && editorTextFocus"
@@ -846,5 +851,15 @@
         "key": "ctrl+space",
         "command": "editor.action.smartSelect.expand",
         "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+space",
+        "command": "-editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
     },
 ]

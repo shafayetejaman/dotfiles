@@ -705,6 +705,11 @@
         "when": "vim.mode == 'Normal' && editorTextFocus"
     },
     {
+        "key": "space r",
+        "command": "editor.action.startFindReplaceAction",
+        "when": "(vim.mode == 'Normal' ||vim.mode == 'Visual') && editorTextFocus"
+    },
+    {
         "key": "space shift-h",
         "command": "vscode-harpoon.addEditor",
         "when": "vim.mode == 'Normal' && editorTextFocus"

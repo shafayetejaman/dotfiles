@@ -43,3 +43,8 @@ map({ "v" }, "<A-S-Down>", "yp", opts)
 map({ "v" }, "<A-S-Up>", "yP", opts)
 map({ "n" }, "<A-S-Down>", "yyp", opts)
 map({ "n" }, "<A-S-Up>", "yyP", opts)
+
+
+map("n", "<leader>r", ":%s///g<Left><Left>", {
+  desc = "Replace all occurrences of word under cursor",
+})

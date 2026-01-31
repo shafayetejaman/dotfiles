@@ -10,7 +10,7 @@ sort_reverse 	 = false
 sort_dir_first = true
 sort_translit  = false
 linemode       = "none"
-show_hidden    = false
+show_hidden    = true
 show_symlink   = true
 scrolloff      = 5
 mouse_events   = [ "click", "scroll" ]
@@ -66,7 +66,7 @@ download = [
 [open]
 rules = [
 	# Folder
-	{ url = "*/", use = [ "edit", "open", "reveal" ] },
+	{ url = "*/", use = [ "open", "reveal" ,"edit"] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image

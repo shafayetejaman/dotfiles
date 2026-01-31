@@ -405,6 +405,8 @@
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
     },
+    "vim.surround": true,
+    "vim.showMarksInGutter": true,
     "vim.normalModeKeyBindings": [
         {
             "before": [
@@ -549,8 +551,6 @@
             ]
         }
     ],
-    "vim.surround": true,
-    "vim.showMarksInGutter": true,
     "workbench.editor.tabSizing": "shrink",
     "too-long-line-limit.softLimit": 80,
     "too-long-line-limit.hardLimit": 100,
@@ -622,4 +622,5 @@
     "workbench.colorTheme": "Atom One Dark",
     "workbench.editor.showTabs": "none",
     "window.customTitleBarVisibility": "never",
+    "git.autorefresh": false
 }

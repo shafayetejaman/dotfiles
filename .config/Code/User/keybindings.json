@@ -29,11 +29,6 @@
         "when": "explorerViewletVisible"
     },
     {
-        "key": "ctrl+n",
-        "command": "explorer.newFile",
-        "when": "explorerViewletVisible"
-    },
-    {
         "key": "f5",
         "command": "mysql2.refresh"
     },
@@ -161,16 +156,6 @@
         "command": "workbench.action.splitEditorDown"
     },
     {
-        "key": "ctrl+e",
-        "command": "workbench.view.explorer",
-        "when": "viewContainer.workbench.view.explorer.enabled"
-    },
-    {
-        "key": "ctrl+e",
-        "command": "workbench.action.closeSidebar",
-        "when": "view.workbench.explorer.fileView.visible"
-    },
-    {
         "key": "ctrl+l",
         "command": "workbench.action.terminal.clear",
         "when": "terminalFocus"
@@ -285,16 +270,6 @@
     {
         "key": "ctrl+shift+g",
         "command": "workbench.action.gotoLine"
-    },
-    {
-        "key": "ctrl+g",
-        "command": "workbench.view.scm",
-        "when": "workbench.scm.active"
-    },
-    {
-        "key": "ctrl+g",
-        "command": "workbench.action.closeSidebar",
-        "when": "view.workbench.scm.history.visible"
     },
     {
         "key": "alt+shift+k",
@@ -778,5 +753,13 @@
         "key": "ctrl+shift+space",
         "command": "-editor.action.triggerParameterHints",
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "ctrl+shift+p",
+        "command": "-workbench.action.showCommands"
     },
 ]

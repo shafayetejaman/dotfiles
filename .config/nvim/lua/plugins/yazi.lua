@@ -8,7 +8,7 @@ return {
   keys = {
     -- 👇 in this section, choose your own keymappings!
     {
-      "<leader>sy",
+      "<leader>y",
       mode = { "n", "v" },
       "<cmd>Yazi<cr>",
       desc = "Open yazi at the current file",
@@ -41,3 +41,4 @@ return {
     vim.g.loaded_netrwPlugin = 1
   end,
 }
+

@@ -407,6 +407,7 @@
     },
     "vim.surround": true,
     "vim.showMarksInGutter": true,
+    "vim.highlightedyank.enable": true,
     "vim.normalModeKeyBindings": [
         {
             "before": [
@@ -522,6 +523,366 @@
                 "editor.action.showHover"
             ]
         },
+        {
+            "before": [
+                "v",
+                "a",
+                "f"
+            ],
+            "commands": [
+                "vscode-textobjects.select.next.outer.function.start"
+            ]
+        },
+        {
+            "before": [
+                "v",
+                "i",
+                "f"
+            ],
+            "commands": [
+                "vscode-textobjects.select.next.inner.function.start"
+            ]
+        },
+        {
+            "before": [
+                "v",
+                "i",
+                "l"
+            ],
+            "commands": [
+                "vscode-textobjects.select.next.inner.loop.start"
+            ]
+        },
+        {
+            "before": [
+                "v",
+                "a",
+                "i"
+            ],
+            "commands": [
+                "vscode-textobjects.select.next.outer.conditional.start"
+            ]
+        },
+        {
+            "before": [
+                "v",
+                "i",
+                "i"
+            ],
+            "commands": [
+                "vscode-textobjects.select.next.inner.conditional.start"
+            ]
+        },
+        {
+            "before": [
+                "v",
+                "a",
+                "c"
+            ],
+            "commands": [
+                "vscode-textobjects.select.next.outer.class.start"
+            ]
+        },
+        {
+            "before": [
+                "v",
+                "i",
+                "c"
+            ],
+            "commands": [
+                "vscode-textobjects.select.next.inner.class.start"
+            ]
+        },
+        {
+            "before": [
+                "v",
+                "a",
+                "o"
+            ],
+            "commands": [
+                "vscode-textobjects.select.next.outer.object.start"
+            ]
+        },
+        {
+            "before": [
+                "v",
+                "i",
+                "o"
+            ],
+            "commands": [
+                "vscode-textobjects.select.next.inner.object.start"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "f"
+            ],
+            "commands": [
+                "vscode-textobjects.goTo.next.outer.function.start"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "f"
+            ],
+            "commands": [
+                "vscode-textobjects.goTo.previous.outer.function.start"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "l"
+            ],
+            "commands": [
+                "vscode-textobjects.goTo.next.outer.loop.start"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "l"
+            ],
+            "commands": [
+                "vscode-textobjects.goTo.previous.outer.loop.start"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "i"
+            ],
+            "commands": [
+                "vscode-textobjects.goTo.next.outer.conditional.start"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "i"
+            ],
+            "commands": [
+                "vscode-textobjects.goTo.previous.outer.conditional.start"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "c"
+            ],
+            "commands": [
+                "vscode-textobjects.goTo.next.outer.class.start"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "c"
+            ],
+            "commands": [
+                "vscode-textobjects.goTo.previous.outer.class.start"
+            ]
+        },
+        {
+            "before": [
+                "]",
+                "o"
+            ],
+            "commands": [
+                "vscode-textobjects.goTo.next.outer.object.start"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "o"
+            ],
+            "commands": [
+                "vscode-textobjects.goTo.previous.outer.object.start"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "a",
+                "f"
+            ],
+            "commands": [
+                "vscode-textobjects.delete.next.outer.function.start"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "i",
+                "f"
+            ],
+            "commands": [
+                "vscode-textobjects.delete.next.inner.function.start"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "a",
+                "l"
+            ],
+            "commands": [
+                "vscode-textobjects.delete.next.outer.loop.start"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "i",
+                "l"
+            ],
+            "commands": [
+                "vscode-textobjects.delete.next.inner.loop.start"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "a",
+                "i"
+            ],
+            "commands": [
+                "vscode-textobjects.delete.next.outer.conditional.start"
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "i",
+                "i"
+            ],
+            "commands": [
+                "vscode-textobjects.delete.next.inner.conditional.start"
+            ]
+        },
+        {
+            "before": [
+                "y",
+                "a",
+                "f"
+            ],
+            "commands": [
+                "vscode-textobjects.yank.next.outer.function.start"
+            ]
+        },
+        {
+            "before": [
+                "y",
+                "i",
+                "f"
+            ],
+            "commands": [
+                "vscode-textobjects.yank.next.inner.function.start"
+            ]
+        },
+        {
+            "before": [
+                "y",
+                "a",
+                "l"
+            ],
+            "commands": [
+                "vscode-textobjects.yank.next.outer.loop.start"
+            ]
+        },
+        {
+            "before": [
+                "y",
+                "i",
+                "l"
+            ],
+            "commands": [
+                "vscode-textobjects.yank.next.inner.loop.start"
+            ]
+        },
+        {
+            "before": [
+                "y",
+                "a",
+                "i"
+            ],
+            "commands": [
+                "vscode-textobjects.yank.next.outer.conditional.start"
+            ]
+        },
+        {
+            "before": [
+                "y",
+                "i",
+                "i"
+            ],
+            "commands": [
+                "vscode-textobjects.yank.next.inner.conditional.start"
+            ]
+        },
+        {
+            "before": [
+                "c",
+                "a",
+                "f"
+            ],
+            "commands": [
+                "vscode-textobjects.change.next.outer.function.start"
+            ]
+        },
+        {
+            "before": [
+                "c",
+                "i",
+                "f"
+            ],
+            "commands": [
+                "vscode-textobjects.change.next.inner.function.start"
+            ]
+        },
+        {
+            "before": [
+                "c",
+                "a",
+                "l"
+            ],
+            "commands": [
+                "vscode-textobjects.change.next.outer.loop.start"
+            ]
+        },
+        {
+            "before": [
+                "c",
+                "i",
+                "l"
+            ],
+            "commands": [
+                "vscode-textobjects.change.next.inner.loop.start"
+            ]
+        },
+        {
+            "before": [
+                "c",
+                "a",
+                "i"
+            ],
+            "commands": [
+                "vscode-textobjects.change.next.outer.conditional.start"
+            ]
+        },
+        {
+            "before": [
+                "c",
+                "i",
+                "i"
+            ],
+            "commands": [
+                "vscode-textobjects.change.next.inner.conditional.start"
+            ]
+        }
     ],
     "vim.visualModeKeyBindings": [
         {

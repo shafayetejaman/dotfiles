@@ -549,6 +549,11 @@
         "when": "vim.mode == 'Normal' && editorTextFocus"
     },
     {
+        "key": "space c f",
+        "command": "editor.action.formatDocument",
+        "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
         "key": "shift-k",
         "command": "editor.action.showHover",
         "when": "vim.mode == 'Normal' && editorTextFocus"
@@ -671,7 +676,13 @@
     },
     {
         "key": "space p",
-        "command": "editor.action.clipboardPasteAction",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "cursorRight",
+                "editor.action.clipboardPasteAction",
+            ]
+        },
         "when": "vim.mode == 'Normal' && editorTextFocus"
     },
     {

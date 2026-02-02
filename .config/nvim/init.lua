@@ -16,7 +16,9 @@ require("neo-tree").setup({
         },
       },
       ["l"] = "open",
-      ["h"] = "open"
+      ["h"] = "open",
+      ["s"] = "open_split",
+      ["v"] = "open_vsplit",
     }
   },
   filesystem = {

@@ -686,6 +686,16 @@
         "when": "vim.mode == 'Normal' && editorTextFocus"
     },
     {
+        "key": "space p",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "editor.action.clipboardPasteAction",
+            ]
+        },
+        "when": "vim.mode == 'Visual' && editorTextFocus"
+    },
+    {
         "key": "space w",
         "command": "workbench.action.closeEditorsInGroup",
         "when": "vim.mode == 'Normal' && editorTextFocus"
@@ -773,4 +783,9 @@
         "key": "ctrl+shift+p",
         "command": "-workbench.action.showCommands"
     },
+    {
+        "key": "ctrl+v",
+        "command": "workbench.action.alternativeAcceptSelectedQuickOpenItem",
+        "when": "inQuickOpen"
+    }
 ]

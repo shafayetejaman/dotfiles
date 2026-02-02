@@ -498,6 +498,17 @@
         },
         {
             "before": [
+                "S",
+            ],
+            "after": [
+                "v",
+                "<leader>",
+                "<leader>",
+                "/"
+            ],
+        },
+        {
+            "before": [
                 "Y",
             ],
             "after": [
@@ -981,7 +992,7 @@
     },
     "terminal.integrated.defaultProfile.linux": "zsh",
     "workbench.colorTheme": "Atom One Dark",
-    "workbench.editor.showTabs": "none",
     "window.customTitleBarVisibility": "never",
-    "git.autorefresh": false
+    "git.autorefresh": false,
+    "workbench.editor.showTabs": "none"
 }

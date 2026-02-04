@@ -17,6 +17,7 @@ gtk-toolbar-style = flat
 
 # Cursor styling
 cursor-style = "bar"
+adjust-cursor-thickness = 3
 cursor-style-blink = false
 
 # Cursor styling + SSH session terminfo

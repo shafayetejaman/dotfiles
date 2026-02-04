@@ -77,7 +77,7 @@
     "interval": 5,
     "format": "{percentage}%  ",
     "on-click": "omarchy-launch-or-focus-tui btop -p 2",
-    "tooltip-format": "Used: {used} / {total}",
+    "tooltip-format": "Used: {used}/{total} GB",
     "states": {
       "warning": 80
     }
@@ -126,7 +126,7 @@
     "format": "{capacity}% {icon}",
     "format-discharging": "{capacity}% {icon}",
     "format-charging": "{capacity}% {icon}",
-    "format-plugged": "",
+    "format-plugged": "{capacity}% ",
     "format-icons": {
       "charging": [
         "󰢜",

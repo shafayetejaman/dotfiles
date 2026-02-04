@@ -93,6 +93,8 @@ bindkey -M vicmd '_' vi-digit-or-beginning-of-line
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^[i" edit-command-line
+bindkey -r '^T'
+
 
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd bind_custom_key

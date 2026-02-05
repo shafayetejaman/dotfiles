@@ -45,10 +45,10 @@ map({ "n" }, "<A-S-Down>", "yyp", opts)
 map({ "n" }, "<A-S-Up>", "yyP", opts)
 
 
-map("n", "<leader>r", ":%s///g<Left><Left>", {
-  desc = "Replace all occurrences of word under cursor",
-})
-
-map("v", "<leader>r", 'y:%s/<C-r>"/', {
-  desc = "Replace all occurrences of visual selection",
-})
+-- map("n", "<leader>r", 'viwy:%s/<C-r>"/', {
+--   desc = "Replace all occurrences of word under cursor",
+-- })
+--
+-- map("v", "<leader>r", 'y:%s/<C-r>"/', {
+--   desc = "Replace all occurrences of visual selection",
+-- })

@@ -52,3 +52,5 @@ map({ "n" }, "<A-S-Up>", "yyP", opts)
 -- map("v", "<leader>r", 'y:%s/<C-r>"/', {
 --   desc = "Replace all occurrences of visual selection",
 -- })
+
+map('n', '<leader>z', ':SimpleZoomToggle<CR>', { desc = "Zoom Split" })

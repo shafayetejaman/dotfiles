@@ -260,7 +260,7 @@
         "when": "editorHasDefinitionProvider && editorTextFocus"
     },
     {
-        "key": "alt+\\",
+        "key": "ctrl+\\",
         "command": "workbench.action.focusPreviousGroup"
     },
     {

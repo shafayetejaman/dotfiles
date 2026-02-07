@@ -24,8 +24,9 @@ end, opts)
 map("n", "U", "<C-r>", { desc = "Redo" })
 
 -- Alt+u / Alt+d behave like Ctrl+u / Ctrl+d
-map("n", "<M-K>", "<C-u>", opts)
-map("n", "<M-J>", "<C-d>", opts)
+map({ "n", "i" }, "<M-K>", "<C-u>", opts)
+map({ "n", "i" }, "<M-J>", "<C-d>", opts)
+
 map("n", "<leader>w", function()
   vim.cmd("w")
   vim.cmd("close")
@@ -39,10 +40,8 @@ unmap("n", "<leader>|")
 
 map("n", "<leader>0", '\"0p')
 
-map({ "v" }, "<A-S-Down>", "yp", opts)
-map({ "v" }, "<A-S-Up>", "yP", opts)
+map({ "v" }, "<A-S-Down>", ":t '> <CR>gv=gv", opts)
 map({ "n" }, "<A-S-Down>", "yyp", opts)
-map({ "n" }, "<A-S-Up>", "yyP", opts)
 
 
 -- map("n", "<leader>r", 'viwy:%s/<C-r>"/', {
@@ -54,3 +53,12 @@ map({ "n" }, "<A-S-Up>", "yyP", opts)
 -- })
 
 map('n', '<leader>z', ':SimpleZoomToggle<CR>', { desc = "Zoom Split" })
+
+map('i', '<C-H>', '<C-W>', opts)
+
+map("i", ".", function()
+  -- Insert a dot
+  vim.api.nvim_put({ "." }, "c", true, true)
+  -- Send Ctrl+Space
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-Space>", true, false, true), "i", false)
+end, opts)

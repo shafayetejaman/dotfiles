@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 local unmap = vim.keymap.del
-local opts = { desc = "Custom clipboard mapping", silent = true }
+local opts = { desc = "", silent = true }
 
 -- Yank to system clipboard
 -- Normal and visual modes
@@ -12,14 +12,14 @@ map({ "v" }, "Y", '"+y', opts)
 
 -- Paste from system clipboard
 -- Normal and visual modes
-map({ "n", "v" }, "<leader>p", '"+p', opts)
+map({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
 map({ "n" }, "<tab>", "i<Tab><Esc>", opts)
 map({ "n" }, "<A-a>", '<Esc>ggVG"+y<Esc>', opts)
 
 map("n", "<leader>cp", function()
   vim.fn.setreg("+", vim.fn.expand("%:p")) -- + register = system clipboard
   print("Copied absolute path to clipboard")
-end, opts)
+end, { desc = "Copy absolute file path" })
 
 map("n", "U", "<C-r>", { desc = "Redo" })
 
@@ -38,7 +38,7 @@ map("n", "<M-S-UP>", "yyP")
 
 unmap("n", "<leader>|")
 
-map("n", "<leader>0", '\"0p')
+map("n", "<leader>0", '\"0p', { desc = "Paste from register 0" })
 
 map({ "v" }, "<A-S-Down>", ":t '> <CR>gv=gv", opts)
 map({ "n" }, "<A-S-Down>", "yyp", opts)

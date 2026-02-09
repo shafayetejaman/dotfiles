@@ -13,3 +13,4 @@ vim.opt.cursorline = false
 require("config.highlights")
 vim.opt.shortmess:append("I") -- disables intro/startup messages
 vim.cmd("silent! messages clear")
+vim.o.shell = "zsh"

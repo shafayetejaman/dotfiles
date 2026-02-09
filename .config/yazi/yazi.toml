@@ -19,10 +19,10 @@ title_format   = "Yazi: {cwd}"
 [preview]
 wrap            = "no"
 tab_size        = 2
-max_width       = 900
-max_height      = 800
+max_width       = 700
+max_height      = 500
 cache_dir       = ""
-image_delay     = 40
+image_delay     = 30
 image_filter    = "triangle"
 image_quality   = 50
 ueberzug_scale  = 1
@@ -35,7 +35,7 @@ edit = [
 	{ run = "code -w %s",       desc = "code (block)", for = "windows", block = true },
 ]
 play = [
-  { run = "env QT_SCALE_FACTOR=1 QT_AUTO_SCREEN_SCALE_FACTOR=0 haruna %s1", desc = "Play", for = "linux" },
+  { run = "env QT_SCALE_FACTOR=1.24 QT_AUTO_SCREEN_SCALE_FACTOR=1 haruna %s1", desc = "Play", for = "linux" },
 	{ run = "open %s",                     desc = "Play", for = "macos" },
 	{ run = 'start "" %s1', orphan = true, desc = "Play", for = "windows" },
 	{ run = "termux-open %s1",             desc = "Play", for = "android" },

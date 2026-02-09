@@ -14,7 +14,7 @@
 	"askBeforeClose": false,
 	"enableAskForImportChapters": true,
 	"enableAskForFileOpenAction": true,
-	"playbackVolume": 0.3,
+	"playbackVolume": 0.22,
 	"autoSaveProjectFile": true,
 	"wheelSensitivity": 0.2,
 	"waveformHeight": 40,
@@ -44,7 +44,7 @@
 		"y": 0,
 		"width": 795,
 		"height": 870,
-		"isMaximized": false
+		"isMaximized": true
 	},
 	"enableAutoHtml5ify": true,
 	"keyBindings": [

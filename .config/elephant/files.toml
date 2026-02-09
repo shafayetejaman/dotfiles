@@ -1,0 +1,19 @@
+search_dirs = [
+  "$HOME",
+  "/mnt/storage/Downloads",
+]
+
+fd_flags = [
+  "--ignore-vcs",
+  "--type", "file",
+  "--type", "directory",
+  "--hidden",
+  "--follow"
+]
+
+ignored_dirs = [
+  "$HOME/.cache",
+  "$HOME/.config",
+  "/mnt/storage/Downloads/Video/Captures/New folder"
+]
+

@@ -1,6 +1,7 @@
 search_dirs = [
   "$HOME",
   "/mnt/storage/Downloads",
+  "/mnt/storage/Software/Customization"
 ]
 
 fd_flags = [
@@ -14,6 +15,8 @@ fd_flags = [
 ignored_dirs = [
   "$HOME/.cache",
   "$HOME/.config",
-  "/mnt/storage/Downloads/Video/Captures/New folder"
+  "/mnt/storage/Downloads/Video/Captures/New folder",
+  "/mnt/storage/Downloads/Documents/WindowsPowerShell",
+  "/mnt/storage/Software/Customization/TrafficMonitor"
 ]
 

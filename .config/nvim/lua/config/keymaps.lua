@@ -62,3 +62,33 @@ map("i", ".", function()
   -- Send Ctrl+Space
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-Space>", true, false, true), "i", false)
 end, opts)
+
+-- Delete current file and close buffer
+local function delete_current_file()
+  local file = vim.fn.expand("%:p") -- full path of current file
+  if file == "" then
+    vim.notify("No file to delete!", vim.log.levels.WARN)
+    return
+  end
+
+  -- Confirm deletion
+  local choice = vim.fn.input("Delete file " .. file .. "? (y/N): ")
+  if choice:lower() ~= "y" and choice ~= "" then
+    vim.notify("Aborted", vim.log.levels.INFO)
+    return
+  end
+
+  -- Delete file
+  local ok, err = os.remove(file)
+  if not ok then
+    vim.notify("Failed to delete: " .. err, vim.log.levels.ERROR)
+    return
+  end
+
+  -- Close buffer
+  vim.cmd("bd!")
+  vim.notify("Deleted " .. file, vim.log.levels.INFO)
+end
+
+-- Keybinding (choose your own)
+map("n", "<leader>fd", delete_current_file, { desc = "Delete current file" })

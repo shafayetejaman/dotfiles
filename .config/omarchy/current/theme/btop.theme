@@ -3,7 +3,7 @@ theme[main_fg]="#f8f8fa"
 theme[inactive_fg]="#505258"
 
 theme[title]="#7ca5ff"
-theme[hi_fg]="#7ca5ff"
+theme[hi_fg]="#e29ef3"
 theme[selected_bg]="#b2c3ff"
 theme[selected_fg]="#2b2d31"
 

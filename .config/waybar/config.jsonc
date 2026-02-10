@@ -9,8 +9,7 @@
     "hyprland/workspaces"
   ],
   "modules-center": [
-    "custom/date",
-    "custom/time",
+    "clock",
     "custom/update",
     "custom/voxtype",
     "custom/screenrecording-indicator",
@@ -82,19 +81,11 @@
       "warning": 80
     }
   },
-  "custom/date": {
-    "exec": "date '+%a %d %b'",
-    "interval": 60,
-    "format": " {}",
-    "tooltip": false,
-    "on-click": "gsimplecal --close-on-unfocus"
-  },
-  "custom/time": {
-    "exec": "date '+%I:%M %p'",
-    "interval": 30,
-    "format": "  {}",
-    "tooltip": false,
-    "on-click": "gsimplecal --close-on-unfocus"
+  "clock": {
+    "format": "{:%a %I:%M %p}",
+    "tooltip-format": "{:L%d %B %Y}",
+    "on-click": "gsimplecal --close-on-unfocus",
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
   },
   "custom/usb": {
     "format": " {}",

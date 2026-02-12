@@ -150,6 +150,7 @@
     "interval": 5,
     "on-click": "omarchy-menu power",
     "states": {
+      "full": 100,
       "warning": 30,
       "critical": 15
     }

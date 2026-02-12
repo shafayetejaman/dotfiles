@@ -24,7 +24,11 @@ require("neo-tree").setup({
   filesystem = {
     filtered_items = {
       hide_dotfiles = false,
-    }
+    },
+    follow_current_file = {
+      enabled = true,          -- This auto-focuses the current file in the tree whenever the active buffer changes
+      leave_dirs_open = false, -- Optional: If false, auto-expanded directories will close after focusing (keeps the tree tidy)
+    },
   },
   event_handlers = {
     {
@@ -35,5 +39,12 @@ require("neo-tree").setup({
         ]]
       end,
     }
-  }
+  },
+  -- Optionally for the buffers source (if you use it):
+  buffers = {
+    follow_current_file = {
+      enabled = true,
+    },
+  },
+
 })

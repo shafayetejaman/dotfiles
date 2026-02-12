@@ -4,6 +4,6 @@ return {
   event = "VeryLazy",
   defaultOpts = {
     -- If a buffer has been inactive for this many minutes, close it.
-    retirementAgeMins = 1,
+    retirementAgeMins = 5,
   }
 }

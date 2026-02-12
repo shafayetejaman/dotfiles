@@ -20,7 +20,7 @@ return {
       desc = "Open the file manager in nvim's working directory",
     },
     {
-      "<c-up>",
+      "<c-y>",
       "<cmd>Yazi toggle<cr>",
       desc = "Resume the last yazi session",
     },
@@ -41,4 +41,3 @@ return {
     vim.g.loaded_netrwPlugin = 1
   end,
 }
-

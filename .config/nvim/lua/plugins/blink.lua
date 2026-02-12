@@ -58,9 +58,11 @@ return {
 
         -- Tab: cycle next, accept if nothing else
         ["<Tab>"] = { "select_next", "accept", "fallback" },
+        ["<C-j>"] = { "select_next", "accept", "fallback" },
 
         -- Shift-Tab: cycle previous
         ["<S-Tab>"] = { "select_prev", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback" },
 
         -- Enter: accept ghost text / selected item
         ["<CR>"] = { "accept", "fallback" },

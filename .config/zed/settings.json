@@ -7,17 +7,19 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "inlay_hints": {
-    "show_other_hints": false,
-    "enabled": true
+  "ui_font_size": 21.0,
+  "git": {
+    "inline_blame": {
+      "enabled": false,
+    },
   },
   "git_panel": {
-    "tree_view": false
+    "tree_view": false,
   },
   "agent": {
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5-mini",
+      "model": "oswe-vscode-prime",
     },
     "default_model": {
       "provider": "copilot_chat",
@@ -38,13 +40,14 @@
     "trust_all_worktrees": true,
   },
   "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "never",
+  },
   "terminal": {
     "font_size": 16.0,
     "font_family": "FiraCode Nerd Font",
     "cursor_shape": "bar",
     "copy_on_select": true,
-    "diagnostics": false,
-    "metrics": false,
     "shell": {
       "program": "zsh",
     },
@@ -98,21 +101,17 @@
   },
   "cursor_blink": false,
   "autosave": "on_focus_change",
-  "buffer_font_family": "Fira Code",
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "file_types": {
     "django-html": ["**/templates/*.html"],
-  },
-  "completions": {
-    "words": "disabled",
   },
   "wrap_guides": [],
   "soft_wrap": "bounded",
   "base_keymap": "VSCode",
-  "ui_font_size": 19,
   "buffer_font_size": 19.5,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark",
+    "dark": "Nightfox - blurred",
   },
 }

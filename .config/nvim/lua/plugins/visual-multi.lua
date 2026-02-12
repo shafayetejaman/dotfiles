@@ -8,6 +8,8 @@ return {
     vim.g.VM_maps = {
       ["Find Under"]         = "<C-d>",
       ["Find Subword Under"] = "<C-d>",
+      ["Skip Region"]        = "<C-k>",
+      ["Remove Region"]      = "q",
       ["Select All"]         = "<C-S-l>",
       ["Add Cursor Down"]    = "<S-Down>",
       ["Add Cursor Up"]      = "<S-Up>",

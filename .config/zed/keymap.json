@@ -6,16 +6,103 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
+  // ───────────────────────────────────────────────
+  // Leader = space in normal mode (very common pattern)
+  // Contexts must be precise or space → just "move right"
+  // ───────────────────────────────────────────────
   {
-    "context": "Workspace",
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
+      "space space": "file_finder::Toggle",
+      "space e": "vim::ToggleProjectPanelFocus",
+      "space s k": "zed::OpenKeymap", // open keybindings
+      "space c a": "editor::ToggleCodeActions", // closest to codeAction
+      "space c f": "editor::Format", // format document
+      "space c r": "editor::Rename", // rename symbol
+      "space c s": "outline::Toggle", // goto symbol in file
+      "space c p": "workspace::CopyPath",
+      "space b d": "pane::CloseActiveItem",
+      "space b o": "pane::CloseOtherItems",
+      "space g d": "editor::GoToDefinition", // g d also built-in in vim mode
+      "space g r": "editor::FindAllReferences",
+      "space g i": "editor::GoToImplementation",
+      "space g g": "git_panel::ToggleFocus", // approximate scm focus
+      "space f t": "terminal_panel::ToggleFocus",
+      "space \\": "pane::SplitRight",
+      "space -": "pane::SplitDown",
+      "space w": "pane::CloseAllItems",
+      "space p": ["action::Sequence", ["editor::MoveRight", "editor::Paste"]],
+    },
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "space p": "editor::Paste",
+      "Y": ["workspace::SendKeystrokes", "\" + y"],
+    },
+  },
+  // ───────────────────────────────────────────────
+  // Ctrl-hjkl pane navigation (workspace level)
+  // ───────────────────────────────────────────────
+  {
+    "context": "Workspace || Editor",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-r": "projects::OpenRecent",
+      "ctrl-p": "command_palette::Toggle",
+    },
+  },
+
+  // ───────────────────────────────────────────────
+  // Editor movement & actions
+  // ───────────────────────────────────────────────
+  {
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "bindings": {
+      "alt-k": "editor::MoveLineUp",
+      "alt-j": "editor::MoveLineDown",
+      "alt-x": "editor::Cut",
+      "shift-k": "editor::Hover",
+      "ctrl-space": "editor::SelectLargerSyntaxNode", // smart select expand
     },
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
-      // "j k": "vim::NormalBefore"
+      "ctrl-k": "editor::ShowSignatureHelp", // parameter hints
+    },
+  },
+
+  {
+    "context": "!Editor && !Terminal && !panel",
+    "bindings": {
+      "space space": "file_finder::Toggle",
+      "space e": "vim::ToggleProjectPanelFocus",
+    },
+  },
+
+  // ───────────────────────────────────────────────
+  // Project Panel (file tree) – Zed calls it ProjectPanel
+  // Note: vim motions work here already (h j k l, etc.)
+  // But custom single-letter bindings like VS Code are possible
+  // ───────────────────────────────────────────────
+  {
+    "context": "ProjectPanel && !inputFocus",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock",
+      "r": "project_panel::Rename",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "x": "project_panel::Cut",
+      "d": "project_panel::Trash", // or Delete if you prefer permanent
+      "a": "project_panel::NewFile",
+      "v": "project_panel::OpenSplitVertical", // open to side
+      "s": "project_panel::OpenSplitHorizontal",
+      "enter": "project_panel::Open",
+      "l": "project_panel::Open",
     },
   },
 ]

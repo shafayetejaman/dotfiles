@@ -1,9 +1,9 @@
 return {
   {
     "A7lavinraj/assistant.nvim",
-    lazy = false,
+    event = "VeryLazy",
     keys = {
-      { "<leader>a", "<cmd>w<cr><cmd>Assistant<cr>", desc = "Assistant.nvim" },
+      { "<leader>aa", "<cmd>w<cr><cmd>Assistant<cr>", desc = "Assistant.nvim" },
     },
     opts = {
       commands = {

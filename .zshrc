@@ -68,6 +68,7 @@ alias sudo='sudo '
 alias ch='cht.sh'
 alias grep="rg"
 alias find="fd"
+alias zed="zeditor"
 
 # ------------------------------------------
 # Functions

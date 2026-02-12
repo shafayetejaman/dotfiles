@@ -119,3 +119,18 @@ end
 
 -- Keybinding (choose your own)
 map("n", "<leader>fd", delete_current_file, { desc = "Delete current file" })
+
+
+map({ "n", "v" }, "<leader>ao", "<cmd>CodeCompanionActions<cr>", { desc = "CodeCompanion actions", silent = true })
+map({ "n", "v" }, "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>",
+  { desc = "Toggle CodeCompanion chat", silent = true })
+map({ "n" }, "<leader>ai", "<cmd>:CodeCompanion<cr>", { desc = "CodeCompanion inline", silent = true })
+map({ "v" }, "<leader>ai", "<cmd>:'<,'>CodeCompanion<cr>", { desc = "CodeCompanion visual", silent = true })
+map("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { desc = "Add to CodeCompanion chat", silent = true })
+
+local delta = 5 -- change this to how many lines/columns per press
+
+map("n", "<C-Up>", function() vim.cmd("resize -" .. delta) end, opts)
+map("n", "<C-Down>", function() vim.cmd("resize +" .. delta) end, opts)
+map("n", "<C-Left>", function() vim.cmd("vertical resize +" .. delta) end, opts)
+map("n", "<C-Right>", function() vim.cmd("vertical resize -" .. delta) end, opts)

@@ -32,6 +32,9 @@
       "space -": "pane::SplitDown",
       "space w": "pane::CloseAllItems",
       "space p": ["action::Sequence", ["editor::MoveRight", "editor::Paste"]],
+      "space a i": "assistant::InlineAssist",
+      "Y": ["workspace::SendKeystrokes", "\" + y y"],
+      "alt-a": ["workspace::SendKeystrokes", "escape g g V G \" + y"],
     },
   },
   {
@@ -39,6 +42,17 @@
     "bindings": {
       "space p": "editor::Paste",
       "Y": ["workspace::SendKeystrokes", "\" + y"],
+    },
+  },
+
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "s": "vim::PushSneak",
+      "shift-s": "vim::PushSneakBackward",
+      "alt-k": "editor::MoveLineUp",
+      "alt-j": "editor::MoveLineDown",
+      "alt-x": "editor::Cut",
     },
   },
   // ───────────────────────────────────────────────
@@ -62,9 +76,6 @@
   {
     "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
     "bindings": {
-      "alt-k": "editor::MoveLineUp",
-      "alt-j": "editor::MoveLineDown",
-      "alt-x": "editor::Cut",
       "shift-k": "editor::Hover",
       "ctrl-space": "editor::SelectLargerSyntaxNode", // smart select expand
     },

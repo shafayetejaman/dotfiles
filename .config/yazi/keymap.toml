@@ -79,6 +79,7 @@ keymap = [
 	{ on = ";",         run = "shell --interactive",         desc = "Run a shell command" },
 	{ on = ":",         run = "shell --block --interactive", desc = "Run a shell command (block until finishes)" },
 	{ on = ".",         run = "hidden toggle",               desc = "Toggle the visibility of hidden files" },
+	{ on = "<A-h>",         run = "hidden toggle",               desc = "Toggle the visibility of hidden files" },
 	{ on = "S",         run = "search --via=rg",             desc = "Search files by content via ripgrep" },
   { on = "s",         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
@@ -125,6 +126,7 @@ keymap = [
 
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
+	{ on = [ "g", "s" ],       run = "cd /mnt/storage",             desc = "Go Storage" },
 	{ on = [ "g", "c",'c' ],       run = "cd ~/.config",     desc = "Go ~/.config" },
 	{ on = [ "g", "c",'v' ],       run = "cd ~/dotfiles/.config/nvim/lua/plugins",   desc = "Go ~/../nvim/../plugins" },
   { on = [ "g", "c",'d' ],       run = "cd ~/dotfiles",   desc = "Go ~/dotfiles" },

@@ -14,7 +14,12 @@ map({ "v" }, "Y", '"+y', opts)
 -- Normal and visual modes
 map({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
 map({ "n" }, "<tab>", "i<Tab><Esc>", opts)
-map({ "n" }, "<A-a>", '<Esc>ggVG"+y<Esc>', opts)
+
+-- map({ "n" }, "<A-a>", 'ggVG\"+y', opts)
+vim.keymap.set("n", "<A-a>", function()
+  vim.cmd('%yank +')
+  print("Copy file content to clipboard")
+end, { desc = "Yank whole file to + without visual" })
 
 map("n", "<leader>cp", function()
   vim.fn.setreg("+", vim.fn.expand("%:p")) -- + register = system clipboard
@@ -28,9 +33,8 @@ map({ "n", "i" }, "<M-K>", "<C-u>", opts)
 map({ "n", "i" }, "<M-J>", "<C-d>", opts)
 
 map("n", "<leader>w", function()
-  vim.cmd("w")
   vim.cmd("close")
-end, { desc = "Save and close split" })
+end, { desc = "Close split" })
 
 map("n", "<leader>\\", "<cmd>vsplit<cr>", { desc = "Split window right" })
 map("n", "<M-S-DOWN>", "yyp")
@@ -134,3 +138,7 @@ map("n", "<C-Up>", function() vim.cmd("resize -" .. delta) end, opts)
 map("n", "<C-Down>", function() vim.cmd("resize +" .. delta) end, opts)
 map("n", "<C-Left>", function() vim.cmd("vertical resize +" .. delta) end, opts)
 map("n", "<C-Right>", function() vim.cmd("vertical resize -" .. delta) end, opts)
+
+
+map('n', '<leader>rf', ':RunFile<CR>', { noremap = true, silent = false })
+map('n', '<leader>rp', ':RunProject<CR>', { noremap = true, silent = false })

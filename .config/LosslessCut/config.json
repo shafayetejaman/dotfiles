@@ -42,8 +42,8 @@
 	"windowBounds": {
 		"x": 0,
 		"y": 0,
-		"width": 795,
-		"height": 870,
+		"width": 1600,
+		"height": 900,
 		"isMaximized": true
 	},
 	"enableAutoHtml5ify": true,

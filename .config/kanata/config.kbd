@@ -1,10 +1,7 @@
-;; defsrc is still necessary
 (defcfg
   process-unmapped-keys yes
   ;; These help reduce perceived lag and accidental activations during fast typing
   concurrent-tap-hold yes
-  rapid-event-delay 20
-  ;; permissive-hold yes   ;; uncomment only if you still get too many accidental mods after testing
 )
 
 (defvar
@@ -17,11 +14,8 @@
 )
 
 (defalias
-  ;; Tab: tap → normal tab, hold → toggle Caps Lock (but see note below)
   tabcaps (tap-hold $tap-time $hold-time tab caps)
 
-  ;; Caps: tap → Esc, hold → Left Ctrl
-  ;; Added multi f24 for consistency with home-row (prevents Esc leak)
   escctrl (multi f24 (tap-hold $tap-time $hold-time esc lctl))
 
   ' (multi f24 (tap-hold $tap-time $hold-time ' rmet))

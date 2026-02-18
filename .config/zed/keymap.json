@@ -46,20 +46,24 @@
     },
   },
 
-  {
-    "context": "Editor && (showing_completions || showing_code_actions)",
-    "bindings": {
-      "ctrl-j": "editor::ContextMenuNext",
-      "ctrl-k": "editor::ContextMenuPrevious",
-    },
-  },
-  {
-    "context": "Picker",
-    "bindings": {
-      "ctrl-j": "menu::SelectNext",
-      "ctrl-k": "menu::SelectPrevious",
-    },
-  },
+  // ───────────────────────────────────────────────
+  // context varible dose not exist at the moment
+  // ───────────────────────────────────────────────
+  // {
+  //   "context": "Editor && (showing_completions || showing_code_actions)",
+  //   "bindings": {
+  //     "ctrl-j": "editor::ContextMenuNext",
+  //     "ctrl-k": "editor::ContextMenuPrevious",
+  //   },
+  // },
+  // {
+  //   "context": "Picker",
+  //   "bindings": {
+  //     "ctrl-j": "menu::SelectNext",
+  //     "ctrl-k": "menu::SelectPrevious",
+  //   },
+  // },
+
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {

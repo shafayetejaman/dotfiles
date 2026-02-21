@@ -1,12 +1,10 @@
 (defcfg
   process-unmapped-keys yes
-  ;; These help reduce perceived lag and accidental activations during fast typing
-  concurrent-tap-hold yes
 )
 
 (defvar
-  tap-time 180
-  hold-time 220
+  tap-time 100
+  hold-time 180
 )
 
 (defsrc
@@ -14,7 +12,7 @@
 )
 
 (defalias
-  tabcaps (tap-hold $tap-time $hold-time tab caps)
+  tabcaps (multi f24 (tap-hold $tap-time $hold-time tab caps))
 
   escctrl (multi f24 (tap-hold $tap-time $hold-time esc lctl))
 
@@ -24,3 +22,4 @@
 (deflayer base
   @tabcaps @escctrl @'
 )
+

@@ -73,7 +73,11 @@ alias zed="zeditor"
 # ------------------------------------------
 # Functions
 
-fs() {
+function man() {
+    command man "$@" | bat --language=man
+}
+
+function fs() {
     eval "sudo $(fc -ln -1)"
 }
 

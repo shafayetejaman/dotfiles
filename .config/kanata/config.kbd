@@ -3,8 +3,8 @@
 )
 
 (defvar
-  tap-time 100
-  hold-time 180
+  tap-time 120
+  hold-time 200
 )
 
 (defsrc

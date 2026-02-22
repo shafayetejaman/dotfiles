@@ -1,91 +1,46 @@
-@define-color text #eaeaef;
-@define-color base #1a1b1e;
-@define-color border #ffffff55;
-@define-color foreground #eaeaef;
-@define-color background #1a1b1e;
-@define-color hover #2a2b2e;
-@define-color accent #f0f0f0;
-
-window .box-wrapper {
-  background: alpha(@base, 0.5);
-  padding: 8px 2px;
-  color: @text;
-  border: 2px solid @border;
-  margin: 0;
-  border-radius: 12px;
-}
+@define-color selected-text #d6e7ff;   
+@define-color text #cdd3e1;              
+@define-color base #13141acc;               
+@define-color border #292b3b;            
+@define-color foreground #cdd3e1;         
+@define-color background #13141acc;       
+@define-color hover #8c92a3;             
+@define-color selected-box #4a79a8;            
 
 window .search-container,
 window .search {
-  background: transparent;
+  background: alpha(@base, 0.6);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
   color: @foreground;
-  border: 3px solid alpha(@border, 0.5);
-  padding: 8px 12px;
-  margin: 4px 5px;
-  font-size: 14px;
-  font-weight: 500;
+  border: 1px solid alpha(@border, 1);
   border-radius: 8px;
+  padding: 3px 10px;
+  margin-top: 1px;
+  font-size: 10px;
+  font-weight: 400;
 }
 
-window .input {
-  color: @accent;
-  padding: 0;
-  font-weight: 300;
-}
-window .search{
-}
-child {
-  padding: 0 2px;
-  background: transparent;
-  border-radius: 0;
-  border-left: 2px solid transparent;
-  transition: all 160ms ease-in-out;
+.box-wrapper {
+  border-radius: 12px;
 }
 
-child:hover .item-box,
+child:selected {
+  border-radius: 10px;
+  background-color: alpha(@selected-box, 0.16);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 child:selected .item-box {
-  background: linear-gradient(90deg, alpha(@accent, 0.2), transparent 100%);
-  border-left: 2px solid alpha(@accent, 1);
-  transform: translateX(4px);
-  transition:
-    background 150ms cubic-bezier(0.25, 0.8, 0.25, 1),
-    transform 150ms cubic-bezier(0.25, 0.8, 0.25, 1),
-    border-left 150ms ease;
+  transition: transform 0.14s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateX(6px);
 }
 
-child:hover .item-text,
-child:selected .item-text {
-  text-shadow: 0 0 1px alpha(@accent, 0.1);
+child:selected .item-box * {
+  color: @text;
 }
 
-child,
-.item-box {
-  transition:
-    background 150ms cubic-bezier(0.25, 0.8, 0.25, 1),
-    border-left 150ms ease,
-    transform 150ms ease;
-}
 
-window .list child {
-  animation: slideIn 180ms ease-out forwards;
-}
 
-@keyframes slideIn {
-  from {
-    transform: translateX(-15px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
 
-/* window .normal-icons, */
-/* window .item-box, */
-/* window .large-icons { */
-/*   -gtk-icon-size: 0; */
-/*   min-width: 0; */
-/*   padding: 0; */
-/*   margin: 0; */
-/* } */
+

@@ -1,69 +1,40 @@
-# ────────────────────────────────────────────────────────────
-# BTOP THEME — Rainy Night City (matches your wallpaper)
-# ────────────────────────────────────────────────────────────
+theme[main_bg]=""
+theme[main_fg]="#f8f8fa"
+theme[inactive_fg]="#505258"
 
-# Transparent / dark night background
-theme[main_bg]="#1e2030"
+theme[title]="#7ca5ff"
+theme[hi_fg]="#e29ef3"
+theme[selected_bg]="#b2c3ff"
+theme[selected_fg]="#2b2d31"
 
-# Main text – soft grey-blue (city lights)
-theme[main_fg]="#cdd3e1"
+theme[graph_text]="#f8f8fa"
+theme[proc_misc]="#f8f8fa"
 
-# Titles – light blue highlight (lamp glow)
-theme[title]="#d6e7ff"
+theme[cpu_box]="#8edb73"
+theme[mem_box]="#7ca5ff"
+theme[net_box]="#7dd8d3"
+theme[proc_box]="#e29ef3"
+theme[div_line]="#505258"
 
-# Highlight text – muted light grey-blue
-theme[hi_fg]="#bfc6d4"
+theme[temp_start]="#7ca5ff"
+theme[temp_mid]="#f7c553"
+theme[temp_end]="#ef5d67"
 
-# Selected row – deeper night shade
-theme[selected_bg]="#14151f"
+theme[cpu_start]="#8edb73"
+theme[cpu_mid]="#f7c553"
+theme[cpu_end]="#ff7680"
 
-# Selected row text – bright white-blue
-theme[selected_fg]="#e8f1ff"
+theme[mem_start]="#7ca5ff"
+theme[mem_mid]="#97b6ff"
+theme[mem_end]="#e29ef3"
 
-# Inactive/dim text – distant-building grey
-theme[inactive_fg]="#7d8291"
+theme[net_start]="#7dd8d3"
+theme[net_mid]="#7ca5ff"
+theme[net_end]="#8edb73"
 
-# Misc text – light city grey
-theme[proc_misc]="#bfc6d4"
+theme[proc_start]="#e29ef3"
+theme[proc_mid]="#efb5f9"
+theme[proc_end]="#97b6ff"
 
-# Box outlines – subtle bluish-grey (window frame color)
-theme[cpu_box]="#292b3b"
-theme[mem_box]="#292b3b"
-theme[net_box]="#292b3b"
-theme[proc_box]="#292b3b"
-
-# Divider lines – same subtle outline tone
-theme[div_line]="#292b3b"
-
-# Graph gradients – smooth blue-grey (rain & neon reflections)
-theme[temp_start]="#4a4f65"
-theme[temp_mid]="#8c92a3"
-theme[temp_end]="#d6e7ff"
-
-theme[cpu_start]="#4a4f65"
-theme[cpu_mid]="#8c92a3"
-theme[cpu_end]="#d6e7ff"
-
-theme[free_start]="#4a4f65"
-theme[free_mid]="#8c92a3"
-theme[free_end]="#d6e7ff"
-
-theme[cached_start]="#4a4f65"
-theme[cached_mid]="#8c92a3"
-theme[cached_end]="#d6e7ff"
-
-theme[available_start]="#4a4f65"
-theme[available_mid]="#8c92a3"
-theme[available_end]="#d6e7ff"
-
-theme[used_start]="#4a4f65"
-theme[used_mid]="#8c92a3"
-theme[used_end]="#d6e7ff"
-
-theme[download_start]="#4a4f65"
-theme[download_mid]="#8c92a3"
-theme[download_end]="#d6e7ff"
-
-theme[upload_start]="#4a4f65"
-theme[upload_mid]="#8c92a3"
-theme[upload_end]="#d6e7ff"
+theme[btm_bg]="#32343a"
+theme[btm_fg]="#f8f8fa"

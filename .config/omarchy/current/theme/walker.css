@@ -8,7 +8,7 @@
 
 window .box-wrapper {
   background: alpha(@base, 0.5);
-  padding: 8px 2px;
+  padding: 6px 2px;
   color: @text;
   border: 2px solid @border;
   margin: 0;
@@ -20,10 +20,11 @@ window .search {
   background: transparent;
   color: @foreground;
   border: 3px solid alpha(@border, 0.5);
-  padding: 8px 12px;
+  padding: 6px 8px;
   margin: 4px 5px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 400;
+  border-radius: 8px;
 }
 
 window .input {

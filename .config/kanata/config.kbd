@@ -8,7 +8,7 @@
 )
 
 (defsrc
-  tab caps '
+  tab caps ' ;
 )
 
 (defalias
@@ -17,9 +17,10 @@
   escctrl (multi f24 (tap-hold $tap-time $hold-time esc lctl))
 
   ' (multi f24 (tap-hold $tap-time $hold-time ' rmet))
+  ; (multi f24 (tap-hold $tap-time $hold-time ; rctl))
 )
 
 (deflayer base
-  @tabcaps @escctrl @'
+  @tabcaps @escctrl @' @;
 )
 

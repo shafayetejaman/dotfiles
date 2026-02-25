@@ -126,13 +126,13 @@ keymap = [
 
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
-	{ on = [ "g", "s" ],       run = "cd /mnt/storage",             desc = "Go Storage" },
+	{ on = [ "g", "s" ],       run = "cd /mnt",             desc = "Go mnt/" },
 	{ on = [ "g", "c",'c' ],       run = "cd ~/.config",     desc = "Go ~/.config" },
 	{ on = [ "g", "c",'v' ],       run = "cd ~/dotfiles/.config/nvim/lua/plugins",   desc = "Go ~/../nvim/../plugins" },
   { on = [ "g", "c",'d' ],       run = "cd ~/dotfiles",   desc = "Go ~/dotfiles" },
 	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go ~/Downloads" },
 	{ on = [ "g", "v" ],       run = "cd ~/Downloads/Video",   desc = "Go ../Video" },
-	{ on = [ "g", "w" ],       run = "cd ~/workspace",   desc = "Go ~/workspace" },
+	{ on = [ "g", "w" ],       run = "cd ~/Documents/workspace",   desc = "Go ~/../workspace" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
 	{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
 

@@ -69,6 +69,7 @@ alias ch='cht.sh'
 alias grep="rg"
 alias find="fd"
 alias zed="zeditor"
+alias python=python3
 
 # ------------------------------------------
 # Functions

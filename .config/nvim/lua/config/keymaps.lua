@@ -21,7 +21,7 @@ vim.keymap.set("n", "<A-a>", function()
   print("Copy file content to clipboard")
 end, { desc = "Yank whole file to + without visual" })
 
-map("n", "<leader>cp", function()
+map("n", "<leader>cc", function()
   vim.fn.setreg("+", vim.fn.expand("%:p")) -- + register = system clipboard
   print("Copied absolute path to clipboard")
 end, { desc = "Copy absolute file path" })

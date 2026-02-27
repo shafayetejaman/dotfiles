@@ -20,7 +20,7 @@
       "space c f": "editor::Format", // format document
       "space c r": "editor::Rename", // rename symbol
       "space c s": "outline::Toggle", // goto symbol in file
-      "space c p": "workspace::CopyPath",
+      "space c c": "workspace::CopyPath",
       "space b d": "pane::CloseActiveItem",
       "space b o": "pane::CloseOtherItems",
       "space g d": "editor::GoToDefinition", // g d also built-in in vim mode
@@ -31,10 +31,22 @@
       "space \\": "pane::SplitRight",
       "space -": "pane::SplitDown",
       "space w": "pane::CloseAllItems",
-      "space p": ["action::Sequence", ["editor::MoveRight", "editor::Paste"]],
+      "space p": [
+        "action::Sequence",
+        [
+          "editor::MoveRight",
+          "editor::Paste"
+        ]
+      ],
       "space a i": "assistant::InlineAssist",
-      "Y": ["workspace::SendKeystrokes", "\" + y y"],
-      "alt-a": ["workspace::SendKeystrokes", "escape g g V G \" + y"],
+      "Y": [
+        "workspace::SendKeystrokes",
+        "\" + y y"
+      ],
+      "alt-a": [
+        "workspace::SendKeystrokes",
+        "escape g g V G \" + y"
+      ],
       "ctrl-s": "workspace::SaveAll",
     },
   },
@@ -42,10 +54,12 @@
     "context": "Editor && vim_mode == visual",
     "bindings": {
       "space p": "editor::Paste",
-      "Y": ["workspace::SendKeystrokes", "\" + y"],
+      "Y": [
+        "workspace::SendKeystrokes",
+        "\" + y"
+      ],
     },
   },
-
   // ───────────────────────────────────────────────
   // context varible dose not exist at the moment
   // ───────────────────────────────────────────────
@@ -63,7 +77,6 @@
   //     "ctrl-k": "menu::SelectPrevious",
   //   },
   // },
-
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {
@@ -88,7 +101,6 @@
       "ctrl-p": "command_palette::Toggle",
     },
   },
-
   // ───────────────────────────────────────────────
   // Editor movement & actions
   // ───────────────────────────────────────────────
@@ -105,7 +117,6 @@
       "ctrl-k": "editor::ShowSignatureHelp", // parameter hints
     },
   },
-
   {
     "context": "!Editor && !Terminal && !panel",
     "bindings": {

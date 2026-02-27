@@ -3,7 +3,6 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [mgr]
-
 keymap = [
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selection, or cancel search" },
 	{ on = "<C-[>", run = "escape",             desc = "Exit visual mode, clear selection, or cancel search" },
@@ -161,6 +160,14 @@ keymap = [
 	# Help
 	{ on = "?",    run = "help", desc = "Open help" },
 	{ on = "<F1>", run = "help", desc = "Open help" },
+
+  { on = ["M","m"], run = "plugin sshfs -- mount --jump",    desc = "Mount & jump" },
+  { on = ["M","u"], run = "plugin sshfs -- unmount",         desc = "Unmount SSHFS" },
+  { on = ["M","j"], run = "plugin sshfs -- jump",            desc = "Jump to mount" },
+  { on = ["M","a"], run = "plugin sshfs -- add",             desc = "Add SSH host" },
+  { on = ["M","r"], run = "plugin sshfs -- remove",          desc = "Remove SSH host" },
+  { on = ["M","h"], run = "plugin sshfs -- home",            desc = "Go to mount home" },
+  { on = ["M","c"], run = "cd ~/.ssh/",                      desc = "Go to ssh config" },
 ]
 
 [tasks]

@@ -3,6 +3,11 @@ use = "dedukun/relative-motions"
 rev = "a603d9e"
 hash = "e02a788e5b8ae0fb47fd0193dda589cc"
 
+[[plugin.deps]]
+use = "uhs-robert/sshfs"
+rev = "4070c8e"
+hash = "a4cd81fe60c350c3f0fde9957f4a4bb9"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
 rev = "4a1802a"

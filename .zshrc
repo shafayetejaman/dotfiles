@@ -70,7 +70,18 @@ alias grep="rg"
 alias find="fd"
 alias zed="zeditor"
 alias python=python3
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias c='opencode'
+alias cd='zd'
+alias eff='$EDITOR $(ff)'
+alias ff='fzf --preview '\''bat --style=numbers --color=always {}'\'''
 alias ls='eza -lh --group-directories-first --icons=auto'
+alias lsa='ls -a'
+alias lzd='lazydocker'
+alias t='tmux attach || tmux new -s Work'
+
 
 # ------------------------------------------
 # Functions

@@ -70,6 +70,7 @@ alias grep="rg"
 alias find="fd"
 alias zed="zeditor"
 alias python=python3
+alias ls='eza -lh --group-directories-first --icons=auto'
 
 # ------------------------------------------
 # Functions

@@ -24,7 +24,7 @@ default = [
   "calc",
   "websearch",
 ]
-ignore_preview = ["files"]
+# ignore_preview = ["files"]
 
 [[providers.prefixes]]
 prefix = "/"

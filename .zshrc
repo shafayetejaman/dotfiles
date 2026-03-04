@@ -78,8 +78,18 @@ alias lzd='lazydocker'
 alias t='tmux attach || tmux new -s Work'
 
 
+
 # ------------------------------------------
 # Functions
+
+gcm() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: gac <commit message>"
+    return 1
+  fi
+  git add .
+  git commit -m "$*"
+}
 
 # fzf ZLE widgets
 if command -v fzf &>/dev/null; then
@@ -186,7 +196,6 @@ bindkey -M vicmd '_' vi-digit-or-beginning-of-line
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^[i" edit-command-line
-bindkey -r '^T'
 
 
 autoload -Uz add-zsh-hook

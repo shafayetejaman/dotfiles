@@ -46,6 +46,7 @@ eval $(thefuck --alias fk)
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
+eval "$(zoxide init zsh)"
 
 
 # ------------------------------------------
@@ -68,7 +69,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias c='opencode'
-alias cd='zd'
+alias cd='z'
 alias eff='$EDITOR $(ff)'
 alias ff='fzf --preview '\''bat --style=numbers --color=always {}'\'''
 alias ls='eza -lh --group-directories-first --icons=auto'

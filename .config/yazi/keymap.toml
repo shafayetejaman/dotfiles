@@ -59,6 +59,7 @@ keymap = [
 	{ on = "<Tab>", run = "spot", desc = "Spot hovered file" },
 
 	# Operation
+	{ on = ["o", "o"],  run = "open",                   desc = "Open selected files" },
 	{ on = "o",         run = "open",                        desc = "Open selected files" },
 	{ on = "O",         run = "open --interactive",          desc = "Open selected files interactively" },
 	{ on = "<Enter>",   run = "open",                        desc = "Open selected files" },
@@ -125,16 +126,16 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                       desc = "Sort randomly" },
 
 	# Goto
-	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
-	{ on = [ "g", "s" ],       run = "cd /mnt",             desc = "Go mnt/" },
-	{ on = [ "g", "c",'c' ],       run = "cd ~/.config",     desc = "Go ~/.config" },
-	{ on = [ "g", "c",'v' ],       run = "cd ~/dotfiles/.config/nvim/lua/plugins",   desc = "Go ~/../nvim/../plugins" },
-  { on = [ "g", "c",'d' ],       run = "cd ~/dotfiles",   desc = "Go ~/dotfiles" },
-	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go ~/Downloads" },
-	{ on = [ "g", "v" ],       run = "cd ~/Downloads/Video",   desc = "Go ../Video" },
+	{ on = [ "g", "h" ],       run = "cd ~",                       desc = "Go home" },
+	{ on = [ "g", "s" ],       run = "cd /mnt",                    desc = "Go mnt/" },
+	{ on = [ "g", "c",'c' ],   run = "cd ~/.config",               desc = "Go ~/.config" },
+	{ on = [ "g", "c",'v' ],   run = "cd ~/dotfiles/.config/nvim/lua/plugins",   desc = "Go ~/../nvim/../plugins" },
+  { on = [ "g", "c",'d' ],   run = "cd ~/dotfiles",              desc = "Go ~/dotfiles" },
+	{ on = [ "g", "d" ],       run = "cd ~/Downloads",             desc = "Go ~/Downloads" },
+	{ on = [ "g", "v" ],       run = "cd ~/Downloads/Video",       desc = "Go ../Video" },
 	{ on = [ "g", "w" ],       run = "cd ~/Documents/workspace",   desc = "Go ~/../workspace" },
-	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
-	{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
+	{ on = [ "g", "<Space>" ], run = "cd --interactive",           desc = "Jump interactively" },
+	{ on = [ "g", "f" ],       run = "follow",                     desc = "Follow hovered symlink" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
@@ -422,3 +423,8 @@ desc = "Move in relative steps"
 on = [ "9" ]
 run = "plugin relative-motions 9"
 desc = "Move in relative steps"
+
+[[mgr.prepend_keymap]]
+on   = [ "o", "g" ]
+run  = "plugin lazygit"
+desc = "run lazygit"

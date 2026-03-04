@@ -8,6 +8,11 @@ use = "uhs-robert/sshfs"
 rev = "4070c8e"
 hash = "a4cd81fe60c350c3f0fde9957f4a4bb9"
 
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "0e56060"
+hash = "ab2e66065a94cca4886b303518e44bd8"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
 rev = "4a1802a"

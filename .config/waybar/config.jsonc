@@ -165,7 +165,9 @@
     "on-click": "omarchy-launch-bluetooth"
   },
   "pulseaudio": {
-    "format": "{volume}% {icon}",
+    "format": "{volume}% {icon} {format_source}",
+    "format-source": " ",
+    "format-source-muted": "  ",
     "on-click": "omarchy-launch-audio",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",

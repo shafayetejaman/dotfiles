@@ -3,7 +3,7 @@
   "layer": "top",
   "position": "top",
   "spacing": 0,
-  "height": 19,
+  "height": 18.8,
   "modules-left": [
     "custom/omarchy",
     "hyprland/workspaces"
@@ -95,6 +95,7 @@
     "tooltip-format": "Eject"
   },
   "network": {
+    "interface": "enp2s0",
     "format-icons": [
       "󰤯",
       "󰤟",
@@ -165,9 +166,10 @@
     "on-click": "omarchy-launch-bluetooth"
   },
   "pulseaudio": {
-    "format": "{volume}% {icon} {format_source}",
-    "format-source": " ",
-    "format-source-muted": "  ",
+    "format": "{volume}% {icon}{format_source}",
+    // "format-source": " ",
+    "format-source": "",
+    "format-source-muted": "   ",
     "on-click": "omarchy-launch-audio",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",

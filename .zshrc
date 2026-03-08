@@ -204,7 +204,7 @@ bind_custom_key() {
 
 # ----------------------- End ----------------------- 
 # --- Create tmux session if not already running  ---
-if [[ -n $PS1 ]] && [[ -z $TMUX ]]; then
-    tmux has-session 2>/dev/null || tmux new -s main
+if [[ -n $PS1 ]] && [[ -z $TMUX ]] && [[ -z $SSH_CONNECTION ]]; then
+    tmux has-session 2>/dev/null || tmux new -s Work
 fi
 

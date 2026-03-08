@@ -44,6 +44,14 @@
   margin-right: 16px;
 }
 
+#tray menu,
+#tray menuitem,
+#tray > widget > menu {
+  opacity: 1.0 ;
+  background: #252525;
+  border: none;
+}
+
 #bluetooth {
   margin-right: 17px;
 }

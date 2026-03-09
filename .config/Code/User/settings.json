@@ -950,8 +950,6 @@
     "window.newWindowDimensions": "maximized",
     "workbench.iconTheme": "material-icon-theme",
     "leetcode.workspaceFolder": "e:\\Downloads\\Documents\\Programs\\LeetCode\\python",
-    "editor.stickyScroll.enabled": false,
-    "breadcrumbs.enabled": false,
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
@@ -964,11 +962,9 @@
     // },
     "workbench.navigationControl.enabled": false,
     "chat.commandCenter.enabled": false,
-    "window.menuBarVisibility": "hidden",
     "window.restoreFullscreen": true,
     "B9AutoCloseTab.maxTabs": 5,
     "workbench.editor.pinnedTabSizing": "shrink",
-    "window.titleBarStyle": "native",
     "window.menuStyle": "native",
     "terminal.integrated.profiles.linux": {
         "bash": {
@@ -992,7 +988,12 @@
     },
     "terminal.integrated.defaultProfile.linux": "zsh",
     "workbench.colorTheme": "Atom One Dark",
-    "window.customTitleBarVisibility": "never",
     "git.autorefresh": false,
-    "workbench.editor.showTabs": "none"
+    "workbench.editor.showTabs": "none",
+    "window.commandCenter": false,
+    "window.customTitleBarVisibility": "never",
+    "window.menuBarVisibility": "hidden",
+    "window.titleBarStyle": "native",
+    "breadcrumbs.enabled": false,
+    "editor.stickyScroll.enabled": false,
 }

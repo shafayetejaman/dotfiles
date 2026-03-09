@@ -20,8 +20,8 @@
     "network",
     "pulseaudio",
     "cpu",
-    "memory",
-    "battery"
+    "memory"
+    // "battery"
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -55,14 +55,14 @@
     "on-click-right": "xdg-terminal-exec",
     "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
   },
-  "custom/update": {
-    "format": "",
-    "exec": "omarchy-update-available",
-    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
-    "tooltip-format": "Omarchy update available",
-    "signal": 7,
-    "interval": 21600
-  },
+  // "custom/update": {
+  //   "format": "",
+  //   "exec": "omarchy-update-available",
+  //   "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+  //   "tooltip-format": "Omarchy update available",
+  //   "signal": 7,
+  //   "interval": 21600
+  // },
   "cpu": {
     "interval": 15,
     "format": "{usage}%  ",
@@ -114,48 +114,48 @@
     "spacing": 1,
     "on-click": "omarchy-launch-wifi"
   },
-  "battery": {
-    "format": "{capacity}% {icon}",
-    "format-discharging": "{capacity}% {icon}",
-    "format-charging": "{capacity}% {icon}",
-    "format-plugged": "{capacity}% ",
-    "format-icons": {
-      "charging": [
-        "󰢜",
-        "󰂆",
-        "󰂇",
-        "󰂈",
-        "󰢝",
-        "󰂉",
-        "󰢞",
-        "󰂊",
-        "󰂋",
-        "󰂅"
-      ],
-      "default": [
-        "󰁺",
-        "󰁻",
-        "󰁼",
-        "󰁽",
-        "󰁾",
-        "󰁿",
-        "󰂀",
-        "󰂁",
-        "󰂂",
-        "󰁹"
-      ]
-    },
-    "format-full": "󰂅",
-    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
-    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
-    "interval": 5,
-    "on-click": "omarchy-menu power",
-    "states": {
-      "full": 100,
-      "warning": 30,
-      "critical": 15
-    }
-  },
+  // "battery": {
+  //   "format": "{capacity}% {icon}",
+  //   "format-discharging": "{capacity}% {icon}",
+  //   "format-charging": "{capacity}% {icon}",
+  //   "format-plugged": "{capacity}% ",
+  //   "format-icons": {
+  //     "charging": [
+  //       "󰢜",
+  //       "󰂆",
+  //       "󰂇",
+  //       "󰂈",
+  //       "󰢝",
+  //       "󰂉",
+  //       "󰢞",
+  //       "󰂊",
+  //       "󰂋",
+  //       "󰂅"
+  //     ],
+  //     "default": [
+  //       "󰁺",
+  //       "󰁻",
+  //       "󰁼",
+  //       "󰁽",
+  //       "󰁾",
+  //       "󰁿",
+  //       "󰂀",
+  //       "󰂁",
+  //       "󰂂",
+  //       "󰁹"
+  //     ]
+  //   },
+  //   "format-full": "󰂅",
+  //   "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+  //   "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+  //   "interval": 5,
+  //   "on-click": "omarchy-menu power",
+  //   "states": {
+  //     "full": 100,
+  //     "warning": 30,
+  //     "critical": 15
+  //   }
+  // },
   "bluetooth": {
     "format": "",
     "format-off": "󰂲",

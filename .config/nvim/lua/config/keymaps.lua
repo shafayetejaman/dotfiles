@@ -80,8 +80,8 @@ map("i", ".", function()
   -- Correct:
   local prev_char = line:sub(col, col)
 
-  -- Is alphanumeric?
-  if prev_char:match("%w") then
+  -- Is alphabetic?
+  if prev_char:match("%a") then
     vim.api.nvim_put({ "." }, "c", true, true)
     -- Small delay helps reliability with some completion engines
     vim.schedule(function()

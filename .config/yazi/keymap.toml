@@ -43,7 +43,7 @@ keymap = [
 	{ on = "L", run = "forward", desc = "Forward to next directory" },
 
 	# Toggle
-	{ on = ["<Space>", "<Space>"], run = [ "toggle", "arrow 1" ], desc = "Toggle the current selection state" },
+	{ on = "m",       run = [ "toggle", "arrow 1" ], desc = "Toggle the current selection state" },
 	{ on = "<C-a>",   run = "toggle_all --state=on", desc = "Select all files" },
 	{ on = "<C-r>",   run = "toggle_all",            desc = "Invert selection of all files" },
 
@@ -81,18 +81,18 @@ keymap = [
 	{ on = ".",         run = "hidden toggle",               desc = "Toggle the visibility of hidden files" },
 	{ on = "<A-h>",     run = "hidden toggle",               desc = "Toggle the visibility of hidden files" },
 	{ on = "S",         run = "search --via=rg",             desc = "Search files by content via ripgrep" },
-  { on = "s",         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
+  { on = ["<Space>", "<Space>"],         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
   { on = "Z",         run = "search --via=fd",             desc = "Search files by name via fd" },
-	{ on = "z",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
+	{ on = "s",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
 
 	# Linemode
-	{ on = [ "m", "s" ], run = "linemode size",        desc = "Linemode: size" },
-	{ on = [ "m", "p" ], run = "linemode permissions", desc = "Linemode: permissions" },
-	{ on = [ "m", "b" ], run = "linemode btime",       desc = "Linemode: btime" },
-	{ on = [ "m", "m" ], run = "linemode mtime",       desc = "Linemode: mtime" },
-	{ on = [ "m", "o" ], run = "linemode owner",       desc = "Linemode: owner" },
-	{ on = [ "m", "n" ], run = "linemode none",        desc = "Linemode: none" },
+	{ on = [ "z", "s" ], run = "linemode size",        desc = "Linemode: size" },
+	{ on = [ "z", "p" ], run = "linemode permissions", desc = "Linemode: permissions" },
+	{ on = [ "z", "b" ], run = "linemode btime",       desc = "Linemode: btime" },
+	{ on = [ "z", "m" ], run = "linemode mtime",       desc = "Linemode: mtime" },
+	{ on = [ "z", "o" ], run = "linemode owner",       desc = "Linemode: owner" },
+	{ on = [ "z", "n" ], run = "linemode none",        desc = "Linemode: none" },
 
 	# Copy
 	{ on = [ "c", "c" ], run = "copy path",             desc = "Copy the file path" },

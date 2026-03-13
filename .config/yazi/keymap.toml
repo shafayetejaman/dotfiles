@@ -80,6 +80,7 @@ keymap = [
 	{ on = ".",         run = "hidden toggle",               desc = "Toggle the visibility of hidden files" },
 	{ on = "<A-h>",     run = "hidden toggle",               desc = "Toggle the visibility of hidden files" },
 	{ on = "S",         run = "search --via=rg",             desc = "Search files by content via ripgrep" },
+	{ on = ["<Spaee>", "s", "g"],          run = "search --via=rg",             desc = "Search files by content via ripgrep" },
   { on = ["<Space>", "<Space>"],         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
   { on = "Z",         run = "search --via=fd",             desc = "Search files by name via fd" },
@@ -431,6 +432,6 @@ run = "plugin relative-motions 9"
 desc = "Move in relative steps"
 
 [[mgr.prepend_keymap]]
-on   = [ "<Space>", "g"]
+on   = [ "<Space>", "g", "g"]
 run  = "plugin lazygit"
 desc = "run lazygit"

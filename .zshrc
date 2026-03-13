@@ -188,6 +188,21 @@ zle -N edit-command-line
 bindkey "^[i" edit-command-line
 bindkey -r '^T'
 
+# Separate function just for Y (yank to end-of-line)
+function clipboard_vi_yank_eol() {
+  zle beginning-of-line
+  zle vi-yank-eol      # Built-in: yank from cursor to EOL
+  echo -n "$CUTBUFFER" | wl-copy
+}
+zle -N clipboard_vi_yank_eol
+bindkey -M vicmd 'Y' clipboard_vi_yank_eol
+
+function clipboard_vi_yank() {
+  zle vi-yank
+  echo -n "$CUTBUFFER" | wl-copy
+}
+zle -N clipboard_vi_yank
+bindkey -M visual 'Y' clipboard_vi_yank
 
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd bind_custom_key

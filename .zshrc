@@ -15,6 +15,8 @@
 #   done
 # fi
 
+[[ -f /usr/share/omarchy-zsh/shell/all ]] && source /usr/share/omarchy-zsh/shell/all
+
 
 if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
       "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then

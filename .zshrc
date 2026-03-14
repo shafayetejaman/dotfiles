@@ -5,16 +5,10 @@
 # Only run in interactive shells
 [[ $- != *i* ]] && return
 
-# Load environment (your existing env file)
-# . "$HOME/.local/share/../bin/env"
+# Load shared shell configuration (aliases, functions, environment, tool init)
+[[ -f /usr/share/omarchy-zsh/shell/all ]] && source /usr/share/omarchy-zsh/shell/all
 
-# Load omarchy-zsh configuration
-# if [[ -d /usr/share/omarchy-zsh/shell ]]; then
-#   for config in /usr/share/omarchy-zsh/shell/*; do
-#     [[ -f "$config" ]] && source "$config"
-#   done
-# fi
-
+# Add your own customizations below
 
 if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
       "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
@@ -33,8 +27,6 @@ fi
 # export MOZ_ENABLE_WAYLAND=1
 export EDITOR=nvim
 export VISUAL=nvim
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-export PATH=$PATH:$HOME/go/bin
 
 # ------------------------------------------
 # Plugins
@@ -76,7 +68,6 @@ alias ls='eza -lh --group-directories-first --icons=auto'
 alias lsa='ls -a'
 alias lzd='lazydocker'
 alias t='tmux attach || tmux new -s Work'
-
 
 
 # ------------------------------------------
@@ -196,6 +187,7 @@ bindkey -M vicmd '_' vi-digit-or-beginning-of-line
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^[i" edit-command-line
+bindkey -r '^T'
 
 # Separate function just for Y (yank to end-of-line)
 function clipboard_vi_yank_eol() {

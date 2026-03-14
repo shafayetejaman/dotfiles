@@ -73,7 +73,7 @@ alias t='tmux attach || tmux new -s Work'
 # ------------------------------------------
 # Functions
 
-gcm() {
+function gcm() {
   if [ $# -eq 0 ]; then
     echo "Usage: gac <commit message>"
     return 1
@@ -162,6 +162,8 @@ if command -v fzf &>/dev/null; then
   zle -N fzf-variables-widget
   bindkey '^V' fzf-variables-widget  # Ctrl+V
 fi
+
+
 function man() {
     command man "$@" | bat --language=man
 }

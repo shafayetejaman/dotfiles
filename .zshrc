@@ -73,6 +73,15 @@ alias t='tmux attach || tmux new -s Work'
 # ------------------------------------------
 # Functions
 
+function gcm() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: gac <commit message>"
+    return 1
+  fi
+  git add .
+  git commit -m "$*"
+}
+
 # fzf ZLE widgets
 if command -v fzf &>/dev/null; then
   # fzf file/directory search widget (Ctrl+Alt+F)

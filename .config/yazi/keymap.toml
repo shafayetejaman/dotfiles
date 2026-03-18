@@ -428,3 +428,13 @@ desc = "Move in relative steps"
 on   = [ "<Space>", "g", "g"]
 run  = "plugin lazygit"
 desc = "run lazygit"
+
+[[mgr.prepend_keymap]]
+on  = ["<Space>", "m", "l"]
+run = "plugin mount"
+desc = "Mount USB Device"
+
+[[mgr.prepend_keymap]]
+on = ["<Space>", "m", 's']
+run = "plugin sshfs -- menu"
+desc = "Mount SSH Device"

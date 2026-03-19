@@ -27,6 +27,7 @@ fi
 # export MOZ_ENABLE_WAYLAND=1
 export EDITOR=nvim
 export VISUAL=nvim
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # ------------------------------------------
 # Plugins

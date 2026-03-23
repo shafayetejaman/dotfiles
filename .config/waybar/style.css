@@ -30,6 +30,10 @@
   opacity: 0.5;
 }
 
+#workspaces button label {
+    font-size: 15px;
+}
+
 #cpu,
 #battery,
 #pulseaudio,

@@ -87,8 +87,8 @@ rules = [
 ]
 
 [tasks]
-micro_workers    = 3
-macro_workers    = 1
+micro_workers    = 4
+macro_workers    = 2
 bizarre_retry    = 3
 image_alloc      = 536870912  # 512MB
 image_bound      = [ 10000, 10000 ]

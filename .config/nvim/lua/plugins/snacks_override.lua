@@ -2,6 +2,11 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      notifier = {
+        enabled = true,
+        level = vim.log.levels.WARN,         -- only show WARN and ERROR
+        -- level = vim.log.levels.ERROR, -- only show real errors (hides progress too)
+      },
       words = { enabled = false },
       terminal = {
         win = {

@@ -449,6 +449,6 @@ run = [ 'shell -- for path in %s; do echo "file://$path"; done | wl-copy -t text
 desc = "Yank to clip-board"
 
 [[mgr.prepend_keymap]]
-on = [ "g", "r" ]
+on = [ "<Space>", "g", "r" ]
 run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
 desc = "Go to repogitory root"

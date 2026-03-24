@@ -31,7 +31,7 @@
 }
 
 #workspaces button label {
-    font-size: 15px;
+    font-size: 15.1px;
 }
 
 #cpu,
@@ -76,7 +76,7 @@ tooltip {
 }
 
 tooltip label {
-  font-size: 14.5px;
+  font-size: 15px;
 }
 
 #custom-update {

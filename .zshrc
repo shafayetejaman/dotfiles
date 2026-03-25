@@ -186,6 +186,7 @@ function y() {
 # ------------------------------------------
 # Bindings
 bindkey '^H' backward-kill-word
+bindkey '^[[3;5~' backward-kill-word
 bindkey -M vicmd '_' vi-digit-or-beginning-of-line
 autoload -z edit-command-line
 zle -N edit-command-line

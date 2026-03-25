@@ -150,32 +150,29 @@ end, opts)
 map("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
 map("n", "<leader>rp", ":RunProject<CR>", { noremap = true, silent = false })
 
--- 1. Safely remove default mappings
+-- 1. Safely remove default mappings (Your existing logic is fine here)
 pcall(vim.keymap.del, "n", "<C-/>")
 pcall(vim.keymap.del, "t", "<C-/>")
 pcall(vim.keymap.del, "n", "<C-_>")
 pcall(vim.keymap.del, "t", "<C-_>")
 
--- 2. Define a "Smart" Toggle
+-- 2. Define the toggle function
 local function universal_terminal_toggle()
-    -- If we are currently inside a terminal window, just hide it.
     if vim.bo.buftype == "terminal" then
         vim.cmd("hide")
         return
     end
 
-    -- Otherwise, toggle the terminal.
-    -- We pass nil for 'cmd' and omit 'cwd' to tell Snacks
-    -- to toggle the last used/existing terminal instance.
     Snacks.terminal.toggle(nil, {
         win = {
             position = "float",
-            border = "rounded",
             width = 0.9,
             height = 0.9,
         },
     })
 end
 
--- 3. Map to both sequences
-vim.keymap.set({ "n", "t" }, "<C-/>", universal_terminal_toggle, { desc = "Toggle Terminal" })
+-- 3. Map BOTH sequences to ensure it works in all terminals
+
+map({ "n", "t" }, "<C-/>", universal_terminal_toggle, { desc = "Toggle Terminal", silent = true })
+map({ "n", "t" }, "<C-_>", universal_terminal_toggle, { desc = "Toggle Terminal", silent = true })

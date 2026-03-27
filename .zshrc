@@ -33,8 +33,8 @@ export PATH=/home/shafayet/.cargo/bin:$PATH
 # Plugins
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 autoload -U compinit; compinit
-source ~/.somewhere/fzf-tab.plugin.zsh
-source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/fzf-tab-cmp/fzf-tab.plugin.zsh
+source ~/.zsh/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval $(thefuck --alias fk)
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 eval "$(starship init zsh)"

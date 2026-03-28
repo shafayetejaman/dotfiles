@@ -27,7 +27,7 @@
 }
 
 #workspaces button label {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 #workspaces button.empty {
@@ -50,8 +50,8 @@
 
 #tray menu,
 #tray menuitem,
-#tray > widget > menu {
-  opacity: 1.0 ;
+#tray>widget>menu {
+  opacity: 1.0;
   background: #252525;
   border: none;
 }
@@ -84,7 +84,7 @@ tooltip label {
 }
 
 #clock {
-  margin-left: 6px;
+  margin-right: 12px;
 }
 
 .hidden {

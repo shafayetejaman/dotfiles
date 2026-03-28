@@ -12,7 +12,7 @@
 }
 
 .modules-center {
-  margin-right: 18px;
+  margin-right: 16px;
 }
 
 .modules-left {
@@ -85,10 +85,6 @@ tooltip label {
 
 #custom-update {
   font-size: 10px;
-}
-
-#clock {
-  margin-left: 8.75px;
 }
 
 .hidden {

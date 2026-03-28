@@ -83,7 +83,7 @@ keymap = [
 	{ on = ["<Spaee>", "s", "g"],          run = "search --via=rg",             desc = "Search files by content via ripgrep" },
   { on = ["<Space>", "<Space>"],         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
-  { on = "F",         run = "search --via=fd",             desc = "Search files by name via fd" },
+  { on = "f",         run = "search --via=fd",             desc = "Search files by name via fd" },
 	{ on = "s",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
 
 	# Linemode
@@ -101,7 +101,7 @@ keymap = [
 	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
 
 	# Filter
-	{ on = "f", run = "filter --smart", desc = "Filter files" },
+	{ on = "F", run = "filter --smart", desc = "Filter files" },
 
 	# Find
 	{ on = "/", run = "find --smart",            desc = "Find next file" },

@@ -83,7 +83,7 @@ keymap = [
 	{ on = ["<Spaee>", "s", "g"],          run = "search --via=rg",             desc = "Search files by content via ripgrep" },
   { on = ["<Space>", "<Space>"],         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
-  { on = "Z",         run = "search --via=fd",             desc = "Search files by name via fd" },
+  { on = "F",         run = "search --via=fd",             desc = "Search files by name via fd" },
 	{ on = "s",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
 
 	# Linemode
@@ -308,9 +308,9 @@ keymap = [
 	{ on = "P", run = "paste --before",                                    desc = "Paste copied characters before the cursor" },
 
 	# Undo/Redo/Casefy
-	{ on = "u",     run = [ "undo", "casefy lower" ], desc = "Undo, or lowercase if in visual mode" },
+	{ on = "u",           run = [ "undo", "casefy lower" ], desc = "Undo, or lowercase if in visual mode" },
 	{ on = ["g","U"],     run = "casefy upper",             desc = "Uppercase" },
-	{ on = "U", run = "redo",                     desc = "Redo the last operation" },
+	{ on = "U",           run = "redo",                     desc = "Redo the last operation" },
 
 	# Help
 	{ on = "?",    run = "help", desc = "Open help" },

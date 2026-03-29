@@ -22,19 +22,13 @@ fi
 # Change brightness
 case "$1" in
 up | increase)
+
   CURRENT=$((CURRENT + STEP))
-
-  # Show swayosd OSD with current value
-  swayosd-client --brightness "$CURRENT"
-
   ddcutil $BUS setvcp 10 + "$STEP" $PERF_FLAGS
   ;;
 down | decrease)
+
   CURRENT=$((CURRENT - STEP))
-
-  # Show swayosd OSD with current value
-  swayosd-client --brightness "$CURRENT"
-
   ddcutil $BUS setvcp 10 - "$STEP" $PERF_FLAGS
   ;;
 *)
@@ -45,11 +39,13 @@ esac
 
 # Clamp value between 0-100
 if [ "$CURRENT" -lt 0 ]; then
-    CURRENT=0
+  CURRENT=0
 elif [ "$CURRENT" -gt 100 ]; then
-    CURRENT=100
+  CURRENT=100
 fi
 
+# Show swayosd OSD with current value
+swayosd-client --brightness "$CURRENT"
 
 # Save the new brightness to file (after showing OSD)
-echo "$CURRENT" > "$BRIGHTNESS_FILE"
+echo "$CURRENT" >"$BRIGHTNESS_FILE"

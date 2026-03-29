@@ -27,7 +27,7 @@ up | increase)
   # Show swayosd OSD with current value
   swayosd-client --brightness "$CURRENT"
 
-  ddcutil --display "$DISPLAY_NUM" $BUS setvcp 10 + "$STEP" $PERF_FLAGS
+  ddcutil $BUS setvcp 10 + "$STEP" $PERF_FLAGS
   ;;
 down | decrease)
   CURRENT=$((CURRENT - STEP))
@@ -35,7 +35,7 @@ down | decrease)
   # Show swayosd OSD with current value
   swayosd-client --brightness "$CURRENT"
 
-  ddcutil --display "$DISPLAY_NUM" $BUS setvcp 10 - "$STEP" $PERF_FLAGS
+  ddcutil $BUS setvcp 10 - "$STEP" $PERF_FLAGS
   ;;
 *)
   echo "Usage: $0 <up|down|increase|decrease>"

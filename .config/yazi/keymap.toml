@@ -22,6 +22,8 @@ keymap = [
 	{ on = "<C-d>", run = "arrow 50%",   desc = "Move cursor down half page" },
 	{ on = "<C-b>", run = "arrow -100%", desc = "Move cursor up one page" },
 	{ on = "<C-f>", run = "arrow 100%",  desc = "Move cursor down one page" },
+  { on = "<C-n>", run = "shell -- ripdrag %s -x 2>/dev/null &" },
+
 
 	{ on = "<S-PageUp>",   run = "arrow -50%",  desc = "Move cursor up half page" },
 	{ on = "<S-PageDown>", run = "arrow 50%",   desc = "Move cursor down half page" },
@@ -83,7 +85,7 @@ keymap = [
 	{ on = ["<Spaee>", "s", "g"],          run = "search --via=rg",             desc = "Search files by content via ripgrep" },
   { on = ["<Space>", "<Space>"],         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
-  { on = "f",         run = "search --via=fd",             desc = "Search files by name via fd" },
+  { on = "F",         run = "search --via=fd",             desc = "Search files by name via fd" },
 	{ on = "s",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
 
 	# Linemode
@@ -101,7 +103,7 @@ keymap = [
 	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
 
 	# Filter
-	{ on = "F", run = "filter --smart", desc = "Filter files" },
+	{ on = "f", run = "filter --smart", desc = "Filter files" },
 
 	# Find
 	{ on = "/", run = "find --smart",            desc = "Find next file" },
@@ -297,6 +299,7 @@ keymap = [
 
 	# Cut/Yank/Paste
 	{ on = "d", run = "delete --cut",                                      desc = "Cut selected characters" },
+	{ on = "<Delete>", run = "delete --cut",                               desc = "Cut selected characters" },
 	{ on = "D", run = [ "delete --cut", "move eol" ],                      desc = "Cut until EOL" },
 	{ on = "c", run = "delete --cut --insert",                             desc = "Cut selected characters, and enter insert mode" },
 	{ on = "C", run = [ "delete --cut --insert", "move eol" ],             desc = "Cut until EOL, and enter insert mode" },
@@ -351,9 +354,6 @@ keymap = [
 
 	{ on = "<Up>",   run = "arrow prev", desc = "Previous item" },
 	{ on = "<Down>", run = "arrow next", desc = "Next item" },
-
-	{ on = "<C-p>", run = "arrow prev", desc = "Previous item" },
-	{ on = "<C-n>", run = "arrow next", desc = "Next item" },
 
 	# Help
 	{ on = "~",    run = "help", desc = "Open help" },

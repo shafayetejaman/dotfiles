@@ -35,7 +35,7 @@ edit = [
 	{ run = "code -w %s",       desc = "code (block)", for = "windows", block = true },
 ]
 play = [
-  { run = "env QT_SCALE_FACTOR=1.24 QT_AUTO_SCREEN_SCALE_FACTOR=1 haruna %s1", desc = "Play", for = "linux" },
+  { run = "env QT_SCALE_FACTOR=1.25 QT_AUTO_SCREEN_SCALE_FACTOR=1 haruna %s1", desc = "Play", for = "linux" },
 	{ run = "open %s",                     desc = "Play", for = "macos" },
 	{ run = 'start "" %s1', orphan = true, desc = "Play", for = "windows" },
 	{ run = "termux-open %s1",             desc = "Play", for = "android" },

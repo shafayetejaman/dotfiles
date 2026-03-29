@@ -35,5 +35,5 @@ Status:children_add(function()
 		end
 	end
 
-	return ui.Span("  " .. display .. "  "):fg(color)
+	return ui.Span(" " .. display .. ""):fg(color)
 end, 2900, Status.CENTER)

@@ -11,6 +11,10 @@
   font-size: 13.5px;
 }
 
+.modules-center {
+  margin-right: 16px;
+}
+
 .modules-left {
   margin-left: 8px;
 }
@@ -84,7 +88,7 @@ tooltip label {
 }
 
 #clock {
-  margin-right: 12px;
+  margin-right: 4px;
 }
 
 .hidden {

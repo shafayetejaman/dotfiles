@@ -1,7 +1,6 @@
 #!/bin/bash
 # Fast brightness control for Samsung LF22T35 + swayosd with file persistence
 
-DISPLAY_NUM=1
 STEP=5
 BUS="--bus 11"
 BRIGHTNESS_FILE="/home/shafayet/dotfiles/.config/hypr/script/variable"

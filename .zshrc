@@ -68,11 +68,40 @@ alias ff='fzf --preview '\''bat --style=numbers --color=always {}'\'''
 alias ls='eza -lh --group-directories-first --icons=auto'
 alias lsa='ls -a'
 alias lzd='lazydocker'
-alias t='tmux attach || tmux new -s Work'
+alias t='tmux attach || tmux new -s Personal'
 
 
 # ------------------------------------------
 # Functions
+
+
+function work() {
+    local session="Work"
+
+    if tmux has-session -t "$session" 2>/dev/null; then
+        echo "✓ Session '$session' exists. Attaching..."
+        tmux attach -t "$session"
+        return
+    fi
+
+    tmux new-session -d -s "$session" -n "opencode"
+
+    # Window 1: opencode
+    tmux send-keys -t "$session:1" "opencode" C-m
+
+    # Window 2: nvim
+    tmux new-window -t "$session" -n "nvim"
+    tmux send-keys -t "$session:2" "nvim" C-m
+
+    # Window 3: Empty shell
+    tmux new-window -t "$session" -n "shell"
+
+    # Go back to first window
+    tmux select-window -t "$session:1"
+
+    echo "✅ Tmux session '$session' created successfully!"
+    tmux attach-session -t "$session"
+}
 
 function gcm() {
   if [ $# -eq 0 ]; then
@@ -223,6 +252,6 @@ bind_custom_key() {
 # ----------------------- End ----------------------- 
 # --- Create tmux session if not already running  ---
 if [[ -n $PS1 ]] && [[ -z $TMUX ]] && [[ -z $SSH_CONNECTION ]]; then
-    tmux has-session 2>/dev/null || tmux new -s Work
+    tmux has-session 2>/dev/null || tmux new -s Personal
 fi
 

@@ -102,23 +102,15 @@ tooltip label {
   padding-bottom: 1px;
 }
 
-#custom-screenrecording-indicator.active {
-  color: #ff6666;
-}
-
 #custom-voxtype {
   min-width: 12px;
   margin: 0 0 0 7.5px;
 }
 
-#custom-voxtype.recording {
-  color: #ff6666;
-}
-
-#custom-usb {
-  color: #ff6666;
-}
-
+#pulseaudio.source-muted,
+#custom-screenrecording-indicator.active,
+#custom-voxtype.recording,
+#custom-usb,
 #cpu.warning,
 #memory.warning {
   color: #ff6666;

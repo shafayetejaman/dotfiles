@@ -44,7 +44,7 @@
 		"y": 0,
 		"width": 1600,
 		"height": 900,
-		"isMaximized": false
+		"isMaximized": true
 	},
 	"enableAutoHtml5ify": true,
 	"keyBindings": [

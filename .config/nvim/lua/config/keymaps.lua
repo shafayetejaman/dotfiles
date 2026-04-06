@@ -12,7 +12,7 @@ map({ "v" }, "Y", '"+y', opts)
 
 -- Paste from system clipboard
 -- Normal and visual modes
-map({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
+-- map({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
 map({ "n" }, "<tab>", "i<Tab><Esc>", opts)
 
 -- map({ "n" }, "<A-a>", 'ggVG\"+y', opts)

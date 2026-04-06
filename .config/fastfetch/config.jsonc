@@ -1,10 +1,15 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "type": "file",
-    "source": "~/.config/omarchy/branding/about.txt",
+    // "type": "file",
+    // "source": "~/.config/omarchy/branding/about.txt",
+    // "color": {
+    //   "1": "blue"
+    // },
+    "source": "arch",
     "color": {
-      "1": "green"
+      "1": "red",
+      "2": "blue"
     },
     "padding": {
       "top": 2,
@@ -21,39 +26,39 @@
     {
       "type": "host",
       "key": " PC",
-      "keyColor": "green"
+      "keyColor": "red"
     },
     {
       "type": "cpu",
       "key": "│ ├",
       "showPeCoreCount": true,
-      "keyColor": "green"
+      "keyColor": "red"
     },
     {
       "type": "gpu",
       "key": "│ ├",
       "detectionMethod": "pci",
-      "keyColor": "green"
+      "keyColor": "red"
     },
     {
       "type": "display",
       "key": "│ ├󱄄",
-      "keyColor": "green"
+      "keyColor": "red"
     },
     {
       "type": "disk",
       "key": "│ ├󰋊",
-      "keyColor": "green"
+      "keyColor": "red"
     },
     {
       "type": "memory",
       "key": "│ ├",
-      "keyColor": "green"
+      "keyColor": "red"
     },
     {
       "type": "swap",
       "key": "└ └󰓡",
-      "keyColor": "green"
+      "keyColor": "red"
     },
     {
       "type": "custom",

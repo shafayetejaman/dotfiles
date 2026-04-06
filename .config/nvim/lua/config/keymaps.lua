@@ -12,12 +12,12 @@ map({ "v" }, "Y", '"+y', opts)
 
 -- Paste from system clipboard
 -- Normal and visual modes
-map({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
+-- map({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
 map({ "n" }, "<tab>", "i<Tab><Esc>", opts)
 
 -- map({ "n" }, "<A-a>", 'ggVG\"+y', opts)
 vim.keymap.set("n", "<A-a>", function()
-  vim.cmd('%yank +')
+  vim.cmd("%yank +")
   print("Copy file content to clipboard")
 end, { desc = "Yank whole file to + without visual" })
 
@@ -42,11 +42,10 @@ map("n", "<M-S-UP>", "yyP")
 
 unmap("n", "<leader>|")
 
-map("n", "<leader>0", '\"0p', { desc = "Paste from register 0" })
+map("n", "<leader>0", '"0p', { desc = "Paste from register 0" })
 
 map({ "v" }, "<A-S-Down>", ":t '> <CR>gv=gv", opts)
 map({ "n" }, "<A-S-Down>", "yyp", opts)
-
 
 -- map("n", "<leader>r", 'viwy:%s/<C-r>"/', {
 --   desc = "Replace all occurrences of word under cursor",
@@ -56,10 +55,9 @@ map({ "n" }, "<A-S-Down>", "yyp", opts)
 --   desc = "Replace all occurrences of visual selection",
 -- })
 
-map('n', '<leader>z', ':SimpleZoomToggle<CR>', { desc = "Zoom Split" })
+map("n", "<leader>z", ":SimpleZoomToggle<CR>", { desc = "Zoom Split" })
 
-map('i', '<C-H>', '<C-W>', opts)
-
+map("i", "<C-H>", "<C-W>", opts)
 
 map("i", ".", function()
   local cursor = vim.api.nvim_win_get_cursor(0)
@@ -93,7 +91,6 @@ map("i", ".", function()
   end
 end, opts)
 
-
 -- Delete current file and close buffer
 local function delete_current_file()
   local file = vim.fn.expand("%:p") -- full path of current file
@@ -124,24 +121,34 @@ end
 -- Keybinding (choose your own)
 map("n", "<leader>fd", delete_current_file, { desc = "Delete current file" })
 
-
 map({ "n", "v" }, "<leader>ao", "<cmd>CodeCompanionActions<cr>", { desc = "CodeCompanion actions", silent = true })
-map({ "n", "v" }, "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>",
-  { desc = "Toggle CodeCompanion chat", silent = true })
+map(
+  { "n", "v" },
+  "<leader>at",
+  "<cmd>CodeCompanionChat Toggle<cr>",
+  { desc = "Toggle CodeCompanion chat", silent = true }
+)
 map({ "n" }, "<leader>ai", "<cmd>:CodeCompanion<cr>", { desc = "CodeCompanion inline", silent = true })
 map({ "v" }, "<leader>ai", "<cmd>:'<,'>CodeCompanion<cr>", { desc = "CodeCompanion visual", silent = true })
 map("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { desc = "Add to CodeCompanion chat", silent = true })
 
 local delta = 5 -- change this to how many lines/columns per press
 
-map("n", "<C-Up>", function() vim.cmd("resize -" .. delta) end, opts)
-map("n", "<C-Down>", function() vim.cmd("resize +" .. delta) end, opts)
-map("n", "<C-Left>", function() vim.cmd("vertical resize +" .. delta) end, opts)
-map("n", "<C-Right>", function() vim.cmd("vertical resize -" .. delta) end, opts)
+map("n", "<C-Up>", function()
+  vim.cmd("resize -" .. delta)
+end, opts)
+map("n", "<C-Down>", function()
+  vim.cmd("resize +" .. delta)
+end, opts)
+map("n", "<C-Left>", function()
+  vim.cmd("vertical resize +" .. delta)
+end, opts)
+map("n", "<C-Right>", function()
+  vim.cmd("vertical resize -" .. delta)
+end, opts)
 
-
-map('n', '<leader>rf', ':RunFile<CR>', { noremap = true, silent = false })
-map('n', '<leader>rp', ':RunProject<CR>', { noremap = true, silent = false })
+map("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
+map("n", "<leader>rp", ":RunProject<CR>", { noremap = true, silent = false })
 
 -- 1. Safely remove default mappings
 pcall(vim.keymap.del, "n", "<C-/>")

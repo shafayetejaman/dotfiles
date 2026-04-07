@@ -456,10 +456,10 @@ desc = "Go to repogitory root"
 # keymap.toml
 [[mgr.prepend_keymap]]
 on   = "="
-run  = "plugin zoom 1"
+run  = "plugin zoom 2"
 desc = "Zoom in hovered file"
 
 [[mgr.prepend_keymap]]
 on   = "-"
-run  = "plugin zoom -1"
+run  = "plugin zoom -2"
 desc = "Zoom out hovered file"

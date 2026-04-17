@@ -82,7 +82,7 @@
     }
   },
   "clock": {
-    "format": "{:%a %I:%M %p}",
+    "format": "{:%A %I:%M %p}",
     "tooltip-format": "{:L%d %B %Y}",
     "on-click": "gsimplecal --close-on-unfocus",
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"

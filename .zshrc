@@ -91,7 +91,7 @@ function work() {
 
     # Window 2: nvim
     tmux new-window -t "$session" -n "nvim"
-    tmux send-keys -t "$session:2" "nvim" C-m
+    tmux send-keys -t "$session:2" "nvim ." C-m
 
     # Window 3: Empty shell
     tmux new-window -t "$session" -n "shell"

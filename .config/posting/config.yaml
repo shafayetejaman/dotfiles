@@ -1,0 +1,8 @@
+theme: catppuccin-macchiato
+layout: horizontal
+response:
+  prettify_json: false
+heading:
+  visible: true
+  show_host: false
+

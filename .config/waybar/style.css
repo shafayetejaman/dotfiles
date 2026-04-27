@@ -7,12 +7,12 @@
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: 'FiraCode Nerd Font';
+  font-family: "FiraCode Nerd Font";
   font-size: 13.5px;
 }
 
 .modules-center {
-  margin-right: 18px;
+  margin-right: 16px;
 }
 
 .modules-left {
@@ -35,7 +35,7 @@
 }
 
 #workspaces button label {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 #cpu,
@@ -55,7 +55,7 @@
 #tray menu,
 #tray menuitem,
 #tray > widget > menu {
-  opacity: 1.0 ;
+  opacity: 1;
   background: #252525;
   border: none;
 }

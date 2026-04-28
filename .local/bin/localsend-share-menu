@@ -1,0 +1,24 @@
+#!/bin/bash
+# Custom Share Menu - uses your local version of omarchy-cmd-share
+
+menu() {
+    echo -e "  Clipboard\n  File\n  Folder" | \
+    omarchy-launch-walker --dmenu --width 280 --minheight 1 --maxheight 300 -p "Share…"
+}
+
+case $(menu) in
+    *Clipboard*)
+        localsend-cmd-share clipboard
+        ;;
+    *File*)
+        # Run in terminal so you can select file
+        xdg-terminal-exec --app-id=org.omarchy.terminal bash -c "localsend-cmd-share file"
+        ;;
+    *Folder*)
+        xdg-terminal-exec --app-id=org.omarchy.terminal bash -c "localsend-cmd-share folder"
+        ;;
+    *)
+        exit 0
+        ;;
+esac
+

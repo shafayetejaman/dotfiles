@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Launch editor inside tmux session "note"
+# - re-uses existing session if it exists
+# - creates it if missing
+# - works nicely with nvim/vim/helix etc.
+
+omarchy-cmd-present "$EDITOR" || EDITOR=nvim
+
+# ─── TMUX SESSION LOGIC ──────────────────────────────────────────────
+
+SESSION="note"
+
+# Check if session exists
+if tmux has-session -t "$SESSION" 2>/dev/null; then
+    # Session exists → attach (or create new window if already attached somewhere)
+    if [ -n "$TMUX" ]; then
+        # Already inside tmux → create new window in the "note" session
+        tmux new-window -t "$SESSION:" -n "${1:-note}" "$EDITOR" "$@"
+    else
+        # Not inside tmux → just attach
+        exec tmux attach-session -t "$SESSION"
+    fi
+else
+    # Session doesn't exist → create it with the editor running
+    exec tmux new-session -s "$SESSION" -n "${1:-note}" "$EDITOR" "$@"
+fi

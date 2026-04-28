@@ -27,7 +27,6 @@ fi
 # export MOZ_ENABLE_WAYLAND=1
 export EDITOR=nvim
 export VISUAL=nvim
-export PATH=/home/shafayet/.cargo/bin:$PATH
 
 # ------------------------------------------
 # Plugins
@@ -45,6 +44,7 @@ eval "$(zoxide init zsh)"
 # ------------------------------------------
 # Aliases
 alias reload="source ~/.zshrc"
+alias unshutdown="sudo pkill python3 && shutdown -c"
 alias vi="nvim"
 alias vim="nvim"
 alias nano="nvim"

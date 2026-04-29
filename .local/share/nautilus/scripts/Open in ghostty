@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-ghostty --working-directory="$PWD"
+ghostty --working-directory="$PWD" --command=zsh

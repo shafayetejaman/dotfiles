@@ -23,7 +23,7 @@ local settings = {
 	key_unselectfile = "M",
 	key_playfile = "ENTER l",
 	key_removefile = "BS",
-	key_closeplaylist = "ESC SHIFT+ENTER",
+	key_closeplaylist = "ESC p",
 
 	-- extra functionality keys
 	key_sortplaylist = "",

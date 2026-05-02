@@ -18,31 +18,37 @@ return {
     },
     event = { "InsertEnter", "CmdlineEnter" },
     opts = {
+      highlights = {
+        BlinkCmpLabelMatch = { link = "None" }, -- remove match highlight
+        -- BlinkCmpLabelMatch = { fg = "#ffffff", bg = "NONE", bold = true }, -- or customize
+        BlinkCmpGhostText = { link = "Comment" }, -- make ghost text dimmer
+      },
       enabled = function()
         return not vim.tbl_contains({ "lua", "markdown" }, vim.bo.filetype)
       end,
 
-
       completion = {
-        keyword = { range = 'full' },
+        keyword = { range = "full" },
         accept = { auto_brackets = { enabled = true } },
 
         list = {
           selection = {
-            preselect = function(ctx) return vim.bo.filetype ~= 'markdown' end,
+            preselect = function(ctx)
+              return vim.bo.filetype ~= "markdown"
+            end,
             auto_insert = true,
-          }
+          },
         },
 
         menu = {
           auto_show = false,
           draw = {
             columns = {
-              { "label",     "label_description", gap = 1 },
-              { "kind_icon", "kind" }
+              { "label", "label_description", gap = 1 },
+              { "kind_icon", "kind" },
             },
             treesitter = { "lsp" },
-          }
+          },
         },
 
         documentation = { auto_show = true, auto_show_delay_ms = 800 },
@@ -55,13 +61,13 @@ return {
         },
       },
 
-      snippets = { preset = 'default' },
+      snippets = { preset = "default" },
 
       signature = {
         enabled = true,
         trigger = {
           enabled = false,
-        }
+        },
       },
 
       keymap = {
@@ -132,7 +138,6 @@ return {
           -- Shift-Tab: cycle previous
           ["<S-Tab>"] = { "select_prev", "fallback" },
           ["<C-k>"] = { "select_prev", "fallback" },
-
         },
       },
     },

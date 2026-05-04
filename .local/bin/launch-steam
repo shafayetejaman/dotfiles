@@ -1,0 +1,9 @@
+#!/bin/bash
+MOUNT_POINT="/mnt/HDD"
+
+if mountpoint -q "$MOUNT_POINT"; then
+  notify-send -t 8000 "Please Wait 8 seconds" &
+  exec /usr/bin/steam "$@"
+else
+  notify-send "HDD not found" "Mount /mnt/HDD first"
+fi

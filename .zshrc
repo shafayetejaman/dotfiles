@@ -27,7 +27,6 @@ fi
 # export MOZ_ENABLE_WAYLAND=1
 export EDITOR=nvim
 export VISUAL=nvim
-export PATH="$HOME/.cargo/bin:$PATH"
 
 # ------------------------------------------
 # Plugins
@@ -45,7 +44,7 @@ eval "$(zoxide init zsh)"
 # ------------------------------------------
 # Aliases
 alias reload="source ~/.zshrc"
-alias unshutdown="sudo pkill python3 && shutdown -c"
+alias unshutdown="sudo pkill python3; sudo shutdown -c"
 alias vi="nvim"
 alias vim="nvim"
 alias nano="nvim"
@@ -255,4 +254,3 @@ bind_custom_key() {
 if [[ -n $PS1 ]] && [[ -z $TMUX ]] && [[ -z $SSH_CONNECTION ]]; then
     tmux has-session 2>/dev/null || tmux new -s Personal
 fi
-

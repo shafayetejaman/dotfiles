@@ -1,32 +1,29 @@
 #!/bin/bash
-# Fast brightness control for Samsung LF22T35 + swayosd with file persistence
+# Fast brightness control for Samsung LF22T35 + swayosd
 
 STEP=5
 BUS="--bus 11"
-BRIGHTNESS_FILE="/home/shafayet/dotfiles/.config/hypr/script/variable"
 
 PERF_FLAGS="--noverify --sleep-multiplier 0.1 --disable-dynamic-sleep"
 
-# Load saved brightness from file (default 25 if file doesn't exist or is invalid)
-if [ -f "$BRIGHTNESS_FILE" ]; then
-  CURRENT=$(cat "$BRIGHTNESS_FILE" 2>/dev/null | tr -dc '0-9')
-  if [ -z "$CURRENT" ] || [ "$CURRENT" -lt 0 ] || [ "$CURRENT" -gt 100 ]; then
-    CURRENT=25
-  fi
-else
+# Get current brightness from monitor
+CURRENT=$(ddcutil $BUS getvcp 10 $PERF_FLAGS 2>/dev/null |
+  grep -oP 'current value\s*=\s*\K\d+' ||
+  grep -oP 'cur_val=\K\d+' ||
+  sed -n 's/.*current value\s*=\s*\([0-9]\+\).*/\1/p' ||
+  echo 25)
+
+if [ -z "$CURRENT" ]; then
   CURRENT=25
-  mkdir -p "$(dirname "$BRIGHTNESS_FILE")"
 fi
 
 # Change brightness
 case "$1" in
 up | increase)
-
   CURRENT=$((CURRENT + STEP))
   ddcutil $BUS setvcp 10 + "$STEP" $PERF_FLAGS
   ;;
 down | decrease)
-
   CURRENT=$((CURRENT - STEP))
   ddcutil $BUS setvcp 10 - "$STEP" $PERF_FLAGS
   ;;
@@ -45,6 +42,3 @@ fi
 
 # Show swayosd OSD with current value
 swayosd-client --brightness "$CURRENT"
-
-# Save the new brightness to file (after showing OSD)
-echo "$CURRENT" >"$BRIGHTNESS_FILE"

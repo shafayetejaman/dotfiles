@@ -8,37 +8,37 @@ PERF_FLAGS="--noverify --sleep-multiplier 0.1 --disable-dynamic-sleep"
 
 # Get current brightness from monitor
 CURRENT=$(ddcutil $BUS getvcp 10 $PERF_FLAGS 2>/dev/null |
-  grep -oP 'current value\s*=\s*\K\d+' ||
-  grep -oP 'cur_val=\K\d+' ||
-  sed -n 's/.*current value\s*=\s*\([0-9]\+\).*/\1/p' ||
-  echo 25)
+    grep -oP 'current value\s*=\s*\K\d+' ||
+    grep -oP 'cur_val=\K\d+' ||
+    sed -n 's/.*current value\s*=\s*\([0-9]\+\).*/\1/p' ||
+    echo 25)
 
 if [ -z "$CURRENT" ]; then
-  CURRENT=25
+    CURRENT=25
 fi
 
 # Change brightness
 case "$1" in
 up | increase)
-  CURRENT=$((CURRENT + STEP))
-  ddcutil $BUS setvcp 10 + "$STEP" $PERF_FLAGS
-  ;;
+    CURRENT=$((CURRENT + STEP))
+    ddcutil $BUS setvcp 10 + "$STEP" $PERF_FLAGS
+    ;;
 down | decrease)
-  CURRENT=$((CURRENT - STEP))
-  ddcutil $BUS setvcp 10 - "$STEP" $PERF_FLAGS
-  ;;
+    CURRENT=$((CURRENT - STEP))
+    ddcutil $BUS setvcp 10 - "$STEP" $PERF_FLAGS
+    ;;
 *)
-  echo "Usage: $0 <up|down|increase|decrease>"
-  exit 1
-  ;;
+    echo "Usage: $0 <up|down|increase|decrease>"
+    exit 1
+    ;;
 esac
 
 # Clamp value between 0-100
 if [ "$CURRENT" -lt 0 ]; then
-  CURRENT=0
+    CURRENT=0
 elif [ "$CURRENT" -gt 100 ]; then
-  CURRENT=100
+    CURRENT=100
 fi
 
 # Show swayosd OSD with current value
-swayosd-client --brightness "$CURRENT"
+swayosd-client --min-brightness 1 --brightness "$CURRENT"

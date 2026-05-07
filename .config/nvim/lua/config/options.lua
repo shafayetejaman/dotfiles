@@ -4,6 +4,10 @@
 vim.opt.relativenumber = true
 vim.opt.clipboard = ""
 vim.opt.list = false
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true -- spaces or false for real tabs
 
 -- ~/.config/nvim/lua/config/lazy.lua
 vim.api.nvim_set_hl(0, "MiniCursorword", {})

@@ -75,7 +75,7 @@ alias t='tmux attach || tmux new -s Personal'
 # Functions
 
 function work() {
-    local session="Work"
+    local session="${1:-$(basename "$PWD")}"
 
     if tmux has-session -t "$session" 2>/dev/null; then
         echo "✓ Session '$session' exists. Attaching..."
@@ -99,6 +99,11 @@ function work() {
     tmux select-window -t "$session:1"
 
     echo "✅ Tmux session '$session' created successfully!"
+
+    if [[ -n $TMUX ]]; then
+        tmux switch-client -t "$session" 
+        return
+    fi
     tmux attach-session -t "$session"
 }
 

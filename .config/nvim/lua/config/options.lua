@@ -14,18 +14,23 @@ vim.opt.shortmess:append("I") -- disables intro/startup messages
 vim.cmd("silent! messages clear")
 vim.o.shell = "zsh"
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true -- spaces or false for real tabs
+
 -- Always use OSC 52 for the + and * clipboards if it is available. Fixes problems, when you open Neovim on a remote server from a local tmux session.
-local has_osc52, osc52 = pcall(require, 'vim.ui.clipboard.osc52')
+local has_osc52, osc52 = pcall(require, "vim.ui.clipboard.osc52")
 if has_osc52 then
   vim.g.clipboard = {
-    name = 'OSC 52',
+    name = "OSC 52",
     copy = {
-      ['+'] = osc52.copy('+'),
-      ['*'] = osc52.copy('*'),
+      ["+"] = osc52.copy("+"),
+      ["*"] = osc52.copy("*"),
     },
     paste = {
-      ['+'] = osc52.paste('+'),
-      ['*'] = osc52.paste('*'),
+      ["+"] = osc52.paste("+"),
+      ["*"] = osc52.paste("*"),
     },
   }
 end

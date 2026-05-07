@@ -81,6 +81,9 @@ return {
         ["<S-Tab>"] = { "select_prev", "fallback" },
         ["<C-k>"] = { "select_prev", "fallback" },
 
+        ["<C-n>"] = { "snippet_forward", "fallback" },
+        ["<C-p>"] = { "snippet_backward", "fallback" },
+
         -- Enter: accept ghost text / selected item
         ["<CR>"] = { "accept", "fallback" },
 

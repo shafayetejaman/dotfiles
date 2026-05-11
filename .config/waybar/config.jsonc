@@ -1,3 +1,4 @@
+// prettier-ignore
 {
   "reload_style_on_change": true,
   "layer": "top",
@@ -109,7 +110,7 @@
     "tooltip-format-wifi": "{essid} ({frequency} GHz)\n\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-ethernet": "Connected",
     "tooltip-format-disconnected": "Disconnected",
-    "interval": 3,
+    "interval": 4,
     "spacing": 1,
     "on-click": "omarchy-launch-wifi"
   },

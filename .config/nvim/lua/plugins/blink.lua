@@ -18,11 +18,6 @@ return {
     },
     event = { "InsertEnter", "CmdlineEnter" },
     opts = {
-      highlights = {
-        BlinkCmpLabelMatch = { link = "None" }, -- remove match highlight
-        -- BlinkCmpLabelMatch = { fg = "#ffffff", bg = "NONE", bold = true }, -- or customize
-        BlinkCmpGhostText = { link = "Comment" }, -- make ghost text dimmer
-      },
       enabled = function()
         return not vim.tbl_contains({ "lua", "markdown" }, vim.bo.filetype)
       end,

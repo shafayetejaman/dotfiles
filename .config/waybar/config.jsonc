@@ -1,3 +1,4 @@
+// pretter-ignore
 {
   "reload_style_on_change": true,
   "layer": "top",
@@ -10,14 +11,14 @@
     // "custom/update",
     "custom/voxtype",
     "custom/screenrecording-indicator",
-    "custom/usb",
+    "custom/usb"
   ],
   "modules-right": [
     "group/tray-expander",
     "network",
     "pulseaudio",
     "cpu",
-    "memory",
+    "memory"
     // "battery"
   ],
   "hyprland/workspaces": {
@@ -35,22 +36,22 @@
       "8": "8",
       "9": "9",
       "10": "0",
-      "active": "󱓻",
+      "active": "󱓻"
     },
     "persistent-workspaces": {
       "1": [],
       "2": [],
       "3": [],
       "4": [],
-      "5": [],
-    },
+      "5": []
+    }
   },
   "custom/omarchy": {
     // "format": "<span font='omarchy'>\ue900</span>",
     "format": "<span font='omarchy'></span>",
     "on-click": "omarchy-menu",
     "on-click-right": "xdg-terminal-exec",
-    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space",
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
   },
   // "custom/update": {
   //   "format": "",
@@ -66,8 +67,8 @@
     "on-click": "omarchy-launch-or-focus-tui btop -p 1",
     "on-click-right": "alacritty",
     "states": {
-      "warning": 80,
-    },
+      "warning": 80
+    }
   },
   "memory": {
     "interval": 5,
@@ -75,21 +76,21 @@
     "on-click": "omarchy-launch-or-focus-tui btop -p 2",
     "tooltip-format": "Used: {used}/{total} GB",
     "states": {
-      "warning": 80,
-    },
+      "warning": 80
+    }
   },
   "clock": {
     "format": "{:%A %I:%M %p}",
     "tooltip-format": "{:L%d %B %Y}",
     "on-click": "gsimplecal --close-on-unfocus",
-    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
   },
   "custom/usb": {
     "format": " {}",
     "exec": "~/.config/waybar/scripts/usb-waybar.sh",
     "interval": 4,
     "on-click": "~/.config/waybar/scripts/eject-usb.sh",
-    "tooltip-format": "Eject",
+    "tooltip-format": "Eject"
   },
   "network": {
     "interface": "enp2s0",
@@ -103,7 +104,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 4,
     "spacing": 1,
-    "on-click": "omarchy-launch-wifi",
+    "on-click": "omarchy-launch-wifi"
   },
   // "battery": {
   //   "format": "{capacity}% {icon}",
@@ -155,7 +156,7 @@
     "format-connected": "󰂱",
     "format-no-controller": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "omarchy-launch-bluetooth",
+    "on-click": "omarchy-launch-bluetooth"
   },
   "pulseaudio": {
     "format": "{volume}% {icon}{format_source}",
@@ -170,26 +171,26 @@
     "format-muted": " ",
     "format-icons": {
       "headphone": "",
-      "default": ["", "", " "],
-    },
+      "default": ["", "", " "]
+    }
   },
   "group/tray-expander": {
     "orientation": "inherit",
     "drawer": {
       "transition-duration": 300,
-      "children-class": "tray-group-item",
+      "children-class": "tray-group-item"
     },
-    "modules": ["custom/expand-icon", "tray", "bluetooth"],
+    "modules": ["custom/expand-icon", "tray", "bluetooth"]
   },
   "custom/expand-icon": {
     "format": "",
-    "tooltip": false,
+    "tooltip": false
   },
   "custom/screenrecording-indicator": {
     "on-click": "omarchy-capture-screenrecording",
     "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
     "signal": 8,
-    "return-type": "json",
+    "return-type": "json"
   },
   "custom/voxtype": {
     "exec": "omarchy-voxtype-status",
@@ -198,14 +199,14 @@
     "format-icons": {
       "idle": "",
       "recording": "󰍬",
-      "transcribing": "󰔟",
+      "transcribing": "󰔟"
     },
     "tooltip": true,
     "on-click-right": "omarchy-voxtype-config",
-    "on-click": "omarchy-voxtype-model",
+    "on-click": "omarchy-voxtype-model"
   },
   "tray": {
     "icon-size": 14,
-    "spacing": 17,
-  },
+    "spacing": 17
+  }
 }

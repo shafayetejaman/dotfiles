@@ -42,3 +42,5 @@
 	cmd = code --wait $MERGED
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
+[http]
+	version = HTTP/1.1

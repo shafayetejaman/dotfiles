@@ -54,20 +54,8 @@ alias python="python3.13"
 alias cat="bat"
 alias sudo='sudo '
 alias ch='cht.sh'
-alias grep="rg"
-alias find="fd"
 alias zed="zeditor"
-alias python=python3
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias c='opencode'
-alias cd='z'
-alias eff='$EDITOR $(ff)'
-alias ff='fzf --preview '\''bat --style=numbers --color=always {}'\'''
-alias ls='eza -lh --group-directories-first --icons=auto'
-alias lsa='ls -a'
-alias lzd='lazydocker'
+alias python='python3'
 alias t='tmux attach || tmux new -s Personal'
 
 

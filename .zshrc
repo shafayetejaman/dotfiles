@@ -57,6 +57,7 @@ alias ch='cht.sh'
 alias zed="zeditor"
 alias python='python3'
 alias t='tmux attach || tmux new -s Personal'
+alias mkdir="mkdir -p"
 
 
 # ------------------------------------------

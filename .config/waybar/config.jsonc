@@ -142,7 +142,7 @@
   //   "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
   //   "interval": 5,
   //   "on-click": "omarchy-menu power",
-  "on-click-right": "notify-send -u low \"$(omarchy-battery-status)\"",
+  // "on-click-right": "notify-send -u low \"$(omarchy-battery-status)\"",
   //   "states": {
   //     "full": 100,
   //     "warning": 30,

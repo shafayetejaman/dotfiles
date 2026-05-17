@@ -4,7 +4,7 @@
   "layer": "top",
   "position": "top",
   "spacing": 0,
-  "height": 21,
+  "height": 20,
   "modules-left": ["custom/omarchy", "hyprland/workspaces"],
   "modules-center": [
     "clock",
@@ -80,7 +80,7 @@
     }
   },
   "clock": {
-    "format": "{:%A %I:%M %p}",
+    "format": "{:%a %I:%M %p}",
     "tooltip-format": "{:L%d %B %Y}",
     "on-click": "gsimplecal --close-on-unfocus",
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"

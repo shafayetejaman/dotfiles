@@ -85,7 +85,7 @@
   "clock": {
     "format": "{:%a %I:%M %p}",
     "tooltip-format": "{:L%d %B %Y}",
-    "on-click": "gsimplecal --close-on-unfocus",
+    "on-click": "GDK_DPI_SCALE=1.4 gsimplecal",
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
   },
   "custom/usb": {

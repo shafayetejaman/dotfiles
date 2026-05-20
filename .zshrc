@@ -60,7 +60,7 @@ alias zed="zeditor"
 alias python='python3'
 alias t='tmux attach || tmux new -s Personal'
 alias mkdir="mkdir -p"
-
+alias lst="eza --tree --level 4 --all"
 
 # ------------------------------------------
 # Functions

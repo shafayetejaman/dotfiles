@@ -16,6 +16,7 @@ fd_flags = [
 ignored_dirs = [
   "$HOME/.cache",
   "$HOME/.config",
+  "$HOME/Documents/workspace",
   "/mnt/HDD/Downloads/Video/Captures/New folder",
   "/mnt/HDD/Downloads/Documents/WindowsPowerShell",
   "/mnt/HDD/Software/Customization/TrafficMonitor"

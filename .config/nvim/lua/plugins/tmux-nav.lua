@@ -13,6 +13,6 @@ return {
     { "<M-j>", "<cmd>TmuxNavigateDown<cr>" },
     { "<M-k>", "<cmd>TmuxNavigateUp<cr>" },
     { "<M-l>", "<cmd>TmuxNavigateRight<cr>" },
-    { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    { "<M-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
   },
 }

@@ -15,11 +15,11 @@ map({ "v" }, "Y", '"+y', opts)
 -- map({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
 map({ "n" }, "<tab>", "i<Tab><Esc>", opts)
 
--- map("n", "<A-a>", function()
+-- map("n", "<M-a>", function()
 --   vim.cmd("%yank +")
 --   print("Copy file content to clipboard")
 -- end, { desc = "Yank whole file to + without visual" })
-map("n", "<A-a>", ":normal! ggVG<CR>", { desc = "Select whole file" })
+map("n", "<M-a>", ":normal! ggVG<CR>", { desc = "Select whole file" })
 
 map("n", "<leader>cc", function()
   vim.fn.setreg("+", vim.fn.expand("%:p")) -- + register = system clipboard
@@ -44,8 +44,8 @@ unmap("n", "<leader>|")
 
 map("n", "<leader>0", '"0p', { desc = "Paste from register 0" })
 
-map({ "v" }, "<A-S-Down>", ":t '> <CR>gv=gv", opts)
-map({ "n" }, "<A-S-Down>", "yyp", opts)
+map({ "v" }, "<M-S-Down>", ":t '> <CR>gv=gv", opts)
+map({ "n" }, "<M-S-Down>", "yyp", opts)
 
 -- map("n", "<leader>r", 'viwy:%s/<C-r>"/', {
 --   desc = "Replace all occurrences of word under cursor",
@@ -178,4 +178,11 @@ local function universal_terminal_toggle()
 end
 
 -- 3. Map to both sequences
-vim.keymap.set({ "n", "t" }, "<C-/>", universal_terminal_toggle, { desc = "Toggle Terminal" })
+map({ "n", "t" }, "<C-/>", universal_terminal_toggle, { desc = "Toggle Terminal" })
+
+map("n", "<C-M-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<C-M-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+
+map("n", "<F2>", function()
+  Snacks.rename.rename_file()
+end, { desc = "Rename File" })

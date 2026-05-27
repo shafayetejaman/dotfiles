@@ -1,0 +1,8 @@
+#!/bin/bash
+WINDOW_PROP=$(hyprctl activewindow -j | jq -r '.class')
+
+if [ "$WINDOW_PROP" = "com.mitchellh.ghostty" ]; then
+    hyprctl dispatch sendshortcut "ALT, A, class:^(com\.mitchellh\.ghostty)$"
+else
+    hyprctl dispatch sendshortcut "CTRL, A, activewindow"
+fi

@@ -16,7 +16,7 @@ map({ "v" }, "Y", '"+y', opts)
 map({ "n" }, "<tab>", "i<Tab><Esc>", opts)
 
 -- map({ "n" }, "<A-a>", 'ggVG\"+y', opts)
-vim.keymap.set("n", "<A-a>", function()
+map("n", "<A-a>", function()
   vim.cmd("%yank +")
   print("Copy file content to clipboard")
 end, { desc = "Yank whole file to + without visual" })

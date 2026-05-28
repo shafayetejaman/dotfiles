@@ -1,0 +1,3 @@
+#!/bin/sh
+# Dummy fcitx5 binary to prevent uwsm autostart alerts
+exit 0

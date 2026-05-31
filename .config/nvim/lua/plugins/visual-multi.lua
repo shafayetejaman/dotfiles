@@ -10,7 +10,7 @@ return {
             ["Find Subword Under"] = "<C-d>",
             ["Skip Region"] = "<C-k>",
             ["Remove Region"] = "q",
-            ["Select All"] = "<C-l>",
+            ["Select All"] = "<A-l>",
             ["Add Cursor Down"] = "<S-Down>",
             ["Add Cursor Up"] = "<S-Up>",
             ["Undo"] = "<C-z>",

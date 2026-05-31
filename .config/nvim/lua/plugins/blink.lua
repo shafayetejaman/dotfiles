@@ -71,10 +71,12 @@ return {
         -- Tab: cycle next, accept if nothing else
         ["<Tab>"] = { "select_next", "accept", "fallback" },
         ["<Down>"] = { "select_next", "fallback" },
+        ["<C-j>"] = { "select_next", "fallback" },
 
         -- Shift-Tab: cycle previous
         ["<S-Tab>"] = { "select_prev", "fallback" },
         ["<Up>"] = { "select_prev", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback" },
 
         ["<C-n>"] = { "snippet_forward", "fallback" },
         ["<C-p>"] = { "snippet_backward", "fallback" },
@@ -132,10 +134,12 @@ return {
           -- Tab: cycle next, accept if nothing else
           ["<Tab>"] = { "select_next", "accept", "fallback" },
           ["<Down>"] = { "select_next", "fallback" },
+          ["<C-j>"] = { "select_next", "fallback" },
 
           -- Shift-Tab: cycle previous
           ["<S-Tab>"] = { "select_prev", "fallback" },
           ["<Up>"] = { "select_prev", "fallback" },
+          ["<C-k>"] = { "select_prev", "fallback" },
         },
       },
     },

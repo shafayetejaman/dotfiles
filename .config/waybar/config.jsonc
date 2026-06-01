@@ -107,7 +107,7 @@
     "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
     "format-disconnected": "󰤮",
-    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz) {signalStrength}%\n\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-ethernet": "Connected",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 4,

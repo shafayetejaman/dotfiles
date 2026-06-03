@@ -22,7 +22,7 @@ keymap = [
 	{ on = "<C-d>", run = "arrow 50%",   desc = "Move cursor down half page" },
 	{ on = "<C-b>", run = "arrow -100%", desc = "Move cursor up one page" },
 	{ on = "<C-f>", run = "arrow 100%",  desc = "Move cursor down one page" },
-  { on = "<C-n>", run = "shell -- ripdrag %s -x 2>/dev/null &" },
+    { on = "<C-o>", run = "shell -- ripdrag %s -x 2>/dev/null &" },
 
 
 	{ on = "<S-PageUp>",   run = "arrow -50%",  desc = "Move cursor up half page" },

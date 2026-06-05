@@ -7,6 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
   "edit_predictions": {
     "mode": "subtle",
   },
@@ -27,6 +35,7 @@
     },
   },
   "project_panel": {
+    "dock": "left",
     "default_width": 400,
     "hide_root": true,
     "auto_fold_dirs": false,
@@ -43,6 +52,7 @@
     "enabled": false,
   },
   "outline_panel": {
+    "dock": "left",
     "default_width": 300,
     "indent_guides": {
       "show": "never",
@@ -53,6 +63,7 @@
     "show_user_menu": false,
   },
   "git_panel": {
+    "dock": "left",
     "tree_view": false,
   },
   "lsp_highlight_debounce": 9999999999,

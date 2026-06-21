@@ -1,7 +1,9 @@
 {
 	"version": 2,
-	"lastAppVersion": "3.68.0",
+	"lastAppVersion": "3.69.0",
 	"captureFormat": "jpeg",
+	"enableCustomOutDir": false,
+	"recentCustomOutDirs": [],
 	"keyframeCut": true,
 	"autoMerge": true,
 	"autoDeleteMergedSegments": true,
@@ -44,7 +46,7 @@
 		"y": 0,
 		"width": 1600,
 		"height": 900,
-		"isMaximized": true
+		"isMaximized": false
 	},
 	"enableAutoHtml5ify": true,
 	"keyBindings": [
@@ -347,5 +349,6 @@
 	"thumbnailsEnabled": false,
 	"keyframesEnabled": true,
 	"reducedMotion": "user",
+	"ffmpegHwaccel": "none",
 	"enableAskForImportChapters": true
 }

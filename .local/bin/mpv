@@ -1,0 +1,6 @@
+#!/bin/bash
+# Wrapper for mpv that joins all args as a single filename with spaces.
+# This lets you do: mpv some file.mp4
+# instead of:      mpv 'some file.mp4'
+# Limitation: only works for a single file (no mixing flags + multiple files).
+exec /usr/bin/mpv -- "$*"

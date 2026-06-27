@@ -1,5 +1,5 @@
 #!/bin/bash
 status=$(cat /sys/class/power_supply/BAT0/status)
 if [ "$status" = "Discharging" ]; then
-    notify-send -t 10000 "Battery is not plugged in"
+    notify-send -t 10000 "   Battery is not plugged in"
 fi

@@ -34,3 +34,8 @@ keybind = super+control+shift+alt+arrow_right=resize_split:right,100
 
 # Slowdown mouse scrolling
 mouse-scroll-multiplier = 0.95
+
+# >>> ghostty-cursor-shaders >>>
+custom-shader-animation = true
+custom-shader = shaders/cursor_smear_gradient.glsl
+# <<< ghostty-cursor-shaders <<<

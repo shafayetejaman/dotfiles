@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FILE="/home/shafayet/Documents/workspace/CLI-projects/shutdownTimer/DB.json"
+FILE="/home/shafayet/Work/shutdownTimer/DB.json"
 MAX_UPTIME=10800
 
 if [[ ! -f "$FILE" ]]; then
@@ -9,15 +9,18 @@ if [[ ! -f "$FILE" ]]; then
 fi
 
 uptime=$(jq -r '.upTime // 0' "$FILE" 2>/dev/null)
-[[ ! "$uptime" =~ ^[0-9]+$ ]] && { echo "bad json"; exit 0; }
+[[ ! "$uptime" =~ ^[0-9]+$ ]] && {
+    echo "bad json"
+    exit 0
+}
 
 remain=$((MAX_UPTIME - uptime))
 
-if (( remain <= 0 )); then
+if ((remain <= 0)); then
     echo "overdue"
-elif (( remain < 300 )); then
+elif ((remain < 300)); then
     # optional: make it more visible when critical
-    echo -e "\e[31m$(printf "%02d:%02d" $((remain/3600)) $(((remain%3600)/60)))\e[0m"
+    echo -e "\e[31m$(printf "%02d:%02d" $((remain / 3600)) $(((remain % 3600) / 60)))\e[0m"
 else
-    printf "%02d:%02d" $((remain/3600)) $(((remain%3600)/60))
+    printf "%02d:%02d" $((remain / 3600)) $(((remain % 3600) / 60))
 fi

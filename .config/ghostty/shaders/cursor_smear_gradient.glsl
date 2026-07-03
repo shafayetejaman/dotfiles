@@ -110,7 +110,7 @@ vec3 gradientColor(float factor) {
 }
 
 // Trail animation duration in seconds
-const float DURATION = 0.25;
+const float DURATION = 0.20;
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // Calculate animation progress with easing

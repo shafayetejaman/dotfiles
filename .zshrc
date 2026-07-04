@@ -31,6 +31,7 @@ export PATH=$PATH:/home/shafayet/.cargo/bin
 
 # ------------------------------------------
 # Plugins
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 autoload -U compinit; compinit
 source ~/.zsh/fzf-tab-cmp/fzf-tab.plugin.zsh

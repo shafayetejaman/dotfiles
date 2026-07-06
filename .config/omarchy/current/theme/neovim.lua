@@ -50,7 +50,7 @@ local M = {
 				set_hl("PmenuSel", { fg = colors.bg, bg = colors.blue, bold = true })
 				set_hl("PmenuSbar", { bg = colors.subtle })
 				set_hl("PmenuThumb", { bg = colors.green })
-				set_hl("StatusLine", { fg = colors.fg, bg = colors.subtle })
+				set_hl("StatusLine", { fg = colors.fg, bg = colors.black })
 				set_hl("StatusLineNC", { fg = colors.bright_black, bg = colors.subtle })
 				set_hl("VertSplit", { fg = colors.border })
 				set_hl("WinSeparator", { fg = colors.border })
@@ -59,7 +59,7 @@ local M = {
 				set_hl("TabLine", { fg = colors.bright_black, bg = colors.bg })
 				set_hl("TabLineFill", { bg = colors.bg })
 				set_hl("TabLineSel", { fg = colors.bg, bg = colors.blue, bold = true })
-
+				set_hl("LspInlayHint", { fg = colors.bright_black, italic = true })
 				set_hl("Comment", { fg = colors.bright_black, italic = true })
 				set_hl("Constant", { fg = colors.magenta })
 				set_hl("String", { fg = colors.green })

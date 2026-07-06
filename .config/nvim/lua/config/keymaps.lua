@@ -59,7 +59,8 @@ map({ "n" }, "<M-S-Down>", "yyp", opts)
 
 map("n", "<leader>z", ":SimpleZoomToggle<CR>", { desc = "Zoom Split" })
 
-map("i", "<C-H>", "<C-W>", opts)
+-- delete last word
+map("i", "<C-Del>", "<C-W>", opts)
 
 -- map("i", ".", function()
 --     local cursor = vim.api.nvim_win_get_cursor(0)

@@ -30,7 +30,7 @@ export VISUAL=nvim
 
 # ------------------------------------------
 # Plugins
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 autoload -U compinit; compinit
 source ~/.zsh/fzf-suggestion/fzf-tab.plugin.zsh

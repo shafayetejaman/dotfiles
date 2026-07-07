@@ -16,7 +16,7 @@ local M = {
 					magenta = "#e29ef3",
 					cyan = "#7dd8d3",
 					white = "#f8f8fa",
-					-- bright_black = "#505258",
+					gray = "#595b62",
 					bright_black = "#808080",
 					bright_red = "#ff7680",
 					bright_green = "#a2ee8b",
@@ -61,6 +61,7 @@ local M = {
 				set_hl("TabLineSel", { fg = colors.bg, bg = colors.blue, bold = true })
 				set_hl("LspInlayHint", { fg = colors.bright_black, italic = true })
 				set_hl("Comment", { fg = colors.bright_black, italic = true })
+				set_hl("BlinkCmpGhostText", { fg = colors.gray, italic = true })
 				set_hl("Constant", { fg = colors.magenta })
 				set_hl("String", { fg = colors.green })
 				set_hl("Character", { fg = colors.cyan })

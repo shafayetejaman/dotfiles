@@ -33,3 +33,13 @@ if has_osc52 then
         },
     }
 end
+
+-- Automatically save the current buffer when it loses focus or you leave it
+vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
+    callback = function()
+        -- Only save if it's a real file (not a prompt or UI buffer) and is modified
+        if vim.bo.modified and not vim.bo.readonly and vim.bo.buftype == "" then
+            vim.cmd("silent! write")
+        end
+    end,
+})

@@ -20,6 +20,8 @@ return {
                         keys = {
                             ["J"] = { "preview_scroll_down", mode = { "n" } },
                             ["K"] = { "preview_scroll_up", mode = { "n" } },
+                            ["-"] = { "edit_split", mode = { "n" } },
+                            ["\\"] = { "edit_vsplit", mode = { "n" } },
                         },
                     },
                 },

@@ -18,8 +18,8 @@ require("neo-tree").setup({
             ["h"] = "open",
             ["<Left>"] = "open",
             ["<Right>"] = "open",
-            ["s"] = "open_split",
-            ["v"] = "open_vsplit",
+            ["-"] = "open_split",
+            ["\\"] = "open_vsplit",
         },
     },
     filesystem = {

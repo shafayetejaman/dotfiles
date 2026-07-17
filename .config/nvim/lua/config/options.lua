@@ -43,3 +43,18 @@ vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
         end
     end,
 })
+
+-- Automatically remove unused imports (and organize them) on save for JS/TS projects
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    group = vim.api.nvim_create_augroup("ts_imports", { clear = true }),
+    pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+    callback = function()
+        vim.lsp.buf.code_action({
+            apply = true,
+            context = {
+                only = { "source.organizeImports" },
+                diagnostics = {},
+            },
+        })
+    end,
+})

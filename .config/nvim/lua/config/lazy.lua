@@ -16,6 +16,15 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   concurrency = 2,
+  git = {
+    timeout = 600,
+    filter = true,
+    throttle = {
+      enabled = true,
+      rate = 2, -- Allow 2 operations...
+      duration = 1000, -- ...every 1 second (1000ms)
+    },
+  },
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },

@@ -7,7 +7,7 @@ vim.opt.list = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
-vim.opt.expandtab = true -- spaces or false for real tabs
+vim.opt.expandtab = true
 
 -- ~/.config/nvim/lua/config/lazy.lua
 vim.api.nvim_set_hl(0, "MiniCursorword", {})
@@ -17,44 +17,45 @@ vim.opt.cursorline = false
 vim.opt.shortmess:append("I") -- disables intro/startup messages
 vim.cmd("silent! messages clear")
 vim.o.shell = "zsh"
+vim.lsp.log.set_level("OFF")
 
 -- Always use OSC 52 for the + and * clipboards if it is available. Fixes problems, when you open Neovim on a remote server from a local tmux session.
 local has_osc52, osc52 = pcall(require, "vim.ui.clipboard.osc52")
 if has_osc52 then
-    vim.g.clipboard = {
-        name = "OSC 52",
-        copy = {
-            ["+"] = osc52.copy("+"),
-            ["*"] = osc52.copy("*"),
-        },
-        paste = {
-            ["+"] = osc52.paste("+"),
-            ["*"] = osc52.paste("*"),
-        },
-    }
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = osc52.copy("+"),
+      ["*"] = osc52.copy("*"),
+    },
+    paste = {
+      ["+"] = osc52.paste("+"),
+      ["*"] = osc52.paste("*"),
+    },
+  }
 end
 
 -- Automatically save the current buffer when it loses focus or you leave it
 vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
-    callback = function()
-        -- Only save if it's a real file (not a prompt or UI buffer) and is modified
-        if vim.bo.modified and not vim.bo.readonly and vim.bo.buftype == "" then
-            vim.cmd("silent! write")
-        end
-    end,
+  callback = function()
+    -- Only save if it's a real file (not a prompt or UI buffer) and is modified
+    if vim.bo.modified and not vim.bo.readonly and vim.bo.buftype == "" then
+      vim.cmd("silent! write")
+    end
+  end,
 })
 
 -- Automatically remove unused imports (and organize them) on save for JS/TS projects
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    group = vim.api.nvim_create_augroup("ts_imports", { clear = true }),
-    pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
-    callback = function()
-        vim.lsp.buf.code_action({
-            apply = true,
-            context = {
-                only = { "source.organizeImports" },
-                diagnostics = {},
-            },
-        })
-    end,
+  group = vim.api.nvim_create_augroup("ts_imports", { clear = true }),
+  pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+  callback = function()
+    vim.lsp.buf.code_action({
+      apply = true,
+      context = {
+        only = { "source.organizeImports" },
+        diagnostics = {},
+      },
+    })
+  end,
 })

@@ -27,6 +27,7 @@ return {
                 ["<Right>"] = "open",
                 ["-"] = "open_split",
                 ["\\"] = "open_vsplit",
+                ["v"] = "select",
             },
         })
 

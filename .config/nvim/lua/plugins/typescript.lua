@@ -15,6 +15,30 @@ return {
   {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
+    opts = {
+      settings = {
+        tsserver_max_memory = 1024,
+        tsserver_plugins = {},
+        expose_as_code_action = "all",
+        jsx_close_tag = {
+          enabled = false,
+        },
+        typescript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "none",
+            includeInlayFunctionParameterTypeHints = false,
+            includeInlayVariableTypeHints = false,
+            includeInlayPropertyDeclarationTypeHints = false,
+            includeInlayFunctionLikeReturnTypeHints = false,
+            includeInlayEnumMemberValueHints = false,
+          },
+        },
+        jsx = {
+          inlayHints = {
+            toggleStatementRange = false,
+          },
+        },
+      },
+    },
   },
 }

@@ -5,6 +5,6 @@
   "scroll_acceleration": {
     "enabled": true
   },
-  "diff_style": "auto",
+  "diff_style": "stacked",
   "mouse": true
 }

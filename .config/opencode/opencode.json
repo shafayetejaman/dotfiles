@@ -7,5 +7,6 @@
       "*": "ask"
     }
   },
-  "shell": "/bin/zsh"
+  "shell": "/bin/zsh",
+  "plugin": ["@mohak34/opencode-notifier@latest"]
 }

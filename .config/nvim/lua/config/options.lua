@@ -19,6 +19,17 @@ vim.cmd("silent! messages clear")
 vim.o.shell = "zsh"
 vim.lsp.log.set_level("OFF")
 
+-- LSP performance: increase debounce and reduce priority
+vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+  vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, vim.tbl_extend("force", config or {}, {
+    debounce = 500,
+    virtual_text = false,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+  }))
+end
+
 -- Always use OSC 52 for the + and * clipboards if it is available. Fixes problems, when you open Neovim on a remote server from a local tmux session.
 local has_osc52, osc52 = pcall(require, "vim.ui.clipboard.osc52")
 if has_osc52 then
@@ -46,10 +57,20 @@ vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
 })
 
 -- Automatically remove unused imports (and organize them) on save for JS/TS projects
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   group = vim.api.nvim_create_augroup("ts_imports", { clear = true }),
   pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
-  callback = function()
+  callback = function(args)
+    if not args.buf or not vim.api.nvim_buf_is_valid(args.buf) then
+      return
+    end
+    local clients = vim.lsp.get_clients({ bufnr = args.buf, name = "typescript-tools" })
+    if #clients == 0 then
+      clients = vim.lsp.get_clients({ bufnr = args.buf, method = "source/organizeImports" })
+    end
+    if #clients == 0 then
+      return
+    end
     vim.lsp.buf.code_action({
       apply = true,
       context = {

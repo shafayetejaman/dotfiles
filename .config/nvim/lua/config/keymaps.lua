@@ -22,8 +22,8 @@ map({ "n" }, "<tab>", "i<Tab><Esc>", opts)
 map("n", "<M-a>", ":normal! ggVG<CR>", { desc = "Select whole file" })
 
 map("n", "<leader>cc", function()
-  vim.fn.setreg("+", vim.fn.expand("%:p")) -- + register = system clipboard
-  print("Copied absolute path to clipboard")
+    vim.fn.setreg("+", vim.fn.expand("%:p")) -- + register = system clipboard
+    print("Copied absolute path to clipboard")
 end, { desc = "Copy absolute file path" })
 
 map("n", "U", "<C-r>", { desc = "Redo" })
@@ -33,7 +33,7 @@ map({ "n", "i" }, "<M-K>", "<C-u>", opts)
 map({ "n", "i" }, "<M-J>", "<C-d>", opts)
 
 map("n", "<leader>w", function()
-  vim.cmd("close")
+    vim.cmd("close")
 end, { desc = "Close split" })
 
 map("n", "<leader>\\", "<cmd>vsplit<cr>", { desc = "Split window right" })
@@ -59,6 +59,9 @@ map("n", "<leader>z", ":SimpleZoomToggle<CR>", { desc = "Zoom Split" })
 
 -- delete last word
 map("i", "<C-Del>", "<C-W>", opts)
+
+-- delete all marks
+map("n", "<leader>md", "<cmd>delmarks a-z A-Z 0-9<cr>", { desc = "Delete all marks" })
 
 -- map("i", ".", function()
 --   local cursor = vim.api.nvim_win_get_cursor(0)
@@ -94,29 +97,29 @@ map("i", "<C-Del>", "<C-W>", opts)
 --
 -- Delete current file and close buffer
 local function delete_current_file()
-  local file = vim.fn.expand("%:p") -- full path of current file
-  if file == "" then
-    vim.notify("No file to delete!", vim.log.levels.WARN)
-    return
-  end
+    local file = vim.fn.expand("%:p") -- full path of current file
+    if file == "" then
+        vim.notify("No file to delete!", vim.log.levels.WARN)
+        return
+    end
 
-  -- Confirm deletion
-  local choice = vim.fn.input("Delete file " .. file .. "? (y/N): ")
-  if choice:lower() ~= "y" and choice ~= "" then
-    vim.notify("Aborted", vim.log.levels.INFO)
-    return
-  end
+    -- Confirm deletion
+    local choice = vim.fn.input("Delete file " .. file .. "? (y/N): ")
+    if choice:lower() ~= "y" and choice ~= "" then
+        vim.notify("Aborted", vim.log.levels.INFO)
+        return
+    end
 
-  -- Delete file
-  local ok, err = os.remove(file)
-  if not ok then
-    vim.notify("Failed to delete: " .. err, vim.log.levels.ERROR)
-    return
-  end
+    -- Delete file
+    local ok, err = os.remove(file)
+    if not ok then
+        vim.notify("Failed to delete: " .. err, vim.log.levels.ERROR)
+        return
+    end
 
-  -- Close buffer
-  vim.cmd("bd!")
-  vim.notify("Deleted " .. file, vim.log.levels.INFO)
+    -- Close buffer
+    vim.cmd("bd!")
+    vim.notify("Deleted " .. file, vim.log.levels.INFO)
 end
 
 -- Keybinding (choose your own)
@@ -124,10 +127,10 @@ map("n", "<leader>fd", delete_current_file, { desc = "Delete current file" })
 
 map({ "n", "v" }, "<leader>ao", "<cmd>CodeCompanionActions<cr>", { desc = "CodeCompanion actions", silent = true })
 map(
-  { "n", "v" },
-  "<leader>at",
-  "<cmd>CodeCompanionChat Toggle<cr>",
-  { desc = "Toggle CodeCompanion chat", silent = true }
+    { "n", "v" },
+    "<leader>at",
+    "<cmd>CodeCompanionChat Toggle<cr>",
+    { desc = "Toggle CodeCompanion chat", silent = true }
 )
 map({ "n" }, "<leader>ai", "<cmd>:CodeCompanion<cr>", { desc = "CodeCompanion inline", silent = true })
 map({ "v" }, "<leader>ai", "<cmd>:'<,'>CodeCompanion<cr>", { desc = "CodeCompanion visual", silent = true })
@@ -136,16 +139,16 @@ map("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { desc = "Add to CodeCompanion 
 local delta = 5 -- change this to how many lines/columns per press
 
 map("n", "<C-Up>", function()
-  vim.cmd("resize -" .. delta)
+    vim.cmd("resize -" .. delta)
 end, opts)
 map("n", "<C-Down>", function()
-  vim.cmd("resize +" .. delta)
+    vim.cmd("resize +" .. delta)
 end, opts)
 map("n", "<C-Left>", function()
-  vim.cmd("vertical resize +" .. delta)
+    vim.cmd("vertical resize +" .. delta)
 end, opts)
 map("n", "<C-Right>", function()
-  vim.cmd("vertical resize -" .. delta)
+    vim.cmd("vertical resize -" .. delta)
 end, opts)
 
 map("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
@@ -159,23 +162,23 @@ pcall(vim.keymap.del, "t", "<C-_>")
 
 -- 2. Define a "Smart" Toggle
 local function universal_terminal_toggle()
-  -- If we are currently inside a terminal window, just hide it.
-  if vim.bo.buftype == "terminal" then
-    vim.cmd("hide")
-    return
-  end
+    -- If we are currently inside a terminal window, just hide it.
+    if vim.bo.buftype == "terminal" then
+        vim.cmd("hide")
+        return
+    end
 
-  -- Otherwise, toggle the terminal.
-  -- We pass nil for 'cmd' and omit 'cwd' to tell Snacks
-  -- to toggle the last used/existing terminal instance.
-  Snacks.terminal.toggle(nil, {
-    win = {
-      position = "float",
-      border = "rounded",
-      width = 0.9,
-      height = 0.9,
-    },
-  })
+    -- Otherwise, toggle the terminal.
+    -- We pass nil for 'cmd' and omit 'cwd' to tell Snacks
+    -- to toggle the last used/existing terminal instance.
+    Snacks.terminal.toggle(nil, {
+        win = {
+            position = "float",
+            border = "rounded",
+            width = 0.9,
+            height = 0.9,
+        },
+    })
 end
 
 -- 3. Map to both sequences
@@ -185,5 +188,5 @@ map("n", "<C-M-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 map("n", "<C-M-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
 
 map("n", "<F2>", function()
-  Snacks.rename.rename_file()
+    Snacks.rename.rename_file()
 end, { desc = "Rename File" })

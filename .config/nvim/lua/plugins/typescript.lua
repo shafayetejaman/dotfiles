@@ -17,7 +17,8 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {
       settings = {
-        tsserver_max_memory = 1024,
+        debounce = 500,
+        tsserver_max_memory = 2048,
         tsserver_plugins = {},
         expose_as_code_action = "all",
         jsx_close_tag = {

@@ -140,6 +140,7 @@ keymap = [
 	{ on = [ "g", "v" ],       run = "cd ~/Downloads/Video",       desc = "Go ../Video" },
 	{ on = [ "g", "a" ],       run = "cd ~/Downloads/Video/Anime/new",       desc = "Go ../Video" },
 	{ on = [ "g", "w" ],       run = "cd ~/workspace",             desc = "Go ../workspace" },
+	{ on = [ "g", "n" ],       run = "cd ~/Documents/Notes",       desc = "Go ../Notes" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive",           desc = "Jump interactively" },
 	{ on = [ "g", "f" ],       run = "follow",                     desc = "Follow hovered symlink" },
  

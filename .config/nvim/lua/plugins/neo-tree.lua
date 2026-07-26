@@ -34,7 +34,7 @@ return {
         -- 4. Adding your filesystem configurations
         opts.filesystem = vim.tbl_deep_extend("force", opts.filesystem or {}, {
             filtered_items = {
-                hide_dotfiles = false,
+                hide_dotfiles = true,
             },
             follow_current_file = {
                 enabled = true,

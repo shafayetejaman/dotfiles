@@ -30,9 +30,9 @@ Status:children_add(function()
 	-- 1. Define colors
 	local filled_bg = "#227d02"
 	if num >= 90 then
-		filled_bg = "#F38BA8"
+		filled_bg = "#991237"
 	elseif num >= 75 then
-		filled_bg = "#F9E2AF"
+		filled_bg = "#a27001"
 	end
 
 	local unfilled_bg = "#45475A" -- Dark empty track

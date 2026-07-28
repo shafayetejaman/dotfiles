@@ -19,7 +19,7 @@ Status:children_add(function()
 		pipe_perc:close()
 	end
 
-	local display = used_total .. " " .. percent
+	local display = " " .. used_total .. " " .. percent .. " "
 	local num = tonumber(percent:match("%d+"))
 
 	-- Fallback if disk is unreadable

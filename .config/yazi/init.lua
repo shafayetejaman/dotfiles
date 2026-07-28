@@ -52,13 +52,11 @@ Status:children_add(function()
 
 	-- 4. Return the assembled line with margins and rounded caps
 	return ui.Line({
-		ui.Span("  "), -- LEFT MARGIN
+		ui.Span(" "), -- LEFT MARGIN
 
 		ui.Span(""):fg(left_cap_color),
 		ui.Span(s1):bg(filled_bg):fg(text_fg),
 		ui.Span(s2):bg(unfilled_bg):fg(text_fg),
 		ui.Span(""):fg(right_cap_color),
-
-		ui.Span(" "), -- RIGHT MARGIN
 	})
 end, 2900, Status.CENTER)

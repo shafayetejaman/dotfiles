@@ -28,6 +28,8 @@ return {
                 ["-"] = "open_split",
                 ["\\"] = "open_vsplit",
                 ["v"] = "select",
+                ["."] = "toggle_hidden",
+                [","] = "set_root",
             },
         })
 

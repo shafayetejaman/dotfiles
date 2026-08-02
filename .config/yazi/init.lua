@@ -19,7 +19,7 @@ Status:children_add(function()
 		pipe_perc:close()
 	end
 
-	local display = used_total .. " " .. percent
+	local display = " " .. used_total .. " " .. percent .. " "
 	local num = tonumber(percent:match("%d+"))
 
 	-- Fallback if disk is unreadable
@@ -30,9 +30,9 @@ Status:children_add(function()
 	-- 1. Define colors
 	local filled_bg = "#227d02"
 	if num >= 90 then
-		filled_bg = "#F38BA8"
+		filled_bg = "#b00232"
 	elseif num >= 75 then
-		filled_bg = "#F9E2AF"
+		filled_bg = "#c58800"
 	end
 
 	local unfilled_bg = "#45475A" -- Dark empty track
@@ -52,13 +52,11 @@ Status:children_add(function()
 
 	-- 4. Return the assembled line with margins and rounded caps
 	return ui.Line({
-		ui.Span("  "), -- LEFT MARGIN
+		ui.Span(" "), -- LEFT MARGIN
 
 		ui.Span(""):fg(left_cap_color),
 		ui.Span(s1):bg(filled_bg):fg(text_fg),
 		ui.Span(s2):bg(unfilled_bg):fg(text_fg),
 		ui.Span(""):fg(right_cap_color),
-
-		ui.Span(" "), -- RIGHT MARGIN
 	})
 end, 2900, Status.CENTER)

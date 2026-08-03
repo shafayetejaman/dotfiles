@@ -300,8 +300,8 @@ keymap = [
 	{ on = "<C-k>",         run = "kill eol",      desc = "Kill forwards to the EOL" },
 	{ on = "<C-w>",         run = "kill backward", desc = "Kill backwards to the start of the current word" },
 	{ on = "<A-d>",         run = "kill forward",  desc = "Kill forwards to the end of the current word" },
-	{ on = "<C-Backspace>", run = "kill backward", desc = "Kill backwards to the start of the current word" },
-	{ on = "<C-Delete>",    run = "kill forward",  desc = "Kill forwards to the end of the current word" },
+	{ on = "<C-Delete>",    run = "kill backward", desc = "Kill backwards to the start of the current word" },
+	{ on = "<A-Delete>",    run = "kill forward",  desc = "Kill forwards to the end of the current word" },
 
 	# Cut/Yank/Paste
 	{ on = "d", run = "delete --cut",                                      desc = "Cut selected characters" },

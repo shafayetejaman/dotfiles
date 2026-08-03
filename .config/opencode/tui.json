@@ -6,5 +6,12 @@
     "enabled": true
   },
   "diff_style": "stacked",
-  "mouse": true
+  "mouse": true,
+  "keybinds": {
+    "input_delete_word_forward": "alt+delete",
+    "input_delete_word_backward": "ctrl+w,ctrl+backspace,ctrl+delete"
+  },
+  "plugin": [
+    "@leohenon/opencode-vim-plugin"
+  ]
 }

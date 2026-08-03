@@ -88,7 +88,7 @@ keymap = [
 	{ on = "S",         run = "search --via=rg",             desc = "Search files by content via ripgrep" },
 	{ on = ["<Spaee>", "s", "g"],          run = "search --via=rg",             desc = "Search files by content via ripgrep" },
     { on = ["<Space>", "<Space>"],         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
-	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
+	{ on = "<C-s>",     run = 'shell -- localsend %s &',     desc = "Send selected files via LocalSend" },
     { on = "F",         run = "search --via=fd",             desc = "Search files by name via fd" },
 	{ on = "s",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
 

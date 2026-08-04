@@ -1,13 +1,14 @@
 [Unit]
 Description=Kanata keyboard remapper
 Documentation=https://github.com/jtroo/kanata
+After=graphical-session.target
 
 [Service]
-Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:$HOME/.cargo/bin
-Environment=DISPLAY=:0
 Type=simple
-ExecStart=/usr/bin/sh -c 'exec $$(which kanata) --cfg $${HOME}/.config/kanata/config.kbd'
-Restart=no
+ExecStartPre=/bin/sleep 2
+ExecStart=/usr/bin/kanata --cfg %h/.config/kanata/config.kbd
+Restart=on-failure
+RestartSec=3
 
 [Install]
 WantedBy=default.target

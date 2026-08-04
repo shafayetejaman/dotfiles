@@ -87,7 +87,8 @@ keymap = [
 	{ on = "S",         run = "search --via=rg",             desc = "Search files by content via ripgrep" },
 	{ on = ["<Space>", "s", "g"],          run = "search --via=rg",             desc = "Search files by content via ripgrep" },
     { on = ["<Space>", "<Space>"],         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
-	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
+	{ on = "<C-s>",     run = 'shell -- localsend %s &',     desc = "Send selected files via LocalSend" },
+
     { on = "F",         run = "search --via=fd",             desc = "Search files by name via fd" },
 	{ on = "s",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
 
@@ -297,8 +298,9 @@ keymap = [
 	{ on = "<C-k>",         run = "kill eol",      desc = "Kill forwards to the EOL" },
 	{ on = "<C-w>",         run = "kill backward", desc = "Kill backwards to the start of the current word" },
 	{ on = "<A-d>",         run = "kill forward",  desc = "Kill forwards to the end of the current word" },
-	{ on = "<C-Backspace>", run = "kill backward", desc = "Kill backwards to the start of the current word" },
-	{ on = "<C-Delete>",    run = "kill forward",  desc = "Kill forwards to the end of the current word" },
+	{ on = "<C-Delete>",    run = "kill backward", desc = "Kill backwards to the start of the current word" },
+	{ on = "<A-Delete>",    run = "kill forward",  desc = "Kill forwards to the end of the current word" },
+
 
 	# Cut/Yank/Paste
 	{ on = "d", run = "delete --cut",                                      desc = "Cut selected characters" },

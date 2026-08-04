@@ -77,7 +77,7 @@ function work() {
     tmux new-session -d -s "$session" -n "opencode"
 
     # Window 1: opencode
-    tmux send-keys -t "$session:1" "opencode" C-m
+    tmux send-keys -t "$session:1" "opencode --port" C-m
 
     # Window 2: nvim
     tmux new-window -t "$session" -n "nvim"

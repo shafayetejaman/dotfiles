@@ -15,10 +15,12 @@ map({ "v" }, "Y", '"+y', opts)
 -- map({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
 map({ "n" }, "<tab>", "i<Tab><Esc>", opts)
 
--- map("n", "<M-a>", function()
---   vim.cmd("%yank +")
---   print("Copy file content to clipboard")
+-- map({ "n" }, "<M-a>", 'ggVG\"+y', opts)
+-- vim.keymap.set("n", "<A-a>", function()
+--     vim.cmd("%yank +")
+--     print("Copy file content to clipboard")
 -- end, { desc = "Yank whole file to + without visual" })
+
 map("n", "<M-a>", ":normal! ggVG<CR>", { desc = "Select whole file" })
 
 map("n", "<leader>cc", function()
@@ -60,41 +62,6 @@ map("n", "<leader>z", ":SimpleZoomToggle<CR>", { desc = "Zoom Split" })
 -- delete last word
 map("i", "<C-Del>", "<C-W>", opts)
 
--- delete all marks
-map("n", "<leader>md", "<cmd>delmarks a-z A-Z 0-9<cr>", { desc = "Delete all marks" })
-
--- map("i", ".", function()
---   local cursor = vim.api.nvim_win_get_cursor(0)
---   local row, col = cursor[1], cursor[2] -- 1-based
---
---   -- Early exit: beginning of line
---   if col <= 1 then
---     vim.api.nvim_put({ "." }, "c", false, true)
---     return
---   end
---
---   local line = vim.api.nvim_get_current_line()
---   local char_left = line:sub(col, col) -- wait — wrong!
---   -- Fix: col is byte index after cursor → previous char is at col
---   -- In insert mode: cursor sits AFTER the character we just typed
---   -- so char left of cursor = line:sub(col, col)
---
---   -- Correct:
---   local prev_char = line:sub(col, col)
---
---   -- Is alphabetic?
---   if prev_char:match("%a") then
---     vim.api.nvim_put({ "." }, "c", true, true)
---     -- Small delay helps reliability with some completion engines
---     vim.schedule(function()
---       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-Space>", true, false, true), "i", false)
---     end)
---   else
---     vim.api.nvim_put({ "." }, "c", false, true)
---     -- no <C-Space>
---   end
--- end, opts)
---
 -- Delete current file and close buffer
 local function delete_current_file()
     local file = vim.fn.expand("%:p") -- full path of current file
@@ -125,17 +92,6 @@ end
 -- Keybinding (choose your own)
 map("n", "<leader>fd", delete_current_file, { desc = "Delete current file" })
 
-map({ "n", "v" }, "<leader>ao", "<cmd>CodeCompanionActions<cr>", { desc = "CodeCompanion actions", silent = true })
-map(
-    { "n", "v" },
-    "<leader>at",
-    "<cmd>CodeCompanionChat Toggle<cr>",
-    { desc = "Toggle CodeCompanion chat", silent = true }
-)
-map({ "n" }, "<leader>ai", "<cmd>:CodeCompanion<cr>", { desc = "CodeCompanion inline", silent = true })
-map({ "v" }, "<leader>ai", "<cmd>:'<,'>CodeCompanion<cr>", { desc = "CodeCompanion visual", silent = true })
-map("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { desc = "Add to CodeCompanion chat", silent = true })
-
 local delta = 5 -- change this to how many lines/columns per press
 
 map("n", "<C-Up>", function()
@@ -154,34 +110,33 @@ end, opts)
 map("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
 map("n", "<leader>rp", ":RunProject<CR>", { noremap = true, silent = false })
 
--- 1. Safely remove default mappings
+-- 1. Safely remove default mappings (Your existing logic is fine here)
 pcall(vim.keymap.del, "n", "<C-/>")
 pcall(vim.keymap.del, "t", "<C-/>")
 pcall(vim.keymap.del, "n", "<C-_>")
 pcall(vim.keymap.del, "t", "<C-_>")
 
--- 2. Define a "Smart" Toggle
+-- 2. Define the toggle function
 local function universal_terminal_toggle()
-    -- If we are currently inside a terminal window, just hide it.
     if vim.bo.buftype == "terminal" then
         vim.cmd("hide")
         return
     end
 
-    -- Otherwise, toggle the terminal.
-    -- We pass nil for 'cmd' and omit 'cwd' to tell Snacks
-    -- to toggle the last used/existing terminal instance.
     Snacks.terminal.toggle(nil, {
         win = {
             position = "float",
-            border = "rounded",
             width = 0.9,
             height = 0.9,
         },
     })
 end
 
--- 3. Map to both sequences
+-- 3. Map BOTH sequences to ensure it works in all terminals
+
+map({ "n", "t" }, "<C-/>", universal_terminal_toggle, { desc = "Toggle Terminal", silent = true })
+map({ "n", "t" }, "<C-_>", universal_terminal_toggle, { desc = "Toggle Terminal", silent = true })
+
 map({ "n", "t" }, "<C-/>", universal_terminal_toggle, { desc = "Toggle Terminal" })
 
 map("n", "<C-M-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })

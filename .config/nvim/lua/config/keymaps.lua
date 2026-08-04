@@ -62,38 +62,6 @@ map("n", "<leader>z", ":SimpleZoomToggle<CR>", { desc = "Zoom Split" })
 -- delete last word
 map("i", "<C-Del>", "<C-W>", opts)
 
--- map("i", ".", function()
---     local cursor = vim.api.nvim_win_get_cursor(0)
---     local row, col = cursor[1], cursor[2] -- 1-based
---
---     -- Early exit: beginning of line
---     if col <= 1 then
---         vim.api.nvim_put({ "." }, "c", false, true)
---         return
---     end
---
---     local line = vim.api.nvim_get_current_line()
---     local char_left = line:sub(col, col) -- wait — wrong!
---     -- Fix: col is byte index after cursor → previous char is at col
---     -- In insert mode: cursor sits AFTER the character we just typed
---     -- so char left of cursor = line:sub(col, col)
---
---     -- Correct:
---     local prev_char = line:sub(col, col)
---
---     -- Is alphabetic?
---     if prev_char:match("%a") then
---         vim.api.nvim_put({ "." }, "c", true, true)
---         -- Small delay helps reliability with some completion engines
---         vim.schedule(function()
---             vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-Space>", true, false, true), "i", false)
---         end)
---     else
---         vim.api.nvim_put({ "." }, "c", false, true)
---         -- no <C-Space>
---     end
--- end, opts)
-
 -- Delete current file and close buffer
 local function delete_current_file()
     local file = vim.fn.expand("%:p") -- full path of current file
@@ -123,17 +91,6 @@ end
 
 -- Keybinding (choose your own)
 map("n", "<leader>fd", delete_current_file, { desc = "Delete current file" })
-
-map({ "n", "v" }, "<leader>ao", "<cmd>CodeCompanionActions<cr>", { desc = "CodeCompanion actions", silent = true })
-map(
-    { "n", "v" },
-    "<leader>at",
-    "<cmd>CodeCompanionChat Toggle<cr>",
-    { desc = "Toggle CodeCompanion chat", silent = true }
-)
-map({ "n" }, "<leader>ai", "<cmd>:CodeCompanion<cr>", { desc = "CodeCompanion inline", silent = true })
-map({ "v" }, "<leader>ai", "<cmd>:'<,'>CodeCompanion<cr>", { desc = "CodeCompanion visual", silent = true })
-map("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { desc = "Add to CodeCompanion chat", silent = true })
 
 local delta = 5 -- change this to how many lines/columns per press
 

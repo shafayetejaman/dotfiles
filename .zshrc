@@ -66,7 +66,7 @@ alias lst="eza --tree --level 4 --all"
 # Functions
 
 function work() {
-    local session="${1:-$(basename "$PWD")}"
+    local session="$(echo "${1:-$(basename "$PWD")}" | tr '.' '_')"
 
     if tmux has-session -t "$session" 2>/dev/null; then
         echo "✓ Session '$session' exists. Attaching..."

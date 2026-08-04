@@ -135,11 +135,12 @@ keymap = [
 	{ on = [ "g", "s" ],       run = "cd /mnt",                    desc = "Go mnt/" },
 	{ on = [ "g", "c", 'c' ],  run = "cd ~/.config",               desc = "Go ~/.config" },
 	{ on = [ "g", "c", 'v' ],  run = "cd ~/dotfiles/.config/nvim/lua/plugins",   desc = "Go ~/../nvim/../plugins" },
-  { on = [ "g", "c", 'd' ],  run = "cd ~/dotfiles",              desc = "Go ~/dotfiles" },
+    { on = [ "g", "c", 'd' ],  run = "cd ~/dotfiles",              desc = "Go ~/dotfiles" },
 	{ on = [ "g", "d" ],       run = "cd ~/Downloads",             desc = "Go ~/Downloads" },
 	{ on = [ "g", "v" ],       run = "cd ~/Downloads/Video",       desc = "Go ../Video" },
 	{ on = [ "g", "w" ],       run = "cd ~/Documents/workspace",   desc = "Go ~/../workspace" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive",           desc = "Jump interactively" },
+    { on = [ "g", "n" ],       run = "cd ~/Documents/Notes",       desc = "Go ../Notes" },
 	{ on = [ "g", "f" ],       run = "follow",                     desc = "Follow hovered symlink" },
 
 	# Tabs
@@ -472,3 +473,19 @@ desc = "Go to repogitory root"
 on = "e"
 run = 'shell "nvim ." --block'
 desc = "Open current dir in nvim"
+
+[[mgr.prepend_keymap]]
+on   = "p"
+run  = "plugin smart-paste"
+desc = "Paste into the hovered directory or CWD"
+
+[[mgr.prepend_keymap]]
+on   = "R"
+run  = "plugin omni-trash"
+desc = "Open Omni Trash"
+
+# keymap.toml
+[[mgr.prepend_keymap]]
+on   = "T"
+run  = "plugin toggle-pane max-preview"
+desc = "Maximize or restore the preview pane"

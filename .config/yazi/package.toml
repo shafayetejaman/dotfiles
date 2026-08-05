@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "shafayetejaman/relative-motions"
-rev = "509b3f0"
-hash = "89dc70360dd96654e244e81aa92319b0"
+rev = "e1a02ad"
+hash = "3ff825bb44322d20c5f2e1ddcd23cc3e"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"

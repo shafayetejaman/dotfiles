@@ -38,6 +38,11 @@ use = "yazi-rs/plugins:toggle-pane"
 rev = "b9598e6"
 hash = "15e5b67a241172cbb86b8fbf9e63692"
 
+[[plugin.deps]]
+use = "shafayetejaman/open-with-cmd"
+rev = "6246574"
+hash = "9e75c3af7b72edb3aa348f6086f4afad"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
 rev = "1a5f787"

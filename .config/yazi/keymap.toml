@@ -484,8 +484,13 @@ on   = "R"
 run  = "plugin omni-trash"
 desc = "Open Omni Trash"
 
-# keymap.toml
 [[mgr.prepend_keymap]]
 on   = "T"
 run  = "plugin toggle-pane max-preview"
 desc = "Maximize or restore the preview pane"
+
+[[mgr.prepend_keymap]]
+on   = "<C-t>"
+run  = "plugin open-with-cmd"
+desc = "Open with command"
+

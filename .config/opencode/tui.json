@@ -11,9 +11,11 @@
     "input_delete_word_forward": "alt+delete",
     "input_delete_word_backward": "ctrl+w,ctrl+backspace,ctrl+delete",
     "input_submit": "return,ctrl+return",
-    "input_newline": "shift+return"
+    "input_newline": "shift+return",
+    "messages_line_up": "shift+alt+k",
+    "messages_line_down": "shift+alt+j",
+    "messages_previous": "shift+alt+up",
+    "messages_next": "shift+alt+down"
   },
-  "plugin": [
-    "@leohenon/opencode-vim-plugin"
-  ]
+  "plugin": ["@leohenon/opencode-vim-plugin"]
 }

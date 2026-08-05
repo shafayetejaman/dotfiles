@@ -1,8 +1,8 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, opts)
-        -- 1. Enable normal mode globally for dialogs
         opts.enable_normal_mode_for_inputs = true
+        opts.hide_root_node = true
 
         -- to enter normal mode instead of closing the prompt window.
         opts.event_handlers = opts.event_handlers or {}
@@ -40,10 +40,10 @@ return {
                 ["v"] = function()
                     vim.cmd("normal! V")
                 end,
+                ["z"] = "close_all_nodes",
             },
         })
 
-        -- 4. Adding your filesystem configurations
         opts.filesystem = vim.tbl_deep_extend("force", opts.filesystem or {}, {
             filtered_items = {
                 hide_dotfiles = true,
@@ -54,14 +54,13 @@ return {
             },
         })
 
-        -- 5. Adding your buffer configurations
         opts.buffers = vim.tbl_deep_extend("force", opts.buffers or {}, {
             follow_current_file = {
                 enabled = true,
             },
         })
 
-        -- 6. Adding your relative line numbers event handler
+        -- Add relative line numbers
         table.insert(opts.event_handlers, {
             event = "neo_tree_buffer_enter",
             handler = function()

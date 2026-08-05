@@ -27,9 +27,19 @@ return {
                 ["<Right>"] = "open",
                 ["-"] = "open_split",
                 ["\\"] = "open_vsplit",
-                ["v"] = "select",
+                ["m"] = "select",
                 ["."] = "toggle_hidden",
                 [","] = "set_root",
+                ["s"] = {
+                    "quick_jump",
+                    config = {
+                        on_jump = "open_or_toggle",
+                        jump_labels = "jfkdlsahgnuvrbytmiceowpq",
+                    },
+                },
+                ["v"] = function()
+                    vim.cmd("normal! V")
+                end,
             },
         })
 

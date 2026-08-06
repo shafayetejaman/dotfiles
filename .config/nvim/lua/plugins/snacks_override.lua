@@ -1,6 +1,20 @@
 return {
     {
         "folke/snacks.nvim",
+        keys = {
+            {
+                "<leader>gg",
+                function()
+                    local dir = vim.fn.expand("%:p:h")
+                    if dir == "" or not dir:find("^/") then
+                        dir = vim.fn.getcwd()
+                    end
+                    local cmd = string.format("tmux popup -d %s -w 100%% -h 95%% -E lazygit", vim.fn.shellescape(dir))
+                    vim.fn.system(cmd)
+                end,
+                desc = "Lazygit Popup",
+            },
+        },
         opts = function(_, opts)
             opts.words = { enabled = false }
             opts.notifier = {

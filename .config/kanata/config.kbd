@@ -12,16 +12,12 @@
 )
 
 (defalias
-  tabcaps (multi f24 (tap-hold $tap-time $hold-time tab caps))
-
-  escctrl (multi f24 (tap-hold $tap-time $hold-time esc lctl))
-
-  ' (multi f24 (tap-hold $tap-time $hold-time ' rmet))
-
-  ; (multi f24 (tap-hold $tap-time $hold-time ; rctl))
+  tabcaps (tap-hold $tap-time $hold-time tab caps)
+  escctrl (tap-hold $tap-time $hold-time esc lctl)
+  ' (tap-hold $tap-time $hold-time ' rmet)
+  ; (tap-hold $tap-time $hold-time ; rctl)
 )
 
 (deflayer base
   @tabcaps @escctrl @' @;
 )
-

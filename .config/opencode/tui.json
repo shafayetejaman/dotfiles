@@ -17,5 +17,5 @@
     "messages_previous": "shift+alt+up",
     "messages_next": "shift+alt+down"
   },
-  "plugin": ["@leohenon/opencode-vim-plugin"]
+  "plugin": [["@leohenon/opencode-vim-plugin", { "vim_enter_submit": true }]]
 }

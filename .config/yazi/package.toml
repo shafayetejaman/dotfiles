@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "shafayetejaman/relative-motions"
-rev = "509b3f0"
-hash = "89dc70360dd96654e244e81aa92319b0"
+rev = "e1a02ad"
+hash = "3ff825bb44322d20c5f2e1ddcd23cc3e"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
@@ -10,7 +10,7 @@ hash = "6ea5f37c7f219671ec504cb8311f889d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "b9598e6"
+rev = "0be29a9"
 hash = "46cbdc05596a3ecd730b288e28c7079d"
 
 [[plugin.deps]]
@@ -20,12 +20,12 @@ hash = "8c1b36103121a66b37308afaf7124575"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "b9598e6"
+rev = "0be29a9"
 hash = "187cc58ba7ac3befd49c342129e6f1b6"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-paste"
-rev = "b9598e6"
+rev = "0be29a9"
 hash = "3f8d49413bc8691b4c652eb417a20178"
 
 [[plugin.deps]]
@@ -35,13 +35,13 @@ hash = "6e5bf967707c8c9b6495cf5863ff497f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "b9598e6"
+rev = "0be29a9"
 hash = "15e5b67a241172cbb86b8fbf9e63692"
 
 [[plugin.deps]]
 use = "shafayetejaman/sduf"
-rev = "bde201e"
-hash = "e1e8262cbf17774768795d0c8f8f33f9"
+rev = "7c1175c"
+hash = "cd5dc12e2683cd2948003599e49f5327"
 
 [[plugin.deps]]
 use = "shafayetejaman/open-with-cmd"
@@ -50,10 +50,10 @@ hash = "9e75c3af7b72edb3aa348f6086f4afad"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "1a5f787"
-hash = "67f2240fd9c98f21714527a24cd672f8"
+rev = "be0b21d"
+hash = "5b1bf96d1cba26376087c37de993c517"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "1a5f787"
-hash = "7dfe41c9c3d9be76da8a844263d0bbed"
+rev = "be0b21d"
+hash = "ce320f877fe709b189433941aba747c4"

@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "shafayetejaman/relative-motions"
-rev = "e1a02ad"
-hash = "3ff825bb44322d20c5f2e1ddcd23cc3e"
+rev = "509b3f0"
+hash = "89dc70360dd96654e244e81aa92319b0"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
@@ -37,6 +37,11 @@ hash = "6e5bf967707c8c9b6495cf5863ff497f"
 use = "yazi-rs/plugins:toggle-pane"
 rev = "b9598e6"
 hash = "15e5b67a241172cbb86b8fbf9e63692"
+
+[[plugin.deps]]
+use = "shafayetejaman/sduf"
+rev = "bde201e"
+hash = "e1e8262cbf17774768795d0c8f8f33f9"
 
 [[plugin.deps]]
 use = "shafayetejaman/open-with-cmd"

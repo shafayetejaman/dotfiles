@@ -3,3 +3,6 @@ dark = "catppuccin-macchiato"
 
 [indicator]
 padding = { open = "█", close = "█" }
+
+[which]
+mask = { bg = "#363a4f" }

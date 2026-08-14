@@ -13,7 +13,7 @@
   "notificationSystem": "osascript",
   "suppressGhosttySound": false,
   "linux": {
-    "grouping": false
+    "grouping": true
   },
   "minDuration": 0,
   "command": {

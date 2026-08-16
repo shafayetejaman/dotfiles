@@ -236,7 +236,7 @@ prefers_reduced_motion = true
 # Enable sync v2 by default
 # This ensures that sync v2 is enabled for new installs only
 # In a later release it will become the default across the board
-records = true
+enabled=false
 
 [preview]
 ## which preview strategy to use to calculate the preview height (respects max_preview_height).
@@ -248,7 +248,7 @@ records = true
 
 [daemon]
 ## Enables using the daemon to sync. Requires the daemon to be running in the background. Start it with `atuin daemon`
-# enabled = false
+enabled = false
 
 ## How often the daemon should sync in seconds
 # sync_frequency = 300
@@ -292,4 +292,8 @@ records = true
 "ctrl-delete" = "delete-word-before"
 
 [ai]
-enabled = false
+enabled = true
+
+[ai.capabilities]
+enable_history_search = false
+enable_history_output = false

@@ -297,3 +297,9 @@ enabled = true
 [ai.capabilities]
 enable_history_search = false
 enable_history_output = false
+
+[logs]
+enabled = false
+
+[ui]
+syntax_highlight = true

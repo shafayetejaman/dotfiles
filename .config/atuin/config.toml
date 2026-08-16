@@ -290,3 +290,6 @@ records = true
 
 [keymap.vim-insert]
 "ctrl-delete" = "delete-word-before"
+
+[ai]
+enabled = false

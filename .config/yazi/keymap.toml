@@ -481,7 +481,7 @@ run  = "plugin smart-paste"
 desc = "Paste into the hovered directory or CWD"
 
 [[mgr.prepend_keymap]]
-on   = "R"
+on   = ["g", "t"]
 run  = "plugin omni-trash"
 desc = "Open Omni Trash"
 

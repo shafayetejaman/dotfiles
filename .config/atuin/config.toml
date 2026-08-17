@@ -298,9 +298,6 @@ enabled = true
 enable_history_search = false
 enable_history_output = false
 
-[ai.opening]
-send_last_command = true
-
 [logs]
 enabled = false
 

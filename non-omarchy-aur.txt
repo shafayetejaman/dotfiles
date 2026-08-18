@@ -1,0 +1,15 @@
+# AUR packages not included with Omarchy
+# Install with: yay -S --needed - < non-omarchy-aur.txt
+
+alarm-clock-applet
+bibata-cursor-theme-bin
+cht.sh-git
+doppler-cli-bin
+losslesscut-bin
+mpv-thumbnail-script
+posting
+postman-bin
+ripdrag-git
+ttf-ms-fonts
+zen-browser-bin
+zsh-vi-mode

@@ -1,1 +1,16 @@
+# GNU Stow Global Ignore File Example
+
+# Editor and OS artifacts
+.*~
+^\.#
+^#.*#$
+.*\.swp$
+^\.DS_Store$
+
+# Version control directories
+^\.git$
+^\.gitignore$
+^\.svn$
+^\.hg$
+
 .*\.txt$

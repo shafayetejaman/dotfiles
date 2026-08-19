@@ -4,45 +4,87 @@
 -- See current bindings and descriptions:
 --   omarchy menu keybindings --print
 
+local function send_shortcut_once(mods, key)
+  return function()
+    hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = key, state = "down" }))
+    hl.timer(function()
+      hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = key, state = "up" }))
+    end, { timeout = 50, type = "oneshot" })
+  end
+end
+
 -- Application bindings
-o.bind("SUPER + RETURN", "Terminal", "alacritty")
-o.bind("SUPER + SHIFT + F", "File manager", "nautilus --new-window ~/Downloads")
-o.bind("SUPER + ALT + SHIFT + F", "File manager (cwd)", "nautilus --new-window $(omarchy-cmd-terminal-cwd)")
-o.bind("SUPER + SHIFT + B", "Browser", "omarchy-launch-browser")
-o.bind("SUPER + SHIFT + ALT + B", "Browser (private)", "omarchy-launch-browser --private")
-o.bind("SUPER + SHIFT + N", "Editor", "omarchy-launch-tui ~/dotfiles/.local/bin/launch-nvim-tmux")
+hl.unbind("SUPER + SHIFT + ALT + D")
 o.bind("SUPER + SHIFT + ALT + D", "Docker", { tui = "lazydocker" })
-o.bind("SUPER + SHIFT + D", "Google Drive", "omarchy-launch-webapp 'https://drive.google.com/drive/u/0/my-drive' --profile-directory='Profile 5'")
-o.bind("SUPER + SHIFT + O", "Obsidian", "omarchy-launch-or-focus ^obsidian$ 'uwsm-app -- obsidian'")
+hl.unbind("SUPER + SHIFT + D")
+o.bind(
+	"SUPER + SHIFT + D",
+	"Google Drive",
+	"omarchy-launch-webapp 'https://drive.google.com/drive/u/0/my-drive' --profile-directory='Profile 5'"
+)
 
 -- Web apps
-o.bind("SUPER + SHIFT + A", "Gemini", "omarchy-launch-webapp 'https://gemini.google.com/app' --profile-directory='Profile 5'")
-o.bind("SUPER + SHIFT + ALT + A", "Local AI", "omarchy-launch-webapp 'http://127.0.0.1:7000' --profile-directory='Profile 5'")
-o.bind("SUPER + SHIFT + C", "Calendar", "omarchy-launch-webapp 'https://calendar.google.com/calendar/u/0/r/month?trp=false' --profile-directory='Profile 5'")
+hl.unbind("SUPER + SHIFT + A")
+o.bind(
+	"SUPER + SHIFT + A",
+	"Gemini",
+	"omarchy-launch-webapp 'https://gemini.google.com/app' --profile-directory='Profile 5'"
+)
+hl.unbind("SUPER + SHIFT + ALT + A")
+o.bind(
+	"SUPER + SHIFT + ALT + A",
+	"Local AI",
+	"omarchy-launch-webapp 'http://127.0.0.1:7000' --profile-directory='Profile 5'"
+)
+hl.unbind("SUPER + SHIFT + C")
+o.bind(
+	"SUPER + SHIFT + C",
+	"Calendar",
+	"omarchy-launch-webapp 'https://calendar.google.com/calendar/u/0/r/month?trp=false' --profile-directory='Profile 5'"
+)
+hl.unbind("SUPER + SHIFT + M")
 o.bind("SUPER + SHIFT + M", "Manual", "omarchy-launch-webapp 'https://quickref.me' --profile-directory='Profile 5'")
+hl.unbind("SUPER + SHIFT + W")
 o.bind("SUPER + SHIFT + W", "Draw", "omarchy-launch-webapp 'https://excalidraw.com' --profile-directory='Profile 5'")
 o.bind("SUPER + SHIFT + H", "Healp", "omarchy-launch-webapp 'https://quickref.me' --profile-directory='Profile 5'")
-o.bind("SUPER + SHIFT + E", "Email", "omarchy-launch-webapp 'https://mail.google.com/mail/u/0/##inbox' --profile-directory='Profile 5'")
-o.bind("SUPER + SHIFT + ALT + E", "Email Compose", "omarchy-launch-webapp 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=recipient@gmail.com' --profile-directory='Profile 5'")
-o.bind("SUPER + SHIFT + Y", "YouTube", "omarchy-launch-webapp 'https://youtube.com/' --profile-directory='Profile 5'")
+hl.unbind("SUPER + SHIFT + E")
+o.bind(
+	"SUPER + SHIFT + E",
+	"Email",
+	"omarchy-launch-webapp 'https://mail.google.com/mail/u/0/##inbox' --profile-directory='Profile 5'"
+)
+hl.unbind("SUPER + SHIFT + ALT + E")
+o.bind(
+	"SUPER + SHIFT + ALT + E",
+	"Email Compose",
+	"omarchy-launch-webapp 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=recipient@gmail.com' --profile-directory='Profile 5'"
+)
 o.bind("SUPER + SHIFT + L", "Translate", "omarchy-launch-webapp 'https://translate.google.com/?sl=en&tl=bn&op=translate' --profile-directory='Profile 5'")
-o.bind("SUPER + SHIFT + G", "Messenger", "omarchy-launch-or-focus-webapp WhatsApp 'https://www.messenger.com' --profile-directory='Profile 5'")
+hl.unbind("SUPER + SHIFT + G")
+o.bind(
+	"SUPER + SHIFT + G",
+	"Messenger",
+	"omarchy-launch-or-focus-webapp WhatsApp 'https://www.messenger.com' --profile-directory='Profile 5'"
+)
 
 -- Utilities
 o.bind("SUPER + Y", "Yazi File Manager", "omarchy-launch-tui yazi ~/Downloads")
-o.bind("SUPER + CTRL + ALT + C", "Calculator", "gnome-calculator")
 o.bind("SUPER + E", "Clipboard", "omarchy-launch-walker -m clipboard")
 o.bind("SUPER + PERIOD", "Restore Last Notification", "makoctl restore")
 
 -- Night Light toggle
 hl.unbind("SUPER + CTRL + N")
-o.bind("SUPER + CTRL + N", "Night Light", [[
+o.bind(
+	"SUPER + CTRL + N",
+	"Night Light",
+	[[
   if pgrep hyprsunset < /dev/null; then
     pkill hyprsunset & notify-send -u low "   Night Light Disabled";
   else
     hyprsunset -t 2000 & notify-send -u low "  Night Light Enabled";
   fi
-]])
+]]
+)
 
 -- Workspace navigation
 hl.unbind("SUPER + TAB")
@@ -69,6 +111,7 @@ o.bind("SUPER + CTRL + V", "Audio Control", "omarchy-launch-or-focus-tui wiremix
 
 -- Scratchpad
 hl.unbind("SUPER + ALT + S")
+hl.unbind("SUPER + SHIFT + S")
 o.bind("SUPER + SHIFT + S", "Move window to scratchpad", "hyprctl dispatch movetoworkspacesilent special:scratchpad")
 
 -- Share
@@ -76,24 +119,24 @@ hl.unbind("SUPER + CTRL + S")
 o.bind("SUPER + CTRL + S", "Share", "~/dotfiles/.local/bin/localsend-share-menu")
 
 -- Universal select all (Ghostty uses ALT+A, others use CTRL+A)
-o.bind("SUPER + A", "Universal select all", [[
-  WINDOW_CLASS=$(hyprctl activewindow -j | jq -r '.class')
-  if [ "$WINDOW_CLASS" = "com.mitchellh.ghostty" ]; then
-    hyprctl dispatch sendshortcut "ALT, A, class:^(com\.mitchellh\.ghostty)$"
+o.bind("SUPER + A", "Universal select all", function()
+  local window = hl.get_active_window()
+  if window and window.class == "com.mitchellh.ghostty" then
+    send_shortcut_once("ALT", "A")()
   else
-    hyprctl dispatch sendshortcut "CTRL, A, activewindow"
-  fi
-]])
+    send_shortcut_once("CTRL", "A")()
+  end
+end)
 
 -- Universal delete last word (Ghostty uses CTRL+DELETE, others use CTRL+BACKSPACE)
-o.bind("CTRL + BACKSPACE", "Universal delete last word", [[
-  WINDOW_CLASS=$(hyprctl activewindow -j | jq -r '.class')
-  if [ "$WINDOW_CLASS" = "com.mitchellh.ghostty" ]; then
-    hyprctl dispatch sendshortcut "CTRL, DELETE, class:^(com\.mitchellh\.ghostty)$"
+o.bind("CTRL + BACKSPACE", "Universal delete last word", function()
+  local window = hl.get_active_window()
+  if window and window.class == "com.mitchellh.ghostty" then
+    send_shortcut_once("CTRL", "Delete")()
   else
-    hyprctl dispatch sendshortcut "CTRL, BACKSPACE, activewindow"
-  fi
-]])
+    send_shortcut_once("CTRL", "BackSpace")()
+  end
+end)
 
 -- Rename files (F2)
 o.bind("SUPER + R", "Rename Files", "hyprctl dispatch sendshortcut ', F2, activewindow'")

@@ -249,11 +249,11 @@ bind_custom_key() {
 }
 
 # ----------------------- End ----------------------- 
-
-# Clean up failed Atuin commands silently in the background
-(atuin search --exclude-exit 0 --delete "" >/dev/null 2>&1) &!
-
 # --- Create tmux session if not already running  ---
 if [[ -n $PS1 ]] && [[ -z $TMUX ]] && [[ -z $SSH_CONNECTION ]]; then
+
+    # Clean up failed Atuin commands silently in the background
+    (atuin search --exclude-exit 0 --delete "" >/dev/null 2>&1) &!
+
     tmux has-session 2>/dev/null || tmux new -s Personal
 fi

@@ -18,21 +18,14 @@ require("hypr.autostart")
 -- Toggle config flags dynamically.
 require("default.hypr.toggles")
 
--- Smart single-window borders removal
-hl.config({
-  workspace = {
-    "w[tv1],bordersize:0",
-    "f[1],bordersize:0",
-  },
-})
-
-o.window({ workspace = "w[tv1]" }, { border_size = 0 })
+-- Smart gaps: no borders/gaps when only one window on workspace
+hl.workspace_rule({ workspace = "w[tv1]", border_size = 0 })
+hl.workspace_rule({ workspace = "f[1]", border_size = 0 })
 
 -- Opacity rules
 o.window("zen", { opacity = "1 1" })
 o.window("code", { opacity = "1 1" })
 o.window("dev.zed.Zed", { opacity = "1 1" })
-o.window("com.mitchellh.ghostty", { opacity = "1 1" })
 
 -- Float and size rules
 o.window("org.gnome.gThumb", { float = true, size = { 900, 600 } })
@@ -46,7 +39,7 @@ hl.env("HYPRCURSOR_SIZE", "19")
 
 -- Ecosystem
 hl.config({
-  ecosystem = {
-    no_donation_nag = true,
-  },
+	ecosystem = {
+		no_donation_nag = true,
+	},
 })

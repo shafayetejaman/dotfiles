@@ -8,17 +8,23 @@
         },
         {
           "id": "omarchy.clock",
-          "format": "ddd d MMM h:mm AP",
+          "format": "dddd h:mm AP",
           "formatAlt": "d MMMM 'W'ww yyyy",
           "verticalFormat": "HH\n—\nmm"
         },
         {
           "id": "omarchy.system-update"
+        },
+        {
+          "id": "omarchy.network"
         }
       ],
       "left": [
         {
           "id": "omarchy.menu"
+        },
+        {
+          "id": "omarchy.monitor"
         },
         {
           "id": "omarchy.workspaces"
@@ -32,16 +38,17 @@
           "id": "omarchy.bluetooth"
         },
         {
-          "id": "omarchy.network"
+          "id": "tanzil.sysmon",
+          "intervalMs": 5000
         },
         {
-          "id": "omarchy.audio"
-        },
-        {
-          "id": "omarchy.monitor"
+          "id": "shafayet.audio"
         },
         {
           "id": "omarchy.power"
+        },
+        {
+          "id": "shavanced.notification-center"
         }
       ]
     },
@@ -52,6 +59,10 @@
     "lock": 300,
     "screensaver": 150
   },
-  "plugins": [],
+  "plugins": [
+    {
+      "id": "b.omashot"
+    }
+  ],
   "version": 1
 }

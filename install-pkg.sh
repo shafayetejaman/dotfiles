@@ -3,7 +3,7 @@
 
 # Official repository packages
 sudo pacman -S --needed --noconfirm \
-    7zip atuin duf ghostty gsimplecal gsmartcontrol \
+    7zip atuin duf ghostty gsmartcontrol \
     gthumb haruna kanata \
     lsof noto-fonts-extra ntfs-3g omarchy-zsh \
     reflector sshfs stow sudo telegram-desktop terminus-font thefuck \

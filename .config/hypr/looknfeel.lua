@@ -15,3 +15,6 @@ hl.config({
     rounding = 10,
   },
 })
+
+-- Disable workspace switching animation
+hl.animation({ leaf = "workspaces", enabled = false })

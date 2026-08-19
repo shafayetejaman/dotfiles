@@ -22,10 +22,8 @@ require("default.hypr.toggles")
 hl.workspace_rule({ workspace = "w[tv1]", border_size = 0 })
 hl.workspace_rule({ workspace = "f[1]", border_size = 0 })
 
--- Opacity rules
-o.window("zen", { opacity = "1 1" })
-o.window("code", { opacity = "1 1" })
-o.window("dev.zed.Zed", { opacity = "1 1" })
+-- Opacity override (must use "override" keyword to bypass theme's decoration.active_opacity multiplier)
+o.window("zen", { opacity = "1.0 override 1.0 override" })
 
 -- Float and size rules
 o.window("org.gnome.gThumb", { float = true, size = { 900, 600 } })

@@ -14,7 +14,9 @@ packages=(
     nvidia-dkms nvidia-open-dkms nvidia-utils pinta signal-desktop
     spotify system-config-printer t2fanrd tiny-dfr tobi-try
     tuxedo-drivers-nocompatcheck-dkms typora vulkan-asahi vulkan-radeon
-    webp-pixbuf-loader xournalpp yay-debug yt6801-dkms
+    webp-pixbuf-loader xournalpp yay-debug yt6801-dkms gst-plugins-bad
+    omawrite omacut moonlight-qt tensaku herdr ttfx qrencode libvips zbar mpv-mpris
+    foot
 )
 
 for pkg in "${packages[@]}"; do

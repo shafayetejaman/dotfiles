@@ -55,6 +55,12 @@ require("bindings")
 require("looknfeel")
 require("autostart")
 
+-- Touchscreen disabled by default (toggle via omarchy menu)
+hl.device({
+	name = "elan-touchscreen",
+	enabled = false,
+})
+
 -- Ecosystem
 hl.config({
 	ecosystem = {

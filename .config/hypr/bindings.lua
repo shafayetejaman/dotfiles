@@ -1,12 +1,6 @@
 -- User binding overrides (replaces ~/.config/hypr/bindings.conf)
 -- Unbind defaults before replacing them
 
-local function send_shortcut(mods, key)
-  return function()
-    hl.dispatch(hl.dsp.send_shortcut({ mods = mods, key = key }))
-  end
-end
-
 ----------------------------------------------------------------------
 -- Application bindings
 ----------------------------------------------------------------------
@@ -129,22 +123,26 @@ hl.unbind("SUPER + CTRL + A")
 ----------------------------------------------------------------------
 
 -- Select all: Ghostty uses ALT+A, others CTRL+A
+hl.unbind("SUPER + A")
 o.bind("SUPER + A", "Universal select all", function()
-  local window = hl.get_active_window()
-  if window and window.class == "com.mitchellh.ghostty" then
-    send_shortcut("ALT", "A")()
+  local w = hl.get_active_window()
+  local cls = w and w.class or ""
+  if cls:find("ghostty") then
+    hl.dispatch(hl.dsp.send_shortcut({ mods = "ALT", key = "A" }))
   else
-    send_shortcut("CTRL", "A")()
+    hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "A" }))
   end
 end)
 
 -- Delete last word: Ghostty uses CTRL+DELETE, others CTRL+BACKSPACE
+hl.unbind("CTRL + BACKSPACE")
 o.bind("CTRL + BACKSPACE", "Universal delete last word", function()
-  local window = hl.get_active_window()
-  if window and window.class == "com.mitchellh.ghostty" then
-    send_shortcut("CTRL", "Delete")()
+  local w = hl.get_active_window()
+  local cls = w and w.class or ""
+  if cls:find("ghostty") then
+    hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "Delete" }))
   else
-    send_shortcut("CTRL", "BackSpace")()
+    hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "BackSpace" }))
   end
 end)
 
@@ -153,7 +151,7 @@ end)
 ----------------------------------------------------------------------
 
 -- Rename files (F2)
-o.bind("SUPER + R", "Rename Files", function() hl.dispatch(hl.dsp.send_shortcut({ key = "F2" })) end)
+o.bind("SUPER + R", "Rename Files", function() hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "F2" })) end)
 
 -- Mouse shortcuts
 o.bind("SHIFT + mouse:273", "Send Backspace", function() hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "BackSpace" })) end)

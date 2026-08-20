@@ -8,20 +8,20 @@ local home = os.getenv("HOME") or ""
 
 local reload_prefixes = { "omarchy", "hypr", "theme" }
 for module in pairs(package.loaded) do
-  for _, prefix in ipairs(reload_prefixes) do
-    if module == prefix or module:sub(1, #prefix + 1) == prefix .. "." then
-      package.loaded[module] = nil
-    end
-  end
+	for _, prefix in ipairs(reload_prefixes) do
+		if module == prefix or module:sub(1, #prefix + 1) == prefix .. "." then
+			package.loaded[module] = nil
+		end
+	end
 end
 
 package.path = home
-  .. "/.config/hypr/?.lua;"
-  .. home
-  .. "/.config/hypr/?/init.lua;"
-  .. home
-  .. "/.config/hypr/?/?.lua;"
-  .. package.path
+	.. "/.config/hypr/?.lua;"
+	.. home
+	.. "/.config/hypr/?/init.lua;"
+	.. home
+	.. "/.config/hypr/?/?.lua;"
+	.. package.path
 
 -- Load shared helpers (o.bind, o.window, o.launch, etc.)
 require("helpers")
@@ -41,7 +41,9 @@ require("omarchy.input")
 require("omarchy.windows")
 
 -- Current theme overrides (loaded from ~/.config/hypr/theme/hyprland.lua)
-pcall(function() require("theme.hyprland") end)
+pcall(function()
+	require("theme.hyprland")
+end)
 
 ----------------------------------------------------------------------
 -- User overrides (loaded after defaults so they take precedence)
@@ -52,3 +54,10 @@ require("input")
 require("bindings")
 require("looknfeel")
 require("autostart")
+
+-- Ecosystem
+hl.config({
+	ecosystem = {
+		no_donation_nag = true,
+	},
+})

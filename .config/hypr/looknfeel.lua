@@ -2,18 +2,18 @@
 
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#general
 hl.config({
-  general = {
-    gaps_in = 3,
-    gaps_out = 7,
-    border_size = 2,
-  },
+	general = {
+		gaps_in = 3,
+		gaps_out = 7,
+		border_size = 2,
+	},
 })
 
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#decoration
 hl.config({
-  decoration = {
-    rounding = 12,
-  },
+	decoration = {
+		rounding = 12,
+	},
 })
 
 -- Smart single-window borders removal
@@ -36,17 +36,10 @@ hl.env("XCURSOR_SIZE", "23")
 
 -- Layout override
 hl.config({
-  general = {
-    layout = "scrolling",
-  },
+	general = {
+		layout = "scrolling",
+	},
 })
 
 -- Workspace 2 uses dwindle layout
 hl.workspace_rule({ workspace = "2", layout = "dwindle" })
-
--- Ecosystem
-hl.config({
-  ecosystem = {
-    no_donation_nag = true,
-  },
-})

@@ -16,7 +16,7 @@
           "id": "omarchy.system-update"
         },
         {
-          "id": "omarchy.network"
+          "id": "shavanced.notification-center"
         }
       ],
       "left": [
@@ -42,13 +42,13 @@
           "intervalMs": 5000
         },
         {
-          "id": "shafayet.audio"
+          "id": "omarchy.network"
         },
         {
           "id": "omarchy.power"
         },
         {
-          "id": "shavanced.notification-center"
+          "id": "shafayet.audio"
         }
       ]
     },

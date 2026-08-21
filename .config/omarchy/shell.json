@@ -7,6 +7,9 @@
           "id": "omarchy.indicators"
         },
         {
+          "id": "shavanced.notification-center"
+        },
+        {
           "id": "omarchy.clock",
           "format": "dddd h:mm AP",
           "formatAlt": "d MMMM 'W'ww yyyy",
@@ -14,9 +17,6 @@
         },
         {
           "id": "omarchy.system-update"
-        },
-        {
-          "id": "shavanced.notification-center"
         }
       ],
       "left": [

@@ -75,6 +75,20 @@ o.bind("SUPER + E", "Clipboard", "omarchy-launch-walker -m clipboard")
 -- Power Profile
 o.bind("SUPER + ALT + ESCAPE", "Power Profile", "omarchy-menu power")
 
+-- Zoom (override defaults: legacy hyprctl keyword syntax broke under Hyprland Lua config)
+hl.unbind("SUPER + CTRL + Z")
+o.bind("SUPER + CTRL + Z", "Zoom in", function()
+  local handle = io.popen("hyprctl getoption cursor:zoom_factor -j | jq '.float'")
+  local current = tonumber(handle:read("*a")) or 1
+  handle:close()
+  hl.config({ cursor = { zoom_factor = current + 1 } })
+end)
+
+hl.unbind("SUPER + CTRL + ALT + Z")
+o.bind("SUPER + CTRL + ALT + Z", "Reset zoom", function()
+  hl.config({ cursor = { zoom_factor = 1 } })
+end)
+
 -- Move window to scratchpad (override default)
 hl.unbind("SUPER + ALT + S")
 hl.unbind("SUPER + SHIFT + S")
@@ -96,10 +110,10 @@ o.bind("SUPER + CTRL + N", "Night Light", function()
 
   if result and result ~= "" then
     hl.exec_cmd("pkill hyprsunset")
-    hl.exec_cmd("notify-send -u low '  Night Light Disabled'")
+    hl.exec_cmd("omarchy-swayosd-client --custom-icon weather-clear-symbolic --custom-message 'Night Light Disabled'")
   else
     hl.exec_cmd("hyprsunset -t 2000")
-    hl.exec_cmd("notify-send -u low '  Night Light Enabled'")
+    hl.exec_cmd("omarchy-swayosd-client --custom-icon night-light-symbolic --custom-message 'Night Light Enabled'")
   end
 end)
 

@@ -99,6 +99,9 @@ end)
 hl.unbind("SUPER + CTRL + S")
 o.bind("SUPER + CTRL + S", "Share", "~/dotfiles/.local/bin/localsend-share-menu")
 
+hl.unbind("PRINT")
+o.bind("PRINT", "Omashot", "omarchy-shell b.omashot show")
+
 ----------------------------------------------------------------------
 -- Volume & brightness
 ----------------------------------------------------------------------

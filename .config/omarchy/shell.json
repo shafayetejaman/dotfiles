@@ -61,7 +61,10 @@
   },
   "plugins": [
     {
-      "id": "b.omashot"
+      "id": "b.omashot",
+      "captureMode": "selection",
+      "outputMode": "clipboard",
+      "includeCursor": false
     }
   ],
   "version": 1

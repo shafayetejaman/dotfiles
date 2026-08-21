@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Override of ~/.local/share/omarchy/bin/omarchy-hyprland-workspace-layout-toggle
+# Fixes legacy `hyprctl keyword workspace ...` which silently fails under Hyprland 0.55+ Lua config.
+# Delete this file once upstream omarchy ships the fix.
+
+# omarchy:summary=Toggle the layout on the current active workspace between dwindle and scrolling
+
+ACTIVE_WORKSPACE=$(hyprctl activeworkspace -j | jq -r '.id')
+CURRENT_LAYOUT=$(hyprctl activeworkspace -j | jq -r '.tiledLayout')
+
+case "$CURRENT_LAYOUT" in
+  dwindle) NEW_LAYOUT=scrolling ;;
+  *) NEW_LAYOUT=dwindle ;;
+esac
+
+hyprctl eval "hl.workspace_rule({ workspace = '$ACTIVE_WORKSPACE', layout = '$NEW_LAYOUT' })"
+omarchy-swayosd-client --custom-icon view-grid-symbolic --custom-message "Workspace layout set to $NEW_LAYOUT"

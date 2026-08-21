@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Override: Hyprland 0.55+ Lua config broke legacy `hyprctl dispatch dpms ...`.
+# Translate DPMS calls to the new syntax; delegate all else to the stock script.
+
+step="${1:-+5%}"
+
+case $step in
+  off) exec hyprctl dispatch 'hl.dsp.dpms({ action = "off" })' >/dev/null 2>&1 ;;
+  on)  exec hyprctl dispatch 'hl.dsp.dpms({ action = "on" })'  >/dev/null 2>&1 ;;
+  *)   exec "$HOME/.local/share/omarchy/bin/omarchy-brightness-display" "$@" ;;
+esac

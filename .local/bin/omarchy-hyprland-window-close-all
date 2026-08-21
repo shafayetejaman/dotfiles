@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Override of ~/.local/share/omarchy/bin/omarchy-hyprland-window-close-all
+# Fixes legacy `hyprctl dispatch closewindow/workspace` which fails under Hyprland 0.55+ Lua config.
+# Delete this file once upstream omarchy ships the fix.
+
+# omarchy:summary=Close all open windows
+
+hyprctl clients -j | \
+  jq -r ".[].address" | \
+  xargs -I{} hyprctl dispatch "hl.dsp.window.close({ window = \"address:{}\" })"
+
+# Move to first workspace
+hyprctl dispatch "hl.dsp.focus({ workspace = 1 })"

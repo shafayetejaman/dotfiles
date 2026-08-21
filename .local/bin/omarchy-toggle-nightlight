@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Override of ~/.local/share/omarchy/bin/omarchy-toggle-nightlight
+# Shows toggle feedback via SwayOSD instead of notify-send.
+# Delete this file once upstream omarchy ships the fix/preference.
+
+# omarchy:summary=Toggle nightlight screen temperature
+# omarchy:examples=omarchy toggle nightlight
+
+ON_TEMP=4000
+OFF_TEMP=6000
+
+# Ensure hyprsunset is running
+if ! pgrep -x hyprsunset; then
+  setsid uwsm-app -- hyprsunset &
+  sleep 1 # Give it time to register
+fi
+
+# Query the current temperature
+CURRENT_TEMP=$(hyprctl hyprsunset temperature 2>/dev/null | grep -oE '[0-9]+')
+
+restart_nightlighted_waybar() {
+  if grep -q "custom/nightlight" ~/.config/waybar/config.jsonc; then
+    omarchy-restart-waybar # restart waybar in case user has waybar module for hyprsunset
+  fi
+}
+
+if [[ $CURRENT_TEMP == $OFF_TEMP ]]; then
+  hyprctl hyprsunset temperature $ON_TEMP
+  omarchy-swayosd-client --custom-icon night-light-symbolic --custom-message "Nightlight screen temperature"
+  restart_nightlighted_waybar
+else
+  hyprctl hyprsunset temperature $OFF_TEMP
+  omarchy-swayosd-client --custom-icon weather-clear-symbolic --custom-message "Daylight screen temperature"
+  restart_nightlighted_waybar
+fi

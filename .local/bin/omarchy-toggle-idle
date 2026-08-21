@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Override of ~/.local/share/omarchy/bin/omarchy-toggle-idle
+# Shows toggle feedback via SwayOSD instead of notify-send.
+# Delete this file once upstream omarchy ships the fix/preference.
+
+# omarchy:summary=Toggle hypridle idle locking
+
+if pgrep -x hypridle >/dev/null; then
+  pkill -x hypridle
+  omarchy-swayosd-client --custom-icon system-lock-screen-symbolic --custom-message "Stop locking computer when idle"
+else
+  uwsm-app -- hypridle >/dev/null 2>&1 &
+  omarchy-swayosd-client --custom-icon system-lock-screen-symbolic --custom-message "Now locking computer when idle"
+fi
+
+pkill -RTMIN+9 waybar

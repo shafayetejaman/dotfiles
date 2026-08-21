@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Override of ~/.local/share/omarchy/bin/omarchy-toggle-touchpad
+# Fixes legacy `hyprctl keyword device[..]:enabled` which silently fails under Hyprland 0.55+ Lua config.
+# Delete this file once upstream omarchy ships the fix.
+
+# omarchy:summary=Enable, disable, or toggle the touchpad
+# omarchy:args=[on|off|toggle]
+
+STATE_CONF="$HOME/.local/state/omarchy/toggles/hypr/touchpad-disabled.conf"
+
+device="$(omarchy-hw-touchpad)"
+
+if [[ -z $device ]]; then
+  echo "No touchpad device found" >&2
+  exit 1
+fi
+
+# Escape for embedding in a Lua double-quoted string
+lua_device=${device//\\/\\\\}
+lua_device=${lua_device//\"/\\\"}
+
+enable() {
+  hyprctl eval "hl.device({ name = \"$lua_device\", enabled = true })" >/dev/null
+  rm -f "$STATE_CONF"
+  omarchy-swayosd-client --custom-icon input-touchpad-symbolic --custom-message "Touchpad enabled"
+}
+
+disable() {
+  hyprctl eval "hl.device({ name = \"$lua_device\", enabled = false })" >/dev/null
+  mkdir -p "$(dirname "$STATE_CONF")"
+  printf 'device {\n    name = %s\n    enabled = false\n}\n' "$device" > "$STATE_CONF"
+  omarchy-swayosd-client --custom-icon touchpad-disabled-symbolic --custom-message "Touchpad disabled"
+}
+
+case "${1:-toggle}" in
+  on) enable ;;
+  off) disable ;;
+  toggle) if [[ -f $STATE_CONF ]]; then enable; else disable; fi ;;
+esac

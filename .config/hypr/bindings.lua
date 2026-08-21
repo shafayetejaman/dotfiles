@@ -12,74 +12,63 @@ o.bind("SUPER + RETURN", "Terminal", 'uwsm-app -- xdg-terminal-exec --dir="$(oma
 -- File manager
 hl.unbind("SUPER + SHIFT + F")
 o.bind("SUPER + SHIFT + F", "File manager", "uwsm-app -- nautilus --new-window ~/Downloads")
-hl.unbind("SUPER + ALT + SHIFT + F")
-o.bind(
-	"SUPER + ALT + SHIFT + F",
-	"File manager (cwd)",
-	'uwsm-app -- nautilus --new-window "$(omarchy-cmd-terminal-cwd)"'
-)
-
--- Browser
-hl.unbind("SUPER + SHIFT + B")
-o.bind("SUPER + SHIFT + B", "Browser", "omarchy-launch-browser")
-hl.unbind("SUPER + SHIFT + ALT + B")
-o.bind("SUPER + SHIFT + ALT + B", "Browser (private)", "omarchy-launch-browser --private")
 
 -- Editor
 hl.unbind("SUPER + SHIFT + N")
 o.bind("SUPER + SHIFT + N", "Editor", "omarchy-launch-tui ~/dotfiles/.local/bin/launch-nvim-tmux")
-
--- Docker
-hl.unbind("SUPER + SHIFT + ALT + D")
-o.bind("SUPER + SHIFT + ALT + D", "Docker", "omarchy-launch-tui lazydocker")
-
--- Obsidian
-o.bind(
-	"SUPER + SHIFT + O",
-	"Obsidian",
-	'omarchy-launch-or-focus ^obsidian$ "uwsm-app -- obsidian -disable-gpu --enable-wayland-ime"'
-)
 
 ----------------------------------------------------------------------
 -- Web apps
 ----------------------------------------------------------------------
 
 hl.unbind("SUPER + SHIFT + A")
-o.bind("SUPER + SHIFT + A", "Gemini", "omarchy-launch-webapp 'https://gemini.google.com/app'")
+o.bind(
+	"SUPER + SHIFT + A",
+	"Gemini",
+	"omarchy-launch-webapp 'https://gemini.google.com/app' '--profile-directory=Profile 5'"
+)
 hl.unbind("SUPER + SHIFT + ALT + A")
-o.bind("SUPER + SHIFT + ALT + A", "Grok", "omarchy-launch-webapp 'https://grok.com'")
+o.bind("SUPER + SHIFT + ALT + A", "Grok", "omarchy-launch-webapp 'https://grok.com' '--profile-directory=Profile 5'")
 hl.unbind("SUPER + SHIFT + C")
 o.bind(
 	"SUPER + SHIFT + C",
 	"Calendar",
-	"omarchy-launch-webapp 'https://calendar.google.com/calendar/u/0/r/month?trp=false'"
+	"omarchy-launch-webapp 'https://calendar.google.com/calendar/u/0/r/month?trp=false' '--profile-directory=Profile 5'"
 )
-o.bind("SUPER + SHIFT + M", "Manual", "omarchy-launch-webapp 'https://quickref.me'")
+o.bind("SUPER + SHIFT + M", "Manual", "omarchy-launch-webapp 'https://quickref.me' '--profile-directory=Profile 5'")
 hl.unbind("SUPER + SHIFT + W")
-o.bind("SUPER + SHIFT + W", "Draw", "omarchy-launch-webapp 'https://excalidraw.com'")
-o.bind("SUPER + SHIFT + H", "Healp", "omarchy-launch-webapp 'https://quickref.me'")
+o.bind("SUPER + SHIFT + W", "Draw", "omarchy-launch-webapp 'https://excalidraw.com' '--profile-directory=Profile 5'")
+o.bind("SUPER + SHIFT + H", "Healp", "omarchy-launch-webapp 'https://quickref.me' '--profile-directory=Profile 5'")
 hl.unbind("SUPER + SHIFT + E")
-o.bind("SUPER + SHIFT + E", "Email", "omarchy-launch-webapp 'https://mail.google.com/mail/u/0/##inbox'")
+o.bind(
+	"SUPER + SHIFT + E",
+	"Email",
+	"omarchy-launch-webapp 'https://mail.google.com/mail/u/0/##inbox' '--profile-directory=Profile 5'"
+)
 hl.unbind("SUPER + SHIFT + ALT + E")
 o.bind(
 	"SUPER + SHIFT + ALT + E",
 	"Email Compose",
-	"omarchy-launch-webapp 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=recipient@gmail.com'"
+	"omarchy-launch-webapp 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=recipient@gmail.com' '--profile-directory=Profile 5'"
 )
 hl.unbind("SUPER + SHIFT + Y")
-o.bind("SUPER + SHIFT + Y", "YouTube", "omarchy-launch-webapp 'https://youtube.com/'")
+o.bind("SUPER + SHIFT + Y", "YouTube", "omarchy-launch-webapp 'https://youtube.com/' '--profile-directory=Profile 5'")
 o.bind(
 	"SUPER + SHIFT + L",
 	"Translate",
-	"omarchy-launch-webapp 'https://translate.google.com/?sl=en&tl=bn&op=translate'"
+	"omarchy-launch-webapp 'https://translate.google.com/?sl=en&tl=bn&op=translate' '--profile-directory=Profile 5'"
 )
 hl.unbind("SUPER + SHIFT + G")
-o.bind("SUPER + SHIFT + G", "Messenger", "omarchy-launch-or-focus-webapp Messenger 'https://www.messenger.com'")
+o.bind(
+	"SUPER + SHIFT + G",
+	"Messenger",
+	"omarchy-launch-or-focus-webapp Messenger 'https://www.messenger.com' '--profile-directory=Profile 5'"
+)
 hl.unbind("SUPER + SHIFT + D")
 o.bind(
 	"SUPER + SHIFT + D",
 	"Drive",
-	"omarchy-launch-or-focus-webapp Drive 'https://drive.google.com/drive/u/0/folders/1nn_k1ZBLLXDLhmLtej2msOI1tjPMGnIO'"
+	"omarchy-launch-or-focus-webapp Drive 'https://drive.google.com/drive/u/0/folders/1nn_k1ZBLLXDLhmLtej2msOI1tjPMGnIO' '--profile-directory=Profile 5'"
 )
 
 ----------------------------------------------------------------------
@@ -94,7 +83,7 @@ hl.unbind("SUPER + CTRL + V")
 o.bind("SUPER + CTRL + V", "Audio Control", "omarchy-launch-audio")
 
 -- Clipboard manager on SUPER+E
-o.bind("SUPER + E", "Clipboard", "omarchy-launch-walker -m clipboard")
+o.bind("SUPER + E", "Clipboard", "omarchy-shell shell toggle omarchy.clipboard")
 
 -- Power Profile
 o.bind("SUPER + ALT + ESCAPE", "Power Profile", "omarchy-menu power")
@@ -109,6 +98,32 @@ end)
 -- Share
 hl.unbind("SUPER + CTRL + S")
 o.bind("SUPER + CTRL + S", "Share", "~/dotfiles/.local/bin/localsend-share-menu")
+
+----------------------------------------------------------------------
+-- Volume & brightness
+----------------------------------------------------------------------
+
+-- Volume (overrides default: shrink/expand window left a lot)
+hl.unbind("SUPER + CTRL + EQUAL")
+hl.unbind("SUPER + CTRL + MINUS")
+o.bind("SUPER + CTRL + EQUAL", "Volume up", "omarchy-audio-output-volume raise", { locked = true, repeating = true })
+o.bind("SUPER + CTRL + MINUS", "Volume down", "omarchy-audio-output-volume lower", { locked = true, repeating = true })
+
+-- Monitor brightness
+o.bind(
+	"SUPER + CTRL + BRACKETLEFT",
+	"Brightness down",
+	"omarchy-brightness-display 5%-",
+	{ locked = true, repeating = true }
+)
+o.bind(
+	"SUPER + CTRL + BRACKETRIGHT",
+	"Brightness up",
+	"omarchy-brightness-display +5%",
+	{ locked = true, repeating = true }
+)
+
+o.bind("SUPER + CTRL + M", "Mic Mute", "omarchy-audio-input-mute")
 
 ----------------------------------------------------------------------
 -- Night Light toggle

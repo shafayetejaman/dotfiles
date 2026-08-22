@@ -7,8 +7,7 @@ sudo pacman -S --needed --noconfirm \
     gthumb haruna kanata \
     lsof noto-fonts-extra ntfs-3g omarchy-zsh \
     reflector sshfs stow sudo telegram-desktop terminus-font thefuck \
-    trash-cli wl-clip-persist \
-    yazi yq zed
+    trash-cli yazi yq zed
 
 # AUR packages
 yay -S --needed --noconfirm \

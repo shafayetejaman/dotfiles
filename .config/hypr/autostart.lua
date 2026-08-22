@@ -1,9 +1,6 @@
 -- User autostart overrides (replaces ~/.config/hypr/autostart.conf)
 
 hl.on("hyprland.start", function()
-	-- -- Persistent workspace on eDP-1
-	-- hl.exec_cmd("workspace = 2, persistent, monitor:eDP-1")
-
 	-- Launch apps on specific workspaces
 	hl.exec_cmd("zen-browser", { workspace = "2" })
 	hl.exec_cmd("ghostty", { workspace = "3 silent" })
@@ -17,13 +14,10 @@ hl.on("hyprland.start", function()
 		local status = f:read("*a"):gsub("%s+", "")
 		f:close()
 		if status == "Discharging" then
-			hl.exec_cmd("notify-send -t 10000 '   Not plugged in'")
+			hl.exec_cmd("notify-send '   Not plugged in'")
 		end
 	end
 
 	-- Night light
 	hl.exec_cmd("uwsm app -- hyprsunset")
-
-	-- Clipboard persistence
-	-- hl.exec_cmd("wl-clip-persist --clipboard regular")
 end)

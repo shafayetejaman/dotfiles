@@ -137,10 +137,10 @@ o.bind("SUPER + CTRL + N", "Night Light", function()
 
 	if result and result ~= "" then
 		hl.exec_cmd("pkill hyprsunset")
-		hl.exec_cmd("notify-send -u low '   Night Light Disabled'")
+		hl.exec_cmd("omarchy osd -i '' -m 'Night Light Disabled'")
 	else
 		hl.exec_cmd("hyprsunset -t 2000")
-		hl.exec_cmd("notify-send -u low '  Night Light Enabled'")
+		hl.exec_cmd("omarchy osd -i '' -m 'Night Light Enabled'")
 	end
 end)
 
@@ -205,6 +205,3 @@ end)
 o.bind("CTRL + mouse:273", "Send Delete", function()
 	hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "Delete" }))
 end)
-
--- Restore last notification
-o.bind("SUPER + PERIOD", "Restore last notification", "makoctl restore")

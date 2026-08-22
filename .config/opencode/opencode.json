@@ -4,7 +4,8 @@
   "default_agent": "plan",
   "permission": {
     "external_directory": {
-      "*": "ask"
+      "*": "ask",
+      "/tmp/opencode/**": "allow"
     }
   },
   "shell": "/bin/zsh",

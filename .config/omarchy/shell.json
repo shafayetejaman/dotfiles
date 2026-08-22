@@ -76,12 +76,6 @@
     }
   ],
   "version": 1,
-  "disabledPlugins": [
-    "omarchy.clipboard",
-    "omarchy.menu"
-  ],
-  "cloneSourceRestores": [
-    "shafayet.clipboard",
-    "shafayet.menu"
-  ]
+  "disabledPlugins": ["omarchy.clipboard", "omarchy.menu"],
+  "cloneSourceRestores": ["shafayet.clipboard", "shafayet.menu"]
 }

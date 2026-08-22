@@ -12,6 +12,6 @@ sudo pacman -S --needed --noconfirm \
 
 # AUR packages
 yay -S --needed --noconfirm \
-    alarm-clock-applet bibata-cursor-theme-bin cht.sh-git doppler-cli-bin \
+    bibata-cursor-theme-bin cht.sh-git doppler-cli-bin \
     losslesscut-bin mpv-thumbnail-script posting postman-bin ripdrag-git \
     ttf-ms-fonts zen-browser-bin zsh-vi-mode

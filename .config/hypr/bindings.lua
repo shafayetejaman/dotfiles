@@ -85,9 +85,6 @@ o.bind("SUPER + CTRL + V", "Audio Control", "omarchy-launch-audio")
 -- Clipboard manager on SUPER+E
 o.bind("SUPER + E", "Clipboard", "omarchy-shell shell toggle omarchy.clipboard")
 
--- Power Profile
-o.bind("SUPER + ALT + ESCAPE", "Power Profile", "omarchy-menu power")
-
 -- Move window to scratchpad (override default)
 hl.unbind("SUPER + ALT + S")
 hl.unbind("SUPER + SHIFT + S")

@@ -7,7 +7,9 @@
           "id": "omarchy.indicators"
         },
         {
-          "id": "shavanced.notification-center"
+          "id": "io.github.pjgeutjens.clockwork",
+          "pomodoroCycles": 10,
+          "pomodoroWorkMinutes": 30
         },
         {
           "id": "omarchy.clock",
@@ -17,14 +19,17 @@
         },
         {
           "id": "omarchy.system-update"
+        },
+        {
+          "id": "shavanced.notification-center"
         }
       ],
       "left": [
         {
-          "id": "omarchy.menu"
+          "id": "omarchy.monitor"
         },
         {
-          "id": "omarchy.monitor"
+          "id": "shafayet.menu"
         },
         {
           "id": "omarchy.workspaces"
@@ -53,7 +58,7 @@
       ]
     },
     "position": "top",
-    "transparent": false
+    "transparent": true
   },
   "idle": {
     "lock": 300,
@@ -65,7 +70,18 @@
       "captureMode": "selection",
       "outputMode": "clipboard",
       "includeCursor": false
+    },
+    {
+      "id": "shafayet.clipboard"
     }
   ],
-  "version": 1
+  "version": 1,
+  "disabledPlugins": [
+    "omarchy.clipboard",
+    "omarchy.menu"
+  ],
+  "cloneSourceRestores": [
+    "shafayet.clipboard",
+    "shafayet.menu"
+  ]
 }

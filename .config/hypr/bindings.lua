@@ -5,10 +5,6 @@
 -- Application bindings
 ----------------------------------------------------------------------
 
--- Terminal
-hl.unbind("SUPER + RETURN")
-o.bind("SUPER + RETURN", "Terminal", 'uwsm-app -- xdg-terminal-exec --dir="$(omarchy-cmd-terminal-cwd)"')
-
 -- File manager
 hl.unbind("SUPER + SHIFT + F")
 o.bind("SUPER + SHIFT + F", "File manager", "uwsm-app -- nautilus --new-window ~/Downloads")
@@ -76,13 +72,13 @@ o.bind(
 ----------------------------------------------------------------------
 
 o.bind("SUPER + Y", "Yazi File Manager", "omarchy-launch-tui yazi ~/Downloads")
-o.bind("SUPER + CTRL + ALT + C", "Calculator", "gnome-calculator")
+
+-- Fuzzy file finder with preview
+hl.unbind("SUPER + PERIOD")
+o.bind("SUPER + PERIOD", "File Finder", "omarchy-shell shell toggle shafayet.finder")
 
 -- Clipboard (override default SUPER+CTRL+V)
 hl.unbind("SUPER + CTRL + V")
-o.bind("SUPER + CTRL + V", "Audio Control", "omarchy-launch-audio")
-
--- Clipboard manager on SUPER+E
 o.bind("SUPER + E", "Clipboard", "omarchy-shell shell toggle omarchy.clipboard")
 
 -- Move window to scratchpad (override default)
@@ -91,10 +87,6 @@ hl.unbind("SUPER + SHIFT + S")
 o.bind("SUPER + SHIFT + S", "Move window to scratchpad", function()
 	hl.dispatch(hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
 end)
-
--- Share
-hl.unbind("SUPER + CTRL + S")
-o.bind("SUPER + CTRL + S", "Share", "~/dotfiles/.local/bin/localsend-share-menu")
 
 hl.unbind("PRINT")
 o.bind("PRINT", "Omashot", "omarchy-shell b.omashot show")
@@ -158,19 +150,28 @@ end)
 hl.unbind("SUPER + mouse_up")
 hl.unbind("SUPER + mouse_down")
 
--- Override clipboard bindings
-hl.unbind("SUPER + CTRL + A")
-
 ----------------------------------------------------------------------
 -- Universal shortcuts
 ----------------------------------------------------------------------
 
+-- Helper function to check if active window matches a substring
+local function is_ghostty()
+	local w = hl.get_active_window()
+	if not w then
+		return false
+	end
+
+	local class = (w.class or ""):lower()
+	local title = (w.title or ""):lower()
+	local initial_title = (w.initialTitle or w.initial_title or ""):lower()
+
+	return class:find("ghostty") ~= nil or title:find("ghostty") ~= nil or initial_title:find("ghostty") ~= nil
+end
+
 -- Select all: Ghostty uses ALT+A, others CTRL+A
 hl.unbind("SUPER + A")
 o.bind("SUPER + A", "Universal select all", function()
-	local w = hl.get_active_window()
-	local cls = w and w.class or ""
-	if cls:find("ghostty") then
+	if is_ghostty() then
 		hl.dispatch(hl.dsp.send_shortcut({ mods = "ALT", key = "A" }))
 	else
 		hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "A" }))
@@ -180,9 +181,7 @@ end)
 -- Delete last word: Ghostty uses CTRL+DELETE, others CTRL+BACKSPACE
 hl.unbind("CTRL + BACKSPACE")
 o.bind("CTRL + BACKSPACE", "Universal delete last word", function()
-	local w = hl.get_active_window()
-	local cls = w and w.class or ""
-	if cls:find("ghostty") then
+	if is_ghostty() then
 		hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "Delete" }))
 	else
 		hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "BackSpace" }))

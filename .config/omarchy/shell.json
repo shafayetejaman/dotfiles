@@ -12,9 +12,9 @@
           "pomodoroWorkMinutes": 30
         },
         {
-          "id": "omarchy.clock",
           "format": "dddd h:mm AP",
           "formatAlt": "d MMMM 'W'ww yyyy",
+          "id": "omarchy.clock",
           "verticalFormat": "HH\n—\nmm"
         },
         {
@@ -40,11 +40,20 @@
           "id": "omarchy.tray"
         },
         {
-          "id": "omarchy.bluetooth"
+          "id": "mt-shihab26.omaspeedmeter",
+          "order": "cpu,mem,net,temp,gpu,procs",
+          "labels": false,
+          "interval": 10,
+          "gap": 15,
+          "gpuVendor": "none",
+          "tempZone": "/sys/class/thermal/thermal_zone3/temp",
+          "net": false,
+          "gpu": false,
+          "temp": true,
+          "netIface": "enp2s0"
         },
         {
-          "id": "tanzil.sysmon",
-          "intervalMs": 5000
+          "id": "omarchy.bluetooth"
         },
         {
           "id": "omarchy.network"
@@ -60,22 +69,39 @@
     "position": "top",
     "transparent": true
   },
+  "cloneSourceRestores": [
+    "shafayet.clipboard",
+    "shafayet.menu"
+  ],
+  "disabledPlugins": [
+    "omarchy.clipboard",
+    "omarchy.menu"
+  ],
   "idle": {
     "lock": 300,
     "screensaver": 150
   },
   "plugins": [
     {
-      "id": "b.omashot",
       "captureMode": "selection",
-      "outputMode": "clipboard",
-      "includeCursor": false
+      "id": "b.omashot",
+      "includeCursor": false,
+      "outputMode": "clipboard"
     },
     {
       "id": "shafayet.clipboard"
+    },
+    {
+      "id": "shafayet.finder",
+      "ignored_dirs": [
+        "$HOME/.cache"
+      ],
+      "search_dirs": [
+        "$HOME",
+        "/mnt/HDD/Downloads/Video",
+        "/mnt/HDD/Downloads/Documents"
+      ]
     }
   ],
-  "version": 1,
-  "disabledPlugins": ["omarchy.clipboard", "omarchy.menu"],
-  "cloneSourceRestores": ["shafayet.clipboard", "shafayet.menu"]
+  "version": 1
 }

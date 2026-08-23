@@ -19,6 +19,7 @@ hl.config({
 -- Disable workspace switching animation
 hl.animation({ leaf = "workspaces", enabled = false })
 hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, bezier = "calm" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.6, bezier = "calm" })
 
 -- Smart gaps: no borders/gaps when only one window on workspace
 hl.workspace_rule({ workspace = "w[tv1]", border_size = 0 })

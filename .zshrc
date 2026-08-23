@@ -66,14 +66,44 @@ alias lst="eza --tree --level 4 --all"
 # Functions
 
 function work() {
+    local no_switch=0
+    local OPTIND=1
+    local opt
+
+    # Parse short (-n) and long (--no-switch) flags
+    while getopts "n-:" opt; do
+        case "$opt" in
+            n) no_switch=1 ;;
+            -)
+                case "${OPTARG}" in
+                    no-switch) no_switch=1 ;;
+                    *) echo "Invalid option: --${OPTARG}"; return 1 ;;
+                esac
+                ;;
+            \?) return 1 ;;
+        esac
+    done
+    shift $((OPTIND - 1))
+
+    # Determine session name from remaining positional argument or PWD
     local session="$(echo "${1:-$(basename "$PWD")}" | tr '.' '_')"
 
+    # Handle existing session
     if tmux has-session -t "$session" 2>/dev/null; then
+        if [[ "$no_switch" -eq 1 ]]; then
+            echo "✓ Session '$session' already exists."
+            return 0
+        fi
         echo "✓ Session '$session' exists. Attaching..."
-        tmux attach -t "$session"
-        return
+        if [[ -n $TMUX ]]; then
+            tmux switch-client -t "$session"
+        else
+            tmux attach-session -t "$session"
+        fi
+        return 0
     fi
 
+    # Create new session structure
     tmux new-session -d -s "$session" -n "opencode"
 
     # Window 1: opencode
@@ -91,12 +121,19 @@ function work() {
 
     echo "✅ Tmux session '$session' created successfully!"
 
+    # Exit early if --no-switch was requested
+    if [[ "$no_switch" -eq 1 ]]; then
+        return 0
+    fi
+
+    # Attach or switch
     if [[ -n $TMUX ]]; then
         tmux switch-client -t "$session" 
-        return
+        return 0
     fi
     tmux attach-session -t "$session"
 }
+
 
 function gcm() {
   if [ $# -eq 0 ]; then
@@ -206,6 +243,37 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+function clone_repo() {
+    # 1. Target directory (defaults to ~/workspace)
+    local target_dir="${1:-$HOME/workspace}"
+    
+    # 2. Check dependencies
+    command -v gh >/dev/null 2>&1 || { echo "Error: 'gh' CLI is not installed."; return 1; }
+    command -v fzf >/dev/null 2>&1 || { echo "Error: 'fzf' is not installed."; return 1; }
+
+    # 3. Create and navigate into target directory (saving starting directory)
+    mkdir -p "$target_dir" && pushd "$target_dir" >/dev/null || return 1
+
+    # 4. Fetch personal repos, filter with fzf, and extract the repo name
+    local repo
+    repo=$(gh repo list --limit 100 --json name,description \
+        --template '{{range .}}{{printf "%-30s\t%s\n" .name .description}}{{end}}' \
+        | fzf --delimiter='\t' --preview='gh repo view {1}' --header='Select a repo to clone:' \
+        | awk '{print $1}')
+
+    # 5. Clone, enter repo, and start tmux session if selected
+    if [[ -n "$repo" ]]; then
+        gh repo clone "$repo"
+        pushd "$repo" >/dev/null || return 1
+        work --no-switch
+        popd >/dev/null || return 1
+    else
+        echo "No repository selected."
+    fi
+
+    # 6. Return to starting directory
+    popd >/dev/null || return 1
+}
 
 # ------------------------------------------
 # Bindings

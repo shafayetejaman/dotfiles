@@ -12,6 +12,9 @@
       "git *": "allow",
       "npm *": "allow",
       "grep *": "allow",
+      "gh *": "allow",
+      "cp *": "allow",
+      "node *": "allow",
       "rm *": "deny"
     }
   },

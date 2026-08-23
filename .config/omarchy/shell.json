@@ -87,12 +87,22 @@
     },
     {
       "id": "shafayet.finder",
-      "ignored_dirs": ["$HOME/.cache"],
+      "ignored_dirs": [
+        "$HOME/.cache",
+        "$HOME/Documents/workspace",
+        "/mnt/HDD/Downloads/Video/Captures/New folder",
+        "/mnt/HDD/Downloads/Documents/WindowsPowerShell",
+        "/mnt/HDD/Software/Customization/TrafficMonitor"
+      ],
       "search_dirs": [
         "$HOME",
         "/mnt/HDD/Downloads/Video",
-        "/mnt/HDD/Downloads/Documents"
+        "/mnt/HDD/Downloads/Documents",
+        "/mnt/HDD/Downloads",
+        "/mnt/HDD/Software/Customization",
+        "/mnt/HDD/Music"
       ],
+
       "content_font_size": 16,
       "content_caption": 16,
       "content_heading": 18

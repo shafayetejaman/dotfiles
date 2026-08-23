@@ -11,7 +11,8 @@
       "*": "allow",
       "mv *": "ask",
       "tr *": "ask",
-      "rm *": "ask"
+      "rm *": "ask",
+      "sed *": "ask"
     }
   },
   "shell": "/bin/zsh",

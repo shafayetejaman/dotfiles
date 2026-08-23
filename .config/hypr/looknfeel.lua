@@ -12,7 +12,7 @@ hl.config({
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#decoration
 hl.config({
 	decoration = {
-		rounding = 10,
+		rounding = 12,
 	},
 })
 
@@ -31,6 +31,7 @@ o.window("zen", { opacity = "1.0 override 1.0 override" })
 -- Float and size rules
 o.window("org.gnome.gThumb", { float = true, size = { 900, 600 } })
 o.window("org.kde.haruna", { float = true, size = { 900, 600 } })
+o.window("org.localsend.localsend_app", { float = true, size = { 900, 700 } })
 
 -- Cursor theme
 hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")

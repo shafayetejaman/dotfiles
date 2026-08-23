@@ -118,11 +118,11 @@ o.bind(
 o.bind("SUPER + CTRL + M", "Mic Mute", "omarchy-audio-input-mute")
 
 ----------------------------------------------------------------------
--- Night Light toggle
+-- Toggles
 ----------------------------------------------------------------------
 
 hl.unbind("SUPER + CTRL + N")
-o.bind("SUPER + CTRL + N", "Night Light", function()
+o.bind("SUPER + CTRL + N", "Night light toggle", function()
 	local handle = io.popen("pgrep hyprsunset")
 	local result = handle:read("*a")
 	handle:close()
@@ -134,6 +134,12 @@ o.bind("SUPER + CTRL + N", "Night Light", function()
 		hl.exec_cmd("hyprsunset -t 2000")
 		hl.exec_cmd("omarchy osd -i '' -m 'Night Light Enabled'")
 	end
+end)
+
+hl.unbind("SUPER + CTRL + I")
+o.bind("SUPER + CTRL + I", "Lock screen on idle toggle", function()
+	hl.exec_cmd("omarchy-toggle-idle")
+	hl.exec_cmd("omarchy osd -i '' -m 'Toggle Idle Lock'")
 end)
 
 ----------------------------------------------------------------------

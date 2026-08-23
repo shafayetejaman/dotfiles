@@ -67,16 +67,10 @@
       ]
     },
     "position": "top",
-    "transparent": true
+    "transparent": false
   },
-  "cloneSourceRestores": [
-    "shafayet.clipboard",
-    "shafayet.menu"
-  ],
-  "disabledPlugins": [
-    "omarchy.clipboard",
-    "omarchy.menu"
-  ],
+  "cloneSourceRestores": ["shafayet.clipboard", "shafayet.menu"],
+  "disabledPlugins": ["omarchy.clipboard", "omarchy.menu"],
   "idle": {
     "lock": 300,
     "screensaver": 150
@@ -93,14 +87,15 @@
     },
     {
       "id": "shafayet.finder",
-      "ignored_dirs": [
-        "$HOME/.cache"
-      ],
+      "ignored_dirs": ["$HOME/.cache"],
       "search_dirs": [
         "$HOME",
         "/mnt/HDD/Downloads/Video",
         "/mnt/HDD/Downloads/Documents"
-      ]
+      ],
+      "content_font_size": 16,
+      "content_caption": 16,
+      "content_heading": 18
     }
   ],
   "version": 1

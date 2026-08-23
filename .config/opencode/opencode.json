@@ -8,14 +8,10 @@
       "/tmp/opencode/**": "allow"
     },
     "bash": {
-      "*": "ask",
-      "git *": "allow",
-      "npm *": "allow",
-      "grep *": "allow",
-      "gh *": "allow",
-      "cp *": "allow",
-      "node *": "allow",
-      "rm *": "deny"
+      "*": "allow",
+      "mv *": "ask",
+      "tr *": "ask",
+      "rm *": "ask"
     }
   },
   "shell": "/bin/zsh",

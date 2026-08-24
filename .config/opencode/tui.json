@@ -15,7 +15,11 @@
     "messages_page_up": "shift+alt+k",
     "messages_page_down": "shift+alt+j",
     "messages_previous": "shift+alt+up",
-    "messages_next": "shift+alt+down"
+    "messages_next": "shift+alt+down",
+    "dialog.select.next": "down,ctrl+n,ctrl+j",
+    "dialog.select.prev": "up,ctrl+p,ctrl+k",
+    "prompt.autocomplete.next": "down,ctrl+n,ctrl+j",
+    "prompt.autocomplete.prev": "up,ctrl+p,ctrl+k"
   },
   "plugin": [["@leohenon/opencode-vim-plugin", { "vim_enter_submit": true }]]
 }

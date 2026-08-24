@@ -65,6 +65,29 @@ alias lst="eza --tree --level 4 --all"
 # ------------------------------------------
 # Functions
 
+function trash() {
+    case "$1" in
+        list)
+            trash-list
+            ;;
+        restore)
+            trash-restore
+            ;;
+        empty)
+            trash-empty "${@:2}"
+            ;;
+        rm)
+            trash-rm "${@:2}"
+            ;;
+        "")
+            command trash --help
+            ;;
+        *)
+            command trash "$@"
+            ;;
+    esac
+}
+
 function work() {
     local no_switch=0
     local OPTIND=1

@@ -6,6 +6,14 @@
     "external_directory": {
       "*": "ask",
       "/tmp/opencode/**": "allow"
+    },
+    "bash": {
+      "*": "allow",
+      "mv *": "ask",
+      "tr *": "ask",
+      "rm *": "ask",
+      "sed *": "ask",
+      "sed -n *": "allow"
     }
   },
   "shell": "/bin/zsh",

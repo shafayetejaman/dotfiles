@@ -27,8 +27,9 @@ o.window("dev.zed.Zed", { opacity = "1.0 1.0" })
 o.window("com.mitchellh.ghostty", { opacity = "1.0 1.0" })
 
 -- Float and size rules
-o.window("org.gnome.gThumb", { float = true, size = { 900, 600 } })
-o.window("org.kde.haruna", { float = true, size = { 900, 600 } })
+o.window("org.gnome.gThumb", { float = true, border_size = 2, size = { 900, 600 } })
+o.window("org.kde.haruna", { float = true, border_size = 2, size = { 900, 600 } })
+o.window("org.localsend.localsend_app", { float = true, border_size = 2, size = { 900, 700 } })
 
 -- Cursor theme
 hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")

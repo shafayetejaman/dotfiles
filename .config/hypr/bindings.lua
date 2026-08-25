@@ -31,6 +31,7 @@ o.bind(
 	"Calendar",
 	"omarchy-launch-webapp 'https://calendar.google.com/calendar/u/0/r/month?trp=false' '--profile-directory=Profile 5'"
 )
+hl.unbind("SUPER + SHIFT + M")
 o.bind("SUPER + SHIFT + M", "Manual", "omarchy-launch-webapp 'https://quickref.me' '--profile-directory=Profile 5'")
 hl.unbind("SUPER + SHIFT + W")
 o.bind("SUPER + SHIFT + W", "Draw", "omarchy-launch-webapp 'https://excalidraw.com' '--profile-directory=Profile 5'")
@@ -100,6 +101,9 @@ o.bind("PRINT", "Omashot", "omarchy-shell b.omashot show")
 -- Volume (overrides default: shrink/expand window left a lot)
 hl.unbind("SUPER + CTRL + EQUAL")
 hl.unbind("SUPER + CTRL + MINUS")
+-- some keyboard use this keycode for =/-
+hl.unbind("SUPER + CTRL + code:20")
+hl.unbind("SUPER + CTRL + code:21")
 o.bind("SUPER + CTRL + EQUAL", "Volume up", "omarchy-audio-output-volume raise", { locked = true, repeating = true })
 o.bind("SUPER + CTRL + MINUS", "Volume down", "omarchy-audio-output-volume lower", { locked = true, repeating = true })
 
@@ -117,6 +121,7 @@ o.bind(
 	{ locked = true, repeating = true }
 )
 
+hl.unbind("SUPER + CTRL + M")
 o.bind("SUPER + CTRL + M", "Mic Mute", "omarchy-audio-input-mute")
 
 ----------------------------------------------------------------------

@@ -149,6 +149,11 @@ o.bind("SUPER + CTRL + I", "Lock screen on idle toggle", function()
 	hl.exec_cmd("omarchy osd -i '' -m 'Toggle Idle Lock'")
 end)
 
+hl.unbind("SUPER + L")
+o.bind("SUPER + L", "Toggle workspace layout", function()
+	hl.exec_cmd("$HOME/.local/bin/hyprland-workspace-layout-toggle")
+end)
+
 ----------------------------------------------------------------------
 -- Workspace navigation
 ----------------------------------------------------------------------

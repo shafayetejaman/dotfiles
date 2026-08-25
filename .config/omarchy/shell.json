@@ -29,6 +29,9 @@
           "id": "omarchy.monitor"
         },
         {
+          "id": "io.github.bramvera.proton-vpn"
+        },
+        {
           "id": "shafayet.menu"
         },
         {
@@ -41,7 +44,7 @@
         },
         {
           "id": "mt-shihab26.omaspeedmeter",
-          "order": "cpu,mem,net,temp,gpu,procs",
+          "order": "cpu,mem,temp,net,gpu,procs,swap",
           "labels": false,
           "interval": 10,
           "gap": 15,
@@ -50,7 +53,11 @@
           "net": false,
           "gpu": false,
           "temp": true,
-          "netIface": "enp2s0"
+          "netIface": "enp2s0",
+          "netSplit": false
+        },
+        {
+          "id": "wian47.removable-drives"
         },
         {
           "id": "omarchy.bluetooth"
@@ -69,18 +76,25 @@
     "position": "top",
     "transparent": false
   },
-  "cloneSourceRestores": ["shafayet.clipboard", "shafayet.menu"],
-  "disabledPlugins": ["omarchy.clipboard", "omarchy.menu"],
+  "cloneSourceRestores": [
+    "shafayet.clipboard",
+    "shafayet.menu"
+  ],
+  "disabledPlugins": [
+    "omarchy.clipboard",
+    "omarchy.menu"
+  ],
   "idle": {
     "lock": 300,
     "screensaver": 150
   },
   "plugins": [
     {
-      "captureMode": "selection",
       "id": "b.omashot",
+      "captureMode": "selection",
       "includeCursor": false,
-      "outputMode": "clipboard"
+      "outputMode": "clipboard",
+      "saveLocation": "pictures"
     },
     {
       "id": "shafayet.clipboard"
@@ -102,7 +116,6 @@
         "/mnt/HDD/Software/Customization",
         "/mnt/HDD/Music"
       ],
-
       "content_font_size": 16,
       "content_caption": 16,
       "content_heading": 18

@@ -24,9 +24,18 @@ hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.6, bezier = "calm"
 -- Smart gaps: no borders/gaps when only one window on workspace
 hl.workspace_rule({ workspace = "w[tv1]", border_size = 0 })
 hl.workspace_rule({ workspace = "f[1]", border_size = 0 })
+hl.window_rule({
+	match = {
+		float = true,
+	},
+	border_size = 2,
+})
 
 -- Opacity override (must use "override" keyword to bypass theme's decoration.active_opacity multiplier)
 o.window("zen", { opacity = "1.0 override 1.0 override" })
+
+-- File finder overlay pops instantly: no compositor layer fade/slide.
+hl.layer_rule({ match = { namespace = "shafayet-finder" }, no_anim = true, animation = "none" })
 
 -- Float and size rules
 o.window("org.gnome.gThumb", { float = true, size = { 900, 600 } })

@@ -73,6 +73,8 @@ o.bind(
 
 o.bind("SUPER + Y", "Yazi File Manager", "omarchy-launch-tui yazi ~/Downloads")
 
+o.bind("SUPER + SHIFT + ALT + D", "Lazydocker", "omarchy-launch-tui lazydocker")
+
 -- Fuzzy file finder with preview
 hl.unbind("SUPER + PERIOD")
 o.bind("SUPER + PERIOD", "File Finder", "omarchy-shell shell toggle shafayet.finder")

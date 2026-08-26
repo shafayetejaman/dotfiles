@@ -57,13 +57,7 @@
           "id": "wian47.removable-drives"
         },
         {
-          "id": "omarchy.bluetooth"
-        },
-        {
           "id": "omarchy.network"
-        },
-        {
-          "id": "omarchy.power"
         },
         {
           "id": "shafayet.audio"
@@ -79,7 +73,15 @@
   ],
   "disabledPlugins": [
     "omarchy.clipboard",
-    "omarchy.menu"
+    "omarchy.menu",
+    "omarchy.battery",
+    "omarchy.dev-gallery",
+    "omarchy.disk-speedtest",
+    "omarchy.image-picker",
+    "omarchy.polkit",
+    "omarchy.speedtest",
+    "omarchy.wifiqr",
+    "omarchy.lock"
   ],
   "idle": {
     "lock": 300,
@@ -116,6 +118,9 @@
       "content_font_size": 16,
       "content_caption": 16,
       "content_heading": 18
+    },
+    {
+      "id": "rockeyxx.lock-plus"
     }
   ],
   "version": 1

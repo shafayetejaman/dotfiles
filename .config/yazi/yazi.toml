@@ -29,6 +29,10 @@ ueberzug_scale = 1
 ueberzug_offset = [0, 0, 0, 0]
 
 [opener]
+trash = [
+  { run = "ya pub trash-restore --list %S", desc = "Restore selected files" },
+  { run = "ya pub trash-empty --list %S", desc = "Empty trash bin" },
+]
 edit = [
   { run = "${EDITOR:-vi} %s", desc = "$EDITOR", for = "unix", block = true },
   { run = "code %s", desc = "code", for = "windows", orphan = true },
@@ -105,6 +109,11 @@ rules = [
   ] },
   # Virtual file system
   { mime = "vfs/{absent,stale}", use = "download" },
+  # Trash
+  { mime = "trash/**", use = [
+    "open",
+    "trash",
+  ] },
   # Fallback
   { url = "*", use = [
     "open",
@@ -126,6 +135,7 @@ fetchers = [
   { id = "mime", url = "*/", run = "mime.dir", prio = "high", group = "mime" },
   { id = "mime", url = "local://*", run = "mime.local", prio = "high", group = "mime" },
   { id = "mime", url = "remote://*", run = "mime.remote", prio = "high", group = "mime" },
+  { url = "trash://*",  run = "mime.trash",  prio = "high", group = "mime" },
 ]
 spotters = [
   { url = "*/", run = "folder" },
@@ -144,6 +154,8 @@ spotters = [
   { mime = "null/*", run = "null" },
   # Fallback
   { url = "*", run = "file" },
+  # Trash
+  { mime = "trash/**", run = "trash" },
 ]
 preloaders = [
   # Image
@@ -157,6 +169,8 @@ preloaders = [
   # Font
   { mime = "font/*", run = "font" },
   { mime = "application/ms-opentype", run = "font" },
+  # Trash
+  { mime = "trash/**", run = "trash" },
 ]
 previewers = [
   { url = "*/", run = "folder" },
@@ -192,6 +206,8 @@ previewers = [
   { mime = "null/*", run = "null" },
   # Fallback
   { url = "*", run = "file" },
+  # Trash
+  { mime = "trash/**", run = "trash" },
 ]
 
 [input]

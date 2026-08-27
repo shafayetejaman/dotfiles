@@ -5,15 +5,33 @@
   "permission": {
     "external_directory": {
       "*": "ask",
-      "/tmp/opencode/**": "allow"
+      "/tmp/opencode/**": "allow",
+      "~/.agents/skills/**": "allow",
+      "~/.ssh/**": "deny"
     },
     "bash": {
       "*": "allow",
       "mv *": "ask",
       "tr *": "ask",
       "rm *": "ask",
-      "sed *": "ask",
-      "sed -n *": "allow"
+      "sed -i": "ask",
+      "gh auth token": "deny"
+    },
+    "read": {
+      "~/.ssh/**": "deny",
+      ".ssh/**": "deny"
+    },
+    "edit": {
+      "~/.ssh/**": "deny",
+      ".ssh/**": "deny"
+    },
+    "glob": {
+      "~/.ssh/**": "deny",
+      ".ssh/**": "deny"
+    },
+    "grep": {
+      "~/.ssh/**": "deny",
+      ".ssh/**": "deny"
     }
   },
   "shell": "/bin/zsh",

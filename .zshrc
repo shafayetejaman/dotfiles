@@ -259,10 +259,14 @@ function fs() {
 
 # yazi move to current dir function
 function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	command yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	
+	# Inject the Ghostty identifier directly into the Yazi command here
+	TERM_PROGRAM="ghostty" yazi "$@" --cwd-file="$tmp"
+	
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
 	rm -f -- "$tmp"
 }
 

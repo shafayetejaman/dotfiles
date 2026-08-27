@@ -19,12 +19,12 @@ title_format   = "Yazi: {cwd}"
 [preview]
 wrap            = "no"
 tab_size        = 2
-max_width       = 700
-max_height      = 700
-image_delay     = 100
-cache_dir       = ""
+max_width       = 800
+max_height      = 800
+image_delay     = 50
+cache_dir = "~/.cache/thumbnails/yazi"
 image_filter    = "triangle"
-image_quality   = 75
+image_quality   = 50
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 

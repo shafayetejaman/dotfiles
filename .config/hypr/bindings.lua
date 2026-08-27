@@ -206,6 +206,14 @@ o.bind("CTRL + BACKSPACE", "Universal delete last word", function()
 	end
 end)
 
+o.bind("SUPER + 1", "Switch to worksspace 1 and open AI", function()
+	local ws1 = hl.get_workspace(1)
+
+	if ws1 == nil or ws1.windows == 0 then
+		hl.exec_cmd("omarchy-launch-webapp 'https://gemini.google.com/app' '--profile-directory=Profile 5'")
+	end
+end)
+
 ----------------------------------------------------------------------
 -- Misc overrides
 ----------------------------------------------------------------------

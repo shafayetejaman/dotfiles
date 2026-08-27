@@ -97,11 +97,12 @@ float easeClamped(float x) {
 // Generate gradient color based on position
 vec3 gradientColor(float factor) {
     // ADD your custom colors here make sure to change the numColors variable
-    vec3 colors[2] = vec3[2](
-            vec3(0.216, 1.0, 0.58),  // Green
-            vec3(0.0, 0.663, 1.0)    // Blue
+    vec3 colors[1] = vec3[1](
+            // vec3(0.216, 1.0, 0.58),  // Green
+            // vec3(0.0, 0.663, 1.0)    // Blue
+            vec3(0.38, 0.25, 0.25) // #f2a0a0
         );
-    int numColors = 2;
+    int numColors = 1;
     float segment = 1.0 / float(numColors);
     int index = int(mod(factor, 1.0) / segment);
     float localFactor = fract(factor / segment);

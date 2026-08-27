@@ -37,12 +37,6 @@ return {
     config = function(_, opts)
         require("multiple-cursors").setup(opts)
 
-        -- Visual selection highlight remains static
-        vim.api.nvim_set_hl(0, "MultipleCursorsVisual", {
-            bg = "#b2c3ff",
-            fg = "Black",
-        })
-
         -- Function for Normal mode cursors (Block)
         local set_normal_cursor = function()
             vim.api.nvim_set_hl(0, "MultipleCursorsCursor", { bg = "#f2a0a0", fg = "Black" })

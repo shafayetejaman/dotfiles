@@ -280,8 +280,25 @@ function y() {
 	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
 		builtin cd -- "$cwd"
 	fi
-}
+	rm -f -- "$tmp"
 
+	# --- Automatic Yazi Thumbnail Cleanup ---
+	local cache_dir="~/.cache/thumbnails/yazi"
+	if [ -d "$cache_dir" ]; then
+		local max_files=500
+		local file_count=$(find "$cache_dir" -maxdepth 1 -type f | wc -l)
+		
+		if [ "$file_count" -gt "$max_files" ]; then
+			local excess=$((file_count - max_files))
+			find "$cache_dir" -maxdepth 1 -type f -printf '%T@ %p\n' | \
+				sort -n | \
+				head -n "$excess" | \
+				cut -d' ' -f2- | \
+				xargs rm -f
+		fi
+	fi
+	# --------------------------------------
+}
 
 # ------------------------------------------
 # Bindings

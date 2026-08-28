@@ -29,11 +29,6 @@ rev = "3f2b882"
 hash = "3f8d49413bc8691b4c652eb417a20178"
 
 [[plugin.deps]]
-use = "goon/omni-trash"
-rev = "3c2a992"
-hash = "6e5bf967707c8c9b6495cf5863ff497f"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
 rev = "3f2b882"
 hash = "15e5b67a241172cbb86b8fbf9e63692"

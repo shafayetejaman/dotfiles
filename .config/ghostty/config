@@ -37,6 +37,6 @@ keybind = ctrl+enter=unbind
 mouse-scroll-multiplier = 0.95
 
 # >>> ghostty-cursor-shaders >>>
-custom-shader-animation = true
-custom-shader = shaders/cursor_smear_gradient.glsl
+# custom-shader-animation = true
+# custom-shader = shaders/cursor_smear_gradient.glsl
 # <<< ghostty-cursor-shaders <<<

@@ -63,6 +63,7 @@ keymap = [
 	# Operation
 	{ on = "o",         run = "open",                        desc = "Open selected files" },
 	{ on = "O",         run = "open --interactive",          desc = "Open selected files interactively" },
+    { on = "M", run = "arrow 50vp",  desc = "Middle: Move cursor to visible viewport center" },
 	{ on = "<Enter>",   run = "open",                        desc = "Open selected files" },
 	{ on = "<S-Enter>", run = "open --interactive",          desc = "Open selected files interactively" },
 	{ on = "y",         run = "yank",                        desc = "Yank selected files (copy)" },
@@ -131,6 +132,7 @@ keymap = [
 	{ on = [ ",", "S" ], run = ["sort size --reverse=yes", "linemode size"],         desc = "Sort by size (reverse)" },
 
 	# Goto
+    { on = [ "g", "t" ],       run = "plugin trash",               desc = "Go to trash bin" },
 	{ on = [ "g", "h" ],       run = "cd ~",                       desc = "Go home" },
 	{ on = [ "g", "s" ],       run = "cd /mnt/storage",            desc = "Go Storage" },
 	{ on = [ "g", "c",'c' ],   run = "cd ~/.config",               desc = "Go ~/.config" },
@@ -480,10 +482,10 @@ on   = "p"
 run  = "plugin smart-paste"
 desc = "Paste into the hovered directory or CWD"
 
-[[mgr.prepend_keymap]]
-on   = ["g", "t"]
-run  = "plugin omni-trash"
-desc = "Open Omni Trash"
+# [[mgr.prepend_keymap]]
+# on   = ["g", "t"]
+# run  = "plugin omni-trash"
+# desc = "Open Omni Trash"
 
 [[mgr.prepend_keymap]]
 on   = "T"

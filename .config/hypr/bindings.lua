@@ -7,13 +7,17 @@
 
 -- Terminal
 hl.unbind("SUPER + RETURN")
-o.bind("SUPER + RETURN", "Terminal", "uwsm-app -- xdg-terminal-exec --dir=\"$(omarchy-cmd-terminal-cwd)\"")
+o.bind("SUPER + RETURN", "Terminal", 'uwsm-app -- xdg-terminal-exec --dir="$(omarchy-cmd-terminal-cwd)"')
 
 -- File manager
 hl.unbind("SUPER + SHIFT + F")
 o.bind("SUPER + SHIFT + F", "File manager", "uwsm-app -- nautilus --new-window ~/Downloads")
 hl.unbind("SUPER + ALT + SHIFT + F")
-o.bind("SUPER + ALT + SHIFT + F", "File manager (cwd)", "uwsm-app -- nautilus --new-window \"$(omarchy-cmd-terminal-cwd)\"")
+o.bind(
+	"SUPER + ALT + SHIFT + F",
+	"File manager (cwd)",
+	'uwsm-app -- nautilus --new-window "$(omarchy-cmd-terminal-cwd)"'
+)
 
 -- Browser
 hl.unbind("SUPER + SHIFT + B")
@@ -30,7 +34,11 @@ hl.unbind("SUPER + SHIFT + ALT + D")
 o.bind("SUPER + SHIFT + ALT + D", "Docker", "omarchy-launch-tui lazydocker")
 
 -- Obsidian
-o.bind("SUPER + SHIFT + O", "Obsidian", "omarchy-launch-or-focus ^obsidian$ \"uwsm-app -- obsidian -disable-gpu --enable-wayland-ime\"")
+o.bind(
+	"SUPER + SHIFT + O",
+	"Obsidian",
+	'omarchy-launch-or-focus ^obsidian$ "uwsm-app -- obsidian -disable-gpu --enable-wayland-ime"'
+)
 
 ----------------------------------------------------------------------
 -- Web apps
@@ -41,7 +49,11 @@ o.bind("SUPER + SHIFT + A", "Gemini", "omarchy-launch-webapp 'https://gemini.goo
 hl.unbind("SUPER + SHIFT + ALT + A")
 o.bind("SUPER + SHIFT + ALT + A", "Grok", "omarchy-launch-webapp 'https://grok.com'")
 hl.unbind("SUPER + SHIFT + C")
-o.bind("SUPER + SHIFT + C", "Calendar", "omarchy-launch-webapp 'https://calendar.google.com/calendar/u/0/r/month?trp=false'")
+o.bind(
+	"SUPER + SHIFT + C",
+	"Calendar",
+	"omarchy-launch-webapp 'https://calendar.google.com/calendar/u/0/r/month?trp=false'"
+)
 o.bind("SUPER + SHIFT + M", "Manual", "omarchy-launch-webapp 'https://quickref.me'")
 hl.unbind("SUPER + SHIFT + W")
 o.bind("SUPER + SHIFT + W", "Draw", "omarchy-launch-webapp 'https://excalidraw.com'")
@@ -49,14 +61,26 @@ o.bind("SUPER + SHIFT + H", "Healp", "omarchy-launch-webapp 'https://quickref.me
 hl.unbind("SUPER + SHIFT + E")
 o.bind("SUPER + SHIFT + E", "Email", "omarchy-launch-webapp 'https://mail.google.com/mail/u/0/##inbox'")
 hl.unbind("SUPER + SHIFT + ALT + E")
-o.bind("SUPER + SHIFT + ALT + E", "Email Compose", "omarchy-launch-webapp 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=recipient@gmail.com'")
+o.bind(
+	"SUPER + SHIFT + ALT + E",
+	"Email Compose",
+	"omarchy-launch-webapp 'https://mail.google.com/mail/u/0/?view=cm&fs=1&to=recipient@gmail.com'"
+)
 hl.unbind("SUPER + SHIFT + Y")
 o.bind("SUPER + SHIFT + Y", "YouTube", "omarchy-launch-webapp 'https://youtube.com/'")
-o.bind("SUPER + SHIFT + L", "Translate", "omarchy-launch-webapp 'https://translate.google.com/?sl=en&tl=bn&op=translate'")
+o.bind(
+	"SUPER + SHIFT + L",
+	"Translate",
+	"omarchy-launch-webapp 'https://translate.google.com/?sl=en&tl=bn&op=translate'"
+)
 hl.unbind("SUPER + SHIFT + G")
 o.bind("SUPER + SHIFT + G", "Messenger", "omarchy-launch-or-focus-webapp Messenger 'https://www.messenger.com'")
 hl.unbind("SUPER + SHIFT + D")
-o.bind("SUPER + SHIFT + D", "Drive", "omarchy-launch-or-focus-webapp Drive 'https://drive.google.com/drive/u/0/folders/1nn_k1ZBLLXDLhmLtej2msOI1tjPMGnIO'")
+o.bind(
+	"SUPER + SHIFT + D",
+	"Drive",
+	"omarchy-launch-or-focus-webapp Drive 'https://drive.google.com/drive/u/0/folders/1nn_k1ZBLLXDLhmLtej2msOI1tjPMGnIO'"
+)
 
 ----------------------------------------------------------------------
 -- Utilities
@@ -78,21 +102,23 @@ o.bind("SUPER + ALT + ESCAPE", "Power Profile", "omarchy-menu power")
 -- Zoom (override defaults: legacy hyprctl keyword syntax broke under Hyprland Lua config)
 hl.unbind("SUPER + CTRL + Z")
 o.bind("SUPER + CTRL + Z", "Zoom in", function()
-  local handle = io.popen("hyprctl getoption cursor:zoom_factor -j | jq '.float'")
-  local current = tonumber(handle:read("*a")) or 1
-  handle:close()
-  hl.config({ cursor = { zoom_factor = current + 1 } })
+	local handle = io.popen("hyprctl getoption cursor:zoom_factor -j | jq '.float'")
+	local current = tonumber(handle:read("*a")) or 1
+	handle:close()
+	hl.config({ cursor = { zoom_factor = current + 1 } })
 end)
 
 hl.unbind("SUPER + CTRL + ALT + Z")
 o.bind("SUPER + CTRL + ALT + Z", "Reset zoom", function()
-  hl.config({ cursor = { zoom_factor = 1 } })
+	hl.config({ cursor = { zoom_factor = 1 } })
 end)
 
 -- Move window to scratchpad (override default)
 hl.unbind("SUPER + ALT + S")
 hl.unbind("SUPER + SHIFT + S")
-o.bind("SUPER + SHIFT + S", "Move window to scratchpad", function() hl.dispatch(hl.dsp.window.move({ workspace = "special:scratchpad", follow = false })) end)
+o.bind("SUPER + SHIFT + S", "Move window to scratchpad", function()
+	hl.dispatch(hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
+end)
 
 -- Share
 hl.unbind("SUPER + CTRL + S")
@@ -104,17 +130,19 @@ o.bind("SUPER + CTRL + S", "Share", "~/dotfiles/.local/bin/localsend-share-menu"
 
 hl.unbind("SUPER + CTRL + N")
 o.bind("SUPER + CTRL + N", "Night Light", function()
-  local handle = io.popen("pgrep hyprsunset")
-  local result = handle:read("*a")
-  handle:close()
+	local handle = io.popen("pgrep hyprsunset")
+	local result = handle:read("*a")
+	handle:close()
 
-  if result and result ~= "" then
-    hl.exec_cmd("pkill hyprsunset")
-    hl.exec_cmd("omarchy-swayosd-client --custom-icon weather-clear-symbolic --custom-message 'Night Light Disabled'")
-  else
-    hl.exec_cmd("hyprsunset -t 2000")
-    hl.exec_cmd("omarchy-swayosd-client --custom-icon night-light-symbolic --custom-message 'Night Light Enabled'")
-  end
+	if result and result ~= "" then
+		hl.exec_cmd("pkill hyprsunset")
+		hl.exec_cmd(
+			"omarchy-swayosd-client --custom-icon weather-clear-symbolic --custom-message 'Night Light Disabled'"
+		)
+	else
+		hl.exec_cmd("hyprsunset -t 2000")
+		hl.exec_cmd("omarchy-swayosd-client --custom-icon night-light-symbolic --custom-message 'Night Light Enabled'")
+	end
 end)
 
 ----------------------------------------------------------------------
@@ -123,7 +151,9 @@ end)
 
 -- Override default SUPER+TAB (was: next workspace, now: previous)
 hl.unbind("SUPER + TAB")
-o.bind("SUPER + TAB", "Switch to previous workspace", function() hl.dispatch(hl.dsp.focus({ workspace = "previous" })) end)
+o.bind("SUPER + TAB", "Switch to previous workspace", function()
+	hl.dispatch(hl.dsp.focus({ workspace = "previous" }))
+end)
 
 -- Unbind mouse bindings
 hl.unbind("SUPER + mouse_up")
@@ -139,25 +169,33 @@ hl.unbind("SUPER + CTRL + A")
 -- Select all: Ghostty uses ALT+A, others CTRL+A
 hl.unbind("SUPER + A")
 o.bind("SUPER + A", "Universal select all", function()
-  local w = hl.get_active_window()
-  local cls = w and w.class or ""
-  if cls:find("ghostty") then
-    hl.dispatch(hl.dsp.send_shortcut({ mods = "ALT", key = "A" }))
-  else
-    hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "A" }))
-  end
+	local w = hl.get_active_window()
+	local cls = w and w.class or ""
+	if cls:find("ghostty") then
+		hl.dispatch(hl.dsp.send_shortcut({ mods = "ALT", key = "A" }))
+	else
+		hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "A" }))
+	end
 end)
 
 -- Delete last word: Ghostty uses CTRL+DELETE, others CTRL+BACKSPACE
 hl.unbind("CTRL + BACKSPACE")
 o.bind("CTRL + BACKSPACE", "Universal delete last word", function()
-  local w = hl.get_active_window()
-  local cls = w and w.class or ""
-  if cls:find("ghostty") then
-    hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "Delete" }))
-  else
-    hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "BackSpace" }))
-  end
+	local w = hl.get_active_window()
+	local cls = w and w.class or ""
+	if cls:find("ghostty") then
+		hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "Delete" }))
+	else
+		hl.dispatch(hl.dsp.send_shortcut({ mods = "CTRL", key = "BackSpace" }))
+	end
+end)
+
+o.bind("SUPER + 1", "Switch to worksspace 1 and open AI", function()
+	local ws1 = hl.get_workspace(1)
+
+	if ws1 == nil or ws1.windows == 0 then
+		hl.exec_cmd("omarchy-launch-webapp 'https://gemini.google.com/app'", { workspace = "1 silent" })
+	end
 end)
 
 ----------------------------------------------------------------------
@@ -165,13 +203,17 @@ end)
 ----------------------------------------------------------------------
 
 -- Rename files (F2)
-o.bind("SUPER + R", "Rename Files", function() hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "F2" })) end)
+o.bind("SUPER + R", "Rename Files", function()
+	hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "F2" }))
+end)
 
 -- Mouse shortcuts
-o.bind("SHIFT + mouse:273", "Send Backspace", function() hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "BackSpace" })) end)
-o.bind("CTRL + mouse:273", "Send Delete", function() hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "Delete" })) end)
+o.bind("SHIFT + mouse:273", "Send Backspace", function()
+	hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "BackSpace" }))
+end)
+o.bind("CTRL + mouse:273", "Send Delete", function()
+	hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "Delete" }))
+end)
 
 -- Restore last notification
 o.bind("SUPER + PERIOD", "Restore last notification", "makoctl restore")
-
-

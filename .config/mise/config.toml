@@ -1,4 +1,6 @@
 [tools]
+codex = "latest"
+gh = "latest"
 node = "latest"
 opencode = "latest"
 pnpm = "latest"

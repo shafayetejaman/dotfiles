@@ -41,17 +41,22 @@
         },
         {
           "id": "mt-shihab26.omaspeedmeter",
-          "order": "cpu,mem,net,temp,gpu,procs,swap",
+          "order": "net,cpu,temp,mem,swap,gpu,procs",
           "labels": false,
-          "interval": 10,
-          "gap": 15,
+          "interval": 2,
+          "gap": 17,
           "gpuVendor": "none",
-          "tempZone": "/sys/class/thermal/thermal_zone3/temp",
-          "net": false,
+          "tempZone": "auto",
+          "net": true,
           "gpu": false,
-          "temp": true,
-          "netIface": "enp2s0",
-          "netSplit": false
+          "temp": false,
+          "netIface": "auto",
+          "netSplit": false,
+          "systemMonitor": "btop",
+          "cpu": true,
+          "mem": true,
+          "swap": false,
+          "procs": false
         },
         {
           "id": "wian47.removable-drives"

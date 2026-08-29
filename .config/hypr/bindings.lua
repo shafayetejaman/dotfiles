@@ -214,6 +214,7 @@ o.bind("SUPER + 1", "Open AI on workspace 1 if empty", function()
 			"omarchy-launch-webapp 'https://gemini.google.com/app' '--profile-directory=Profile 5'",
 			{ workspace = "1 silent" }
 		)
+		hl.exec_cmd("omarchy osd -i ' ' -m 'Booting ChatBot...'")
 	end
 end)
 ----------------------------------------------------------------------

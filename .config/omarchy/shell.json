@@ -69,7 +69,8 @@
   },
   "cloneSourceRestores": [
     "shafayet.clipboard",
-    "shafayet.menu"
+    "shafayet.menu",
+    "shafayet.notifications"
   ],
   "disabledPlugins": [
     "omarchy.clipboard",
@@ -80,7 +81,8 @@
     "omarchy.polkit",
     "omarchy.speedtest",
     "omarchy.wifiqr",
-    "omarchy.lock"
+    "omarchy.lock",
+    "omarchy.notifications"
   ],
   "idle": {
     "lock": 300,
@@ -89,10 +91,8 @@
   "plugins": [
     {
       "id": "b.omashot",
-      "captureMode": "selection",
-      "includeCursor": false,
-      "outputMode": "clipboard",
-      "saveLocation": "pictures"
+      "screenshotSaveLocation": "~/Pictures/Screenshots",
+      "videoSaveLocation": "~/Video/Captures"
     },
     {
       "id": "shafayet.clipboard"
@@ -120,6 +120,9 @@
     },
     {
       "id": "rockeyxx.lock-plus"
+    },
+    {
+      "id": "shafayet.notifications"
     }
   ],
   "version": 1

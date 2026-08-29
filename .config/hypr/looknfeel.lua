@@ -47,6 +47,3 @@ hl.config({
 		layout = "scrolling",
 	},
 })
-
--- Workspace 2 uses dwindle layout
-hl.workspace_rule({ workspace = "2", layout = "dwindle" })

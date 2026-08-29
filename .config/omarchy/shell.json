@@ -1,0 +1,129 @@
+{
+  "bar": {
+    "centerAnchor": "omarchy.clock",
+    "layout": {
+      "center": [
+        {
+          "id": "omarchy.indicators"
+        },
+        {
+          "id": "io.github.pjgeutjens.clockwork",
+          "pomodoroCycles": 10,
+          "pomodoroWorkMinutes": 30
+        },
+        {
+          "format": "dddd h:mm AP",
+          "formatAlt": "d MMMM 'W'ww yyyy",
+          "id": "omarchy.clock",
+          "verticalFormat": "HH\n—\nmm"
+        },
+        {
+          "id": "shavanced.notification-center"
+        }
+      ],
+      "left": [
+        {
+          "id": "omarchy.monitor"
+        },
+        {
+          "id": "io.github.bramvera.proton-vpn"
+        },
+        {
+          "id": "shafayet.menu"
+        },
+        {
+          "id": "omarchy.workspaces"
+        }
+      ],
+      "right": [
+        {
+          "id": "omarchy.tray"
+        },
+        {
+          "id": "mt-shihab26.omaspeedmeter",
+          "order": "cpu,mem,net,temp,gpu,procs,swap",
+          "labels": false,
+          "interval": 10,
+          "gap": 15,
+          "gpuVendor": "none",
+          "tempZone": "/sys/class/thermal/thermal_zone3/temp",
+          "net": false,
+          "gpu": false,
+          "temp": true,
+          "netIface": "enp2s0",
+          "netSplit": false
+        },
+        {
+          "id": "wian47.removable-drives"
+        },
+        {
+          "id": "omarchy.network"
+        },
+        {
+          "id": "shafayet.audio"
+        }
+      ]
+    },
+    "position": "top",
+    "transparent": false
+  },
+  "cloneSourceRestores": [
+    "shafayet.clipboard",
+    "shafayet.menu",
+    "shafayet.notifications"
+  ],
+  "disabledPlugins": [
+    "omarchy.clipboard",
+    "omarchy.menu",
+    "omarchy.battery",
+    "omarchy.dev-gallery",
+    "omarchy.disk-speedtest",
+    "omarchy.polkit",
+    "omarchy.speedtest",
+    "omarchy.wifiqr",
+    "omarchy.lock",
+    "omarchy.notifications"
+  ],
+  "idle": {
+    "lock": 300,
+    "screensaver": 150
+  },
+  "plugins": [
+    {
+      "id": "b.omashot",
+      "screenshotSaveLocation": "~/Pictures/Screenshots",
+      "videoSaveLocation": "~/Video/Captures"
+    },
+    {
+      "id": "shafayet.clipboard"
+    },
+    {
+      "id": "shafayet.finder",
+      "ignored_dirs": [
+        "$HOME/.cache",
+        "$HOME/Documents/workspace",
+        "/mnt/HDD/Downloads/Video/Captures/New folder",
+        "/mnt/HDD/Downloads/Documents/WindowsPowerShell",
+        "/mnt/HDD/Software/Customization/TrafficMonitor"
+      ],
+      "search_dirs": [
+        "$HOME",
+        "/mnt/HDD/Downloads/Video",
+        "/mnt/HDD/Downloads/Documents",
+        "/mnt/HDD/Downloads",
+        "/mnt/HDD/Software/Customization",
+        "/mnt/HDD/Music"
+      ],
+      "content_font_size": 16,
+      "content_caption": 16,
+      "content_heading": 18
+    },
+    {
+      "id": "rockeyxx.lock-plus"
+    },
+    {
+      "id": "shafayet.notifications"
+    }
+  ],
+  "version": 1
+}

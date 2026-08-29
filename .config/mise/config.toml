@@ -1,0 +1,14 @@
+[tools]
+node = "latest"
+opencode = "latest"
+pnpm = "latest"
+
+[env]
+# --- pnpm specific settings ---
+# Supply the setting specifically to pnpm without triggering npm's parser
+PNPM_CONFIG_MINIMUM_RELEASE_AGE = "10080"
+PNPM_CONFIG_GLOBAL_BIN_DIR = "/home/shafayet/.local/share/mise/shims"
+
+# --- npm specific settings ---
+# Standard npm global installation path for mise shims
+NPM_CONFIG_PREFIX = "/home/shafayet/.local/share/mise/shims"

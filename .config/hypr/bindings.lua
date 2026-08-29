@@ -43,9 +43,19 @@ o.bind(
 ----------------------------------------------------------------------
 -- Web apps
 ----------------------------------------------------------------------
+local chatBotAddresses = {
+	gemini = "https://gemini.google.com/app",
+	grok = "https://grok.com",
+	deepseek = "https://chat.deepseek.com",
+	chatgpt = "https://chatgpt.com",
+	claude = "https://claude.ai",
+	perplexity = "https://www.perplexity.ai",
+	copilot = "https://copilot.microsoft.com",
+	mistral = "https://chat.mistral.ai",
+}
 
 hl.unbind("SUPER + SHIFT + A")
-o.bind("SUPER + SHIFT + A", "Gemini", "omarchy-launch-webapp 'https://gemini.google.com/app'")
+o.bind("SUPER + SHIFT + A", "Gemini", "omarchy-launch-webapp '" .. chatBotAddresses.gemini .. "'")
 hl.unbind("SUPER + SHIFT + ALT + A")
 o.bind("SUPER + SHIFT + ALT + A", "Grok", "omarchy-launch-webapp 'https://grok.com'")
 hl.unbind("SUPER + SHIFT + C")
@@ -194,7 +204,8 @@ o.bind("SUPER + 1", "Switch to worksspace 1 and open AI", function()
 	local ws1 = hl.get_workspace(1)
 
 	if ws1 == nil or ws1.windows == 0 then
-		hl.exec_cmd("omarchy-launch-webapp 'https://gemini.google.com/app'", { workspace = "1 silent" })
+		hl.exec_cmd("omarchy-launch-webapp '" .. chatBotAddresses.gemini .. "'", { workspace = "1 silent" })
+		hl.exec_cmd("omarchy-swayosd-client --custom-icon night-light-symbolic --custom-message 'Booting ChatBot...'")
 	end
 end)
 

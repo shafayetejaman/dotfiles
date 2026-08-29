@@ -101,27 +101,7 @@ o.bind("SUPER + CTRL + ALT + C", "Calculator", "gnome-calculator")
 
 -- Clipboard (override default SUPER+CTRL+V)
 hl.unbind("SUPER + CTRL + V")
-o.bind("SUPER + CTRL + V", "Audio Control", "omarchy-launch-audio")
-
--- Clipboard manager on SUPER+E
-o.bind("SUPER + E", "Clipboard", "omarchy-launch-walker -m clipboard")
-
--- Power Profile
-o.bind("SUPER + ALT + ESCAPE", "Power Profile", "omarchy-menu power")
-
--- Zoom (override defaults: legacy hyprctl keyword syntax broke under Hyprland Lua config)
-hl.unbind("SUPER + CTRL + Z")
-o.bind("SUPER + CTRL + Z", "Zoom in", function()
-	local handle = io.popen("hyprctl getoption cursor:zoom_factor -j | jq '.float'")
-	local current = tonumber(handle:read("*a")) or 1
-	handle:close()
-	hl.config({ cursor = { zoom_factor = current + 1 } })
-end)
-
-hl.unbind("SUPER + CTRL + ALT + Z")
-o.bind("SUPER + CTRL + ALT + Z", "Reset zoom", function()
-	hl.config({ cursor = { zoom_factor = 1 } })
-end)
+o.bind("SUPER + E", "Clipboard", "omarchy-shell shell toggle omarchy.clipboard")
 
 -- Move window to scratchpad (override default)
 hl.unbind("SUPER + ALT + S")
@@ -130,29 +110,34 @@ o.bind("SUPER + SHIFT + S", "Move window to scratchpad", function()
 	hl.dispatch(hl.dsp.window.move({ workspace = "special:scratchpad", follow = false }))
 end)
 
--- Share
-hl.unbind("SUPER + CTRL + S")
-o.bind("SUPER + CTRL + S", "Share", "~/dotfiles/.local/bin/localsend-share-menu")
-
 ----------------------------------------------------------------------
--- Night Light toggle
+-- Toggles
 ----------------------------------------------------------------------
 
 hl.unbind("SUPER + CTRL + N")
-o.bind("SUPER + CTRL + N", "Night Light", function()
+o.bind("SUPER + CTRL + N", "Night light toggle", function()
 	local handle = io.popen("pgrep hyprsunset")
 	local result = handle:read("*a")
 	handle:close()
 
 	if result and result ~= "" then
 		hl.exec_cmd("pkill hyprsunset")
-		hl.exec_cmd(
-			"omarchy-swayosd-client --custom-icon weather-clear-symbolic --custom-message 'Night Light Disabled'"
-		)
+		hl.exec_cmd("omarchy osd -i '' -m 'Night Light Disabled'")
 	else
 		hl.exec_cmd("hyprsunset -t 2000")
-		hl.exec_cmd("omarchy-swayosd-client --custom-icon night-light-symbolic --custom-message 'Night Light Enabled'")
+		hl.exec_cmd("omarchy osd -i '' -m 'Night Light Enabled'")
 	end
+end)
+
+hl.unbind("SUPER + CTRL + I")
+o.bind("SUPER + CTRL + I", "Lock screen on idle toggle", function()
+	hl.exec_cmd("omarchy-toggle-idle")
+	hl.exec_cmd("omarchy osd -i '' -m 'Toggle Idle Lock'")
+end)
+
+hl.unbind("SUPER + L")
+o.bind("SUPER + L", "Toggle workspace layout", function()
+	hl.exec_cmd("$HOME/.local/bin/hyprland-workspace-layout-toggle")
 end)
 
 ----------------------------------------------------------------------
@@ -200,15 +185,17 @@ o.bind("CTRL + BACKSPACE", "Universal delete last word", function()
 	end
 end)
 
-o.bind("SUPER + 1", "Switch to worksspace 1 and open AI", function()
+o.bind("SUPER + 1", "Open AI on workspace 1 if empty", function()
 	local ws1 = hl.get_workspace(1)
 
 	if ws1 == nil or ws1.windows == 0 then
-		hl.exec_cmd("omarchy-launch-webapp '" .. chatBotAddresses.gemini .. "'", { workspace = "1 silent" })
-		hl.exec_cmd("omarchy-swayosd-client --custom-icon night-light-symbolic --custom-message 'Booting ChatBot...'")
+		hl.exec_cmd(
+			"omarchy-launch-webapp '" .. chatBotAddresses.grok .. "' '--profile-directory=Profile 5'",
+			{ workspace = "1 silent" }
+		)
+		hl.exec_cmd("omarchy osd -i ' ' -m 'Booting ChatBot...'")
 	end
 end)
-
 ----------------------------------------------------------------------
 -- Misc overrides
 ----------------------------------------------------------------------
@@ -226,5 +213,6 @@ o.bind("CTRL + mouse:273", "Send Delete", function()
 	hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "Delete" }))
 end)
 
--- Restore last notification
-o.bind("SUPER + PERIOD", "Restore last notification", "makoctl restore")
+-- Fuzzy file finder with preview
+hl.unbind("SUPER + PERIOD")
+o.bind("SUPER + PERIOD", "File Finder", "omarchy-shell shell toggle shafayet.finder")

@@ -17,14 +17,28 @@ o.bind("SUPER + SHIFT + N", "Editor", "omarchy-launch-tui ~/dotfiles/.local/bin/
 -- Web apps
 ----------------------------------------------------------------------
 
+local chatBotAddresses = {
+	gemini = "https://gemini.google.com/app",
+	grok = "https://grok.com",
+	deepseek = "https://chat.deepseek.com",
+	chatgpt = "https://chatgpt.com",
+	claude = "https://claude.ai",
+	perplexity = "https://www.perplexity.ai",
+	copilot = "https://copilot.microsoft.com",
+	mistral = "https://chat.mistral.ai",
+}
 hl.unbind("SUPER + SHIFT + A")
 o.bind(
 	"SUPER + SHIFT + A",
 	"Gemini",
-	"omarchy-launch-webapp 'https://gemini.google.com/app' '--profile-directory=Profile 5'"
+	"omarchy-launch-webapp '" .. chatBotAddresses.gemini .. "' '--profile-directory=Profile 5'"
 )
 hl.unbind("SUPER + SHIFT + ALT + A")
-o.bind("SUPER + SHIFT + ALT + A", "Grok", "omarchy-launch-webapp 'https://grok.com' '--profile-directory=Profile 5'")
+o.bind(
+	"SUPER + SHIFT + ALT + A",
+	"Grok",
+	"omarchy-launch-webapp '" .. chatBotAddresses.grok .. "' '--profile-directory=Profile 5'"
+)
 hl.unbind("SUPER + SHIFT + C")
 o.bind(
 	"SUPER + SHIFT + C",
@@ -211,7 +225,7 @@ o.bind("SUPER + 1", "Open AI on workspace 1 if empty", function()
 
 	if ws1 == nil or ws1.windows == 0 then
 		hl.exec_cmd(
-			"omarchy-launch-webapp 'https://gemini.google.com/app' '--profile-directory=Profile 5'",
+			"omarchy-launch-webapp '" .. chatBotAddresses.grok .. "' '--profile-directory=Profile 5'",
 			{ workspace = "1 silent" }
 		)
 		hl.exec_cmd("omarchy osd -i ' ' -m 'Booting ChatBot...'")

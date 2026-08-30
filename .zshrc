@@ -10,6 +10,14 @@
 
 # Add your own customizations below
 
+# Match the running Omarchy shell instance path so `omarchy plugin` and other
+# omarchy-shell IPC commands find it. Set last: /etc/zsh/zprofile's env-bootstrap
+# forces OMARCHY_PATH=/usr/share/omarchy before this file, but the session's
+# quickshell registers under the user-manager OMARCHY_PATH.
+_omarchy_session_path=$(systemctl --user show-environment 2>/dev/null | sed -n 's/^OMARCHY_PATH=//p' | tail -n1)
+[[ -n $_omarchy_session_path ]] && export OMARCHY_PATH="$_omarchy_session_path"
+unset _omarchy_session_path
+
 if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
       "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
     zle -N zle-keymap-select "";

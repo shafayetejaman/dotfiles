@@ -461,31 +461,10 @@ on = [ "<Space>", "g", "r" ]
 run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
 desc = "Go to repogitory root"
 
-# keymap.toml
-# [[mgr.prepend_keymap]]
-# on   = "="
-# run  = "plugin zoom 2"
-# desc = "Zoom in hovered file"
-#
-# [[mgr.prepend_keymap]]
-# on   = "-"
-# run  = "plugin zoom -2"
-# desc = "Zoom out hovered file"
-
 [[mgr.prepend_keymap]]
 on = "e"
 run = 'shell "nvim ." --block'
 desc = "Open current dir in nvim"
-
-[[mgr.prepend_keymap]]
-on   = "p"
-run  = "plugin smart-paste"
-desc = "Paste into the hovered directory or CWD"
-
-# [[mgr.prepend_keymap]]
-# on   = ["g", "t"]
-# run  = "plugin omni-trash"
-# desc = "Open Omni Trash"
 
 [[mgr.prepend_keymap]]
 on   = "T"

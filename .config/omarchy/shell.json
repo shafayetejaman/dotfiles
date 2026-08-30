@@ -66,6 +66,9 @@
         },
         {
           "id": "shafayet.audio"
+        },
+        {
+          "id": "omarchy.power"
         }
       ]
     },
@@ -80,7 +83,6 @@
   "disabledPlugins": [
     "omarchy.clipboard",
     "omarchy.menu",
-    "omarchy.battery",
     "omarchy.dev-gallery",
     "omarchy.disk-speedtest",
     "omarchy.polkit",

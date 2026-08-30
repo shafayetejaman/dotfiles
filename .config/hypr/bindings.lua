@@ -97,7 +97,6 @@ o.bind(
 ----------------------------------------------------------------------
 
 o.bind("SUPER + Y", "Yazi File Manager", "omarchy-launch-tui yazi ~/Downloads")
-o.bind("SUPER + CTRL + ALT + C", "Calculator", "gnome-calculator")
 
 -- Clipboard (override default SUPER+CTRL+V)
 hl.unbind("SUPER + CTRL + V")
@@ -153,9 +152,6 @@ end)
 -- Unbind mouse bindings
 hl.unbind("SUPER + mouse_up")
 hl.unbind("SUPER + mouse_down")
-
--- Override clipboard bindings
-hl.unbind("SUPER + CTRL + A")
 
 ----------------------------------------------------------------------
 -- Universal shortcuts
@@ -216,3 +212,24 @@ end)
 -- Fuzzy file finder with preview
 hl.unbind("SUPER + PERIOD")
 o.bind("SUPER + PERIOD", "File Finder", "omarchy-shell shell toggle shafayet.finder")
+
+hl.unbind("PRINT")
+o.bind("PRINT", "Omashot", "omarchy-shell b.omashot show")
+
+o.bind("SUPER + COMMA", "", "omarchy-shell shavanced.notification-center markRead")
+
+-- Background / theme switchers. The default menu plugin (omarchy.menu) is
+-- disabled in favor of shafayet.menu; route these straight to the switchers
+-- that the menu's style.background / style.theme rows would run.
+hl.unbind("SUPER + CTRL + SPACE")
+o.bind(
+	"SUPER + CTRL + SPACE",
+	"Background switcher",
+	'background=$(omarchy-theme-bg-switcher); [[ -n $background ]] && omarchy-theme-bg-set "$background"'
+)
+hl.unbind("SUPER + SHIFT + CTRL + SPACE")
+o.bind(
+	"SUPER + SHIFT + CTRL + SPACE",
+	"Theme menu",
+	'theme=$(omarchy-theme-switcher); [[ -n $theme ]] && omarchy-theme-set "$theme"'
+)

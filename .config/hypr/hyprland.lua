@@ -28,12 +28,6 @@ require("default.hypr.toggles")
 -- Add any other personal Hyprland configuration below.
 -- o.window("qemu", { workspace = "5" })
 
--- Touchscreen disabled by default (toggle via omarchy menu)
-hl.device({
-	name = "elan-touchscreen",
-	enabled = false,
-})
-
 -- Ecosystem
 hl.config({
 	ecosystem = {

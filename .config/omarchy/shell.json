@@ -108,18 +108,16 @@
       "id": "shafayet.finder",
       "ignored_dirs": [
         "$HOME/.cache",
-        "$HOME/Documents/workspace",
-        "/mnt/HDD/Downloads/Video/Captures/New folder",
-        "/mnt/HDD/Downloads/Documents/WindowsPowerShell",
-        "/mnt/HDD/Software/Customization/TrafficMonitor"
+        "$HOME/.config",
+        "$HOME/workspace",
+        "/mnt/storage/Downloads/Video/Captures/New folder",
+        "/mnt/storage/Downloads/Documents/WindowsPowerShell",
+        "/mnt/storage/Software/Customization/TrafficMonitor"
       ],
       "search_dirs": [
         "$HOME",
-        "/mnt/HDD/Downloads/Video",
-        "/mnt/HDD/Downloads/Documents",
-        "/mnt/HDD/Downloads",
-        "/mnt/HDD/Software/Customization",
-        "/mnt/HDD/Music"
+        "/mnt/storage/Downloads",
+        "/mnt/storage/Software/Customization"
       ],
       "content_font_size": 16,
       "content_caption": 16,

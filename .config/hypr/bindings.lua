@@ -217,19 +217,3 @@ hl.unbind("PRINT")
 o.bind("PRINT", "Omashot", "omarchy-shell b.omashot show")
 
 o.bind("SUPER + COMMA", "", "omarchy-shell shavanced.notification-center markRead")
-
--- Background / theme switchers. The default menu plugin (omarchy.menu) is
--- disabled in favor of shafayet.menu; route these straight to the switchers
--- that the menu's style.background / style.theme rows would run.
-hl.unbind("SUPER + CTRL + SPACE")
-o.bind(
-	"SUPER + CTRL + SPACE",
-	"Background switcher",
-	'background=$(omarchy-theme-bg-switcher); [[ -n $background ]] && omarchy-theme-bg-set "$background"'
-)
-hl.unbind("SUPER + SHIFT + CTRL + SPACE")
-o.bind(
-	"SUPER + SHIFT + CTRL + SPACE",
-	"Theme menu",
-	'theme=$(omarchy-theme-switcher); [[ -n $theme ]] && omarchy-theme-set "$theme"'
-)

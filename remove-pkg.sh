@@ -15,7 +15,7 @@ packages=(
     spotify system-config-printer t2fanrd tiny-dfr tobi-try
     tuxedo-drivers-nocompatcheck-dkms typora vulkan-asahi vulkan-radeon
     webp-pixbuf-loader xournalpp yay-debug yt6801-dkms
-    omawrite omacut moonlight-qt tensaku herdr ttfx qrencode libvips zbar mpv-mpris
+    omawrite omacut moonlight-qt herdr ttfx qrencode libvips zbar mpv-mpris
     foot gst-plugins-bad
 )
 

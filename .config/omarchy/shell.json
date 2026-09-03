@@ -19,6 +19,9 @@
         },
         {
           "id": "shavanced.notification-center"
+        },
+        {
+          "id": "omarchy.bluetooth"
         }
       ],
       "left": [
@@ -29,7 +32,7 @@
           "id": "io.github.bramvera.proton-vpn"
         },
         {
-          "id": "shafayet.menu"
+          "id": "omarchy.network"
         },
         {
           "id": "omarchy.workspaces"
@@ -60,9 +63,6 @@
         },
         {
           "id": "wian47.removable-drives"
-        },
-        {
-          "id": "omarchy.network"
         },
         {
           "id": "shafayet.audio"
@@ -100,6 +100,9 @@
       "id": "b.omashot",
       "screenshotSaveLocation": "~/Pictures/Screenshots",
       "videoSaveLocation": "~/Video/Captures"
+    },
+    {
+      "id": "shafayet.menu"
     },
     {
       "id": "shafayet.clipboard"

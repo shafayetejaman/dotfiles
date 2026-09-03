@@ -33,11 +33,12 @@ export VISUAL=nvim
 # Plugins
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-autoload -U compinit; compinit
 source ~/.zsh/fzf-suggestion/fzf-tab.plugin.zsh
 source ~/.zsh/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval $(thefuck --alias fk)
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+fpath+=('/home/shafayet/.local/share/zsh/site-functions')
+autoload -U compinit; compinit
 eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"

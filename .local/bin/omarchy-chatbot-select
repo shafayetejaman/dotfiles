@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# omarchy:summary=Select a chatbot from fzf and open it
+# omarchy:group=web apps
+
+CONFIG="$HOME/.config/omarchy/chatbots.conf"
+
+if [[ ! -f "$CONFIG" ]]; then
+    echo "Config not found: $CONFIG" >&2
+    exit 1
+fi
+
+line=$(awk -F'|' '{print $1}' "$CONFIG" | fzf --prompt="Chatbot> ")
+
+if [[ -n "$line" ]]; then
+    url=$(grep "^${line}|" "$CONFIG" | head -1 | cut -d'|' -f2)
+    setsid omarchy-launch-webapp "$url" >/dev/null 2>&1 &
+    omarchy osd -i ' ' -m 'Booting ChatBot...'
+    sleep 0.5
+fi

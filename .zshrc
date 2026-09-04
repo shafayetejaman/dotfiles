@@ -42,7 +42,7 @@ autoload -U compinit; compinit
 eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
-
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
 # ------------------------------------------
 # Aliases
@@ -63,6 +63,7 @@ alias python='python3'
 alias t='tmux attach || tmux new -s Personal'
 alias mkdir="mkdir -p"
 alias lst="eza --tree --level 4 --all"
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 
 # ------------------------------------------
 # Functions
@@ -272,18 +273,14 @@ function y() {
 	rm -f -- "$tmp"
 
 	# --- Automatic Yazi Thumbnail Cleanup ---
-	local cache_dir="~/.cache/thumbnails/yazi"
+	local cache_dir="$HOME/.cache/thumbnails/yazi"
 	if [ -d "$cache_dir" ]; then
 		local max_files=500
-		local file_count=$(find "$cache_dir" -maxdepth 1 -type f | wc -l)
-		
+		local file_count=$(fd -d 1 -t f . "$cache_dir" | wc -l)
+
 		if [ "$file_count" -gt "$max_files" ]; then
 			local excess=$((file_count - max_files))
-			find "$cache_dir" -maxdepth 1 -type f -printf '%T@ %p\n' | \
-				sort -n | \
-				head -n "$excess" | \
-				cut -d' ' -f2- | \
-				xargs rm -f
+			\ls -1t "$cache_dir" | tail -n "$excess" | while IFS= read -r f; do \rm -f "$cache_dir/$f"; done
 		fi
 	fi
 	# --------------------------------------

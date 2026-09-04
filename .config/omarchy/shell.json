@@ -29,10 +29,10 @@
           "id": "omarchy.monitor"
         },
         {
-          "id": "io.github.bramvera.proton-vpn"
+          "id": "omarchy.network"
         },
         {
-          "id": "omarchy.network"
+          "id": "io.github.bramvera.proton-vpn"
         },
         {
           "id": "omarchy.workspaces"

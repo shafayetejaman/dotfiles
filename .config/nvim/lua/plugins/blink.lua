@@ -8,6 +8,11 @@ return {
     },
     dependencies = {
       "rafamadriz/friendly-snippets",
+      {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jsregexp",
+      },
       -- add blink.compat to dependencies
       {
         "saghen/blink.compat",
@@ -56,7 +61,7 @@ return {
         },
       },
 
-      snippets = { preset = "default" },
+      snippets = { preset = "luasnip" },
 
       signature = {
         enabled = true,

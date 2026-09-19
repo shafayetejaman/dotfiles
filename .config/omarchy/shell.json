@@ -4,7 +4,14 @@
     "layout": {
       "center": [
         {
-          "id": "omarchy.indicators"
+          "id": "omarchy.indicators",
+          "indicators": [
+            "Dictation",
+            "ScreenRecording",
+            "Reminder",
+            "NightLight",
+            "StayAwake"
+          ]
         },
         {
           "id": "io.github.pjgeutjens.clockwork",
@@ -18,7 +25,7 @@
           "verticalFormat": "HH\n—\nmm"
         },
         {
-          "id": "shavanced.notification-center"
+          "id": "shafayet.notifications"
         },
         {
           "id": "omarchy.bluetooth"
@@ -77,19 +84,19 @@
   },
   "cloneSourceRestores": [
     "shafayet.clipboard",
-    "shafayet.menu",
-    "shafayet.notifications"
+    "shafayet.notifications",
+    "shafayet.menu"
   ],
   "disabledPlugins": [
     "omarchy.clipboard",
-    "omarchy.menu",
     "omarchy.dev-gallery",
     "omarchy.disk-speedtest",
     "omarchy.polkit",
     "omarchy.speedtest",
     "omarchy.wifiqr",
     "omarchy.lock",
-    "omarchy.notifications"
+    "omarchy.notifications",
+    "omarchy.menu"
   ],
   "idle": {
     "lock": 300,

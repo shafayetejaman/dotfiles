@@ -8,7 +8,11 @@ return {
         -- Find next match and add cursor (<C-d>)
         {
             "<C-d>",
-            "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
+            function()
+                if not require("which-key.view").valid() then
+                    vim.cmd("MultipleCursorsAddJumpNextMatch")
+                end
+            end,
             mode = { "n", "x" },
             desc = "Add cursor & find next match",
         },

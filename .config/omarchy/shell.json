@@ -54,7 +54,7 @@
           "order": "net,cpu,mem,temp,swap,gpu,procs",
           "labels": false,
           "interval": 10,
-          "gap": 14,
+          "gap": 16,
           "gpuVendor": "none",
           "tempZone": "/sys/class/thermal/thermal_zone8/temp",
           "net": false,

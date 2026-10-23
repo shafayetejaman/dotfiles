@@ -201,5 +201,6 @@ o.bind("SUPER + PERIOD", "File Finder", "omarchy-shell shell toggle shafayet.fin
 
 hl.unbind("PRINT")
 o.bind("PRINT", "Omashot", "omarchy-shell b.omashot show")
+o.bind("SUPER + SHIFT + PRINT", "Omashot Editor", "omarchy-shell b.omashot editScreen")
 
 o.bind("SUPER + COMMA", "", "omarchy-shell shavanced.notification-center markRead")

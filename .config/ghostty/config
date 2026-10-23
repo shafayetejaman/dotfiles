@@ -6,6 +6,10 @@ font-family = "FiraCode Nerd Font"
 font-style = Regular
 font-size = 11
 
+# Match tmux's per-codepoint wcwidth cell model so cursor stays in sync when
+# viewing Bangla text. (Tradeoff: VS16/skin-tone emoji use legacy widths too.)
+grapheme-width-method = legacy
+
 # Window
 window-theme = ghostty
 window-padding-x = 16

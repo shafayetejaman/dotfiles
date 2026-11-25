@@ -88,6 +88,9 @@ o.bind(
 
 o.bind("SUPER + Y", "Yazi File Manager", "omarchy-launch-tui yazi ~/Downloads")
 
+-- Apps list (replaces the stock dock app grid on SUPER+ALT+SPACE)
+o.rebind("SUPER + ALT + SPACE", "Apps", { menu = "apps" })
+
 -- Clipboard (override default SUPER+CTRL+V)
 hl.unbind("SUPER + CTRL + V")
 o.bind("SUPER + E", "Clipboard", "omarchy-shell shell toggle omarchy.clipboard")

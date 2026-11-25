@@ -365,3 +365,5 @@ if [[ -n $PS1 ]] && [[ -z $TMUX ]] && [[ -z $SSH_CONNECTION ]]; then
     tmux has-session 2>/dev/null || tmux new -s Personal
 fi
 
+
+. "$HOME/.local/share/../bin/env"

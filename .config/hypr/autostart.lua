@@ -8,15 +8,8 @@ hl.on("hyprland.start", function()
 	-- Set wallpaper
 	hl.exec_cmd("omarchy-theme-bg-next")
 
-	-- Battery check (inline)
-	local f = io.open("/sys/class/power_supply/BAT0/status", "r")
-	if f then
-		local status = f:read("*a"):gsub("%s+", "")
-		f:close()
-		if status == "Discharging" then
-			hl.exec_cmd("notify-send '   Not plugged in'")
-		end
-	end
+	-- Battery check
+	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/.local/bin/battery-watch")
 
 	-- Night light
 	hl.exec_cmd("uwsm app -- hyprsunset")

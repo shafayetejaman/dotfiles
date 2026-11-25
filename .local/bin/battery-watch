@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# omarchy:summary=Watch battery and notify when unplugged below 70%
+
+BAT="${BATTERY_PATH:-/sys/class/power_supply/BAT0}"
+THRESHOLD="${BATTERY_THRESHOLD:-70}"
+INTERVAL="${BATTERY_INTERVAL:-60}"
+
+exec 9>"${XDG_RUNTIME_DIR:-/tmp}/battery-watch.lock"
+flock -n 9 || exit 0
+
+notified=false
+
+while true; do
+    if [[ -r "$BAT/status" && -r "$BAT/capacity" ]]; then
+        status=$(<"$BAT/status")
+        capacity=$(<"$BAT/capacity")
+
+        if [[ "$status" == "Discharging" && "$capacity" =~ ^[0-9]+$ ]] && ((capacity < THRESHOLD)); then
+            if [[ "$notified" == false ]]; then
+                omarchy-notification-send -g 󱐋 -u critical -i battery-caution -t 30000 \
+                    "Battery low" "Battery is down to ${capacity}% — not plugged in"
+                notified=true
+            fi
+        else
+            notified=false
+        fi
+    fi
+
+    sleep "$INTERVAL"
+done

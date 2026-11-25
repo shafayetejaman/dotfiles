@@ -1,34 +1,12 @@
 {
   "bar": {
-    "centerAnchor": "omarchy.clock",
     "layout": {
       "center": [
-        {
-          "id": "omarchy.indicators",
-          "indicators": [
-            "Dictation",
-            "ScreenRecording",
-            "Reminder",
-            "NightLight",
-            "StayAwake"
-          ]
-        },
-        {
-          "id": "io.github.pjgeutjens.clockwork",
-          "pomodoroCycles": 10,
-          "pomodoroWorkMinutes": 30
-        },
         {
           "format": "dddd h:mm AP",
           "formatAlt": "d MMMM 'W'ww yyyy",
           "id": "omarchy.clock",
           "verticalFormat": "HH\n—\nmm"
-        },
-        {
-          "id": "shafayet.notifications"
-        },
-        {
-          "id": "omarchy.bluetooth"
         }
       ],
       "left": [
@@ -77,7 +55,33 @@
         {
           "id": "omarchy.power"
         }
-      ]
+      ],
+      "centerBegin": [
+        {
+          "id": "omarchy.indicators",
+          "indicators": [
+            "Dictation",
+            "ScreenRecording",
+            "Reminder",
+            "NightLight",
+            "StayAwake"
+          ]
+        },
+        {
+          "id": "io.github.pjgeutjens.clockwork",
+          "pomodoroCycles": 10,
+          "pomodoroWorkMinutes": 30
+        }
+      ],
+      "centerEnd": [
+        {
+          "id": "shafayet.notifications"
+        },
+        {
+          "id": "omarchy.bluetooth"
+        }
+      ],
+      "tray": []
     },
     "position": "top",
     "transparent": false

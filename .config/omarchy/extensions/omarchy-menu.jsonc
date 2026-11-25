@@ -30,5 +30,13 @@
   //
   // Keep the packaged Apps provider, but clear its dock-grid action so the
   // route opens the provider-backed list instead.
-  "apps": { "action": "" },
+  // Re-declare every field: normalizeItem() fills missing keys with empty
+  // values, so a partial override would wipe provider/aliases/icon/label too.
+  "apps": {
+    "icon": "󰀻",
+    "label": "Apps",
+    "aliases": ["app", "applications"],
+    "provider": "apps",
+    "action": ""
+  },
 }

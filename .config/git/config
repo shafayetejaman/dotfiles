@@ -30,12 +30,9 @@
 [user]
   name = shafayetejaman
   email = shafaitzaman@gmail.com
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper = !/home/shafayet/.local/share/mise/installs/gh/2.101.0/gh_2.101.0_linux_amd64/bin/gh auth git-credential
 [merge]
 	tool = vscode
 [mergetool "vscode"]
@@ -45,3 +42,6 @@
 [http]
 	version = HTTP/1.1
 	postBuffer = 1048576000
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/shafayet/.local/share/mise/installs/gh/2.101.0/gh_2.101.0_linux_amd64/bin/gh auth git-credential

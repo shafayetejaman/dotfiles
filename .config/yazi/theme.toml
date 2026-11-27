@@ -19,7 +19,7 @@ perm_type       = { fg = "#89b4fa" }
 perm_read       = { fg = "#f9e2af" }
 perm_write      = { fg = "#f38ba8" }
 perm_exec       = { fg = "#a6e3a1" }
-progress_label  = { fg = "#cdd6f4", bold = true }
+progress_label  = { fg = "#000000", bold = true }
 progress_normal = { fg = "#1e1e2e", bg = "#a6e3a1" }
 progress_error  = { fg = "#1e1e2e", bg = "#f38ba8" }
 

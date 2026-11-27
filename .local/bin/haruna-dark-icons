@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Give Haruna white Breeze Dark control icons without changing the desktop icon theme.
+export XDG_DATA_DIRS="${HOME}/.local/share/haruna-icons${XDG_DATA_DIRS:+:${XDG_DATA_DIRS}}"
+exec /usr/bin/haruna "$@"

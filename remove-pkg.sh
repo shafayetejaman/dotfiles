@@ -16,7 +16,8 @@ packages=(
     tuxedo-drivers-nocompatcheck-dkms typora vulkan-asahi vulkan-radeon
     webp-pixbuf-loader xournalpp yay-debug yt6801-dkms
     omawrite omacut moonlight-qt herdr ttfx qrencode libvips zbar mpv-mpris
-    foot gst-plugins-bad asdcontrol
+    foot gst-plugins-bad asdcontrol hype qpdf signed monologue qt6-multimedia-ffmpeg
+    qt6-multimedia
 )
 
 for pkg in "${packages[@]}"; do

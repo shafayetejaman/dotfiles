@@ -40,6 +40,7 @@ hl.layer_rule({ match = { namespace = "shafayet-finder" }, no_anim = true, anima
 -- Float and size rules
 o.window("org.gnome.gThumb", { float = true, size = { 900, 600 } })
 o.window("org.kde.haruna", { float = true, size = { 900, 600 } })
+o.window("org.gnome.Papers", { float = true, size = { 900, 700 } })
 o.window("org.localsend.localsend_app", { float = true, size = { 900, 700 } })
 
 -- Cursor theme

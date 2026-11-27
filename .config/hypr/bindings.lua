@@ -206,4 +206,4 @@ hl.unbind("PRINT")
 o.bind("PRINT", "Omashot", "omarchy-shell b.omashot show")
 o.bind("SUPER + SHIFT + PRINT", "Omashot Editor", "omarchy-shell b.omashot editScreen")
 
-o.bind("SUPER + COMMA", "", "omarchy-shell shavanced.notification-center markRead")
+o.bind("SUPER + SHIFT + COMMA", "", "omarchy-shell shavanced.notification-center markRead")

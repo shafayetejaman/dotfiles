@@ -34,6 +34,5 @@
       ".ssh/**": "deny"
     }
   },
-  "shell": "/bin/zsh",
-  "plugin": ["@mohak34/opencode-notifier@latest"]
+  "shell": "/bin/zsh"
 }
